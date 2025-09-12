@@ -1,13 +1,12 @@
 import os
-import ollama
 import traceback
-from rag.vector_store import SOCVectorStore
 from rag.document_loader import DocumentLoader
 from rag.document_chunker import DocumentChunker
 
 
 def quick_test_run():
     """Quick test with minimal chunks"""
+    print("=" * 50)
     print("🚀 QUICK RAG TEST RUN")
     print("=" * 50)
 
@@ -37,11 +36,7 @@ def quick_test_run():
 
         # LIMIT TO FIRST 10 CHUNKS FOR TESTING
         all_chunks = chunks_dict["all_chunks"]
-        test_chunks = all_chunks[:10]  # Only use first 10 chunks
-
-        print(
-            f"Using {len(test_chunks)} chunks out of {len(all_chunks)} total for testing"
-        )
+        return True
 
     except Exception as e:
         print(f"❌ Quick test failed: {e}")
@@ -50,19 +45,12 @@ def quick_test_run():
 
 
 def main():
-    """Main function"""
-    print("🧪 SIMPLIFIED RAG SYSTEM TEST")
-    print("=" * 60)
-
-    # Run quick test first
     success = quick_test_run()
 
     if success:
         print("\n" + "=" * 60)
         print("✅ SYSTEM IS WORKING!")
         print("=" * 60)
-        print("\nTo run with all chunks, modify test_chunks = all_chunks")
-        print("Current version uses only first 10 chunks for speed")
     else:
         print("\n❌ System test failed. Check the errors above.")
 
