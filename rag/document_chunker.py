@@ -1,5 +1,8 @@
 import json
+import os
+import json
 import pandas as pd
+from datetime import datetime
 from typing import List, Dict, Any
 from langchain.docstore.document import Document
 
@@ -159,3 +162,77 @@ class DocumentChunker:
             "rulebooks": rulebook_chunks,
             "all_chunks": tracker_chunks + rulebook_chunks,
         }
+
+
+def export_chunks_to_text(
+    chunks: Dict[str, Any],
+    out_path: str = "all_chunks_dump.txt",
+    max_chars_per_chunk: int = 0,
+) -> str:
+    """
+    Write all chunks to a single text file for auditing.
+    chunks: output of create_all_chunks(), expected keys:
+        - 'tracker_chunks': List[Document-like]
+        - 'rulebook_chunks': List[Document-like]
+        - 'all_chunks': List[Document-like]
+    out_path: file path to write
+    max_chars_per_chunk: if >0, truncate page_content to this many chars.
+    Returns the written file path.
+    """
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    now = datetime.utcnow().isoformat() + "Z"
+
+    def _doc_to_entry(doc, idx):
+        meta = {}
+        try:
+            meta = getattr(doc, "metadata", {}) or {}
+        except Exception:
+            pass
+        try:
+            content = getattr(doc, "page_content", "") or ""
+        except Exception:
+            content = str(doc)
+        if max_chars_per_chunk and len(content) > max_chars_per_chunk:
+            content = content[:max_chars_per_chunk] + "\n...[TRUNCATED]"
+
+        return (
+            "----- CHUNK START -----\n"
+            f"index: {idx}\n"
+            f"doctype: {meta.get('doctype', '')}\n"
+            f"source: {meta.get('source', '')}\n"
+            f"filetype: {meta.get('filetype', '')}\n"
+            f"row_index: {meta.get('row_index', '')}\n"
+            f"metadata: {json.dumps(meta, ensure_ascii=False)}\n"
+            "----- CONTENT -----\n"
+            f"{content}\n"
+            "----- CHUNK END -----\n"
+        )
+
+    tracker = chunks.get("tracker_chunks") or []
+    rulebook = chunks.get("rulebook_chunks") or []
+    allc = chunks.get("all_chunks") or []
+
+    lines = []
+    lines.append(f"=== CHUNKS DUMP ===\nwritten_utc: {now}\n")
+    lines.append(
+        f"counts: tracker={len(tracker)}, rulebook={len(rulebook)}, all={len(allc)}\n"
+    )
+
+    # Prefer exporting 'all_chunks' in linear order
+    if allc:
+        for i, d in enumerate(allc, 1):
+            lines.append(_doc_to_entry(d, i))
+    else:
+        # Fallback: export tracker then rulebook
+        idx = 1
+        for d in tracker:
+            lines.append(_doc_to_entry(d, idx))
+            idx += 1
+        for d in rulebook:
+            lines.append(_doc_to_entry(d, idx))
+            idx += 1
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+    return out_path

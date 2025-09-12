@@ -9,27 +9,6 @@ def test_ollama_direct():
     print("🔍 Testing Ollama models...")
 
     try:
-        # List models - use correct structure
-        models_response = ollama.list()
-        models = models_response.get("models", [])
-
-        print(f"Available models: {len(models)} found")
-        for model in models:
-            model_name = model.get("name", "unknown")
-            print(f"   - {model_name}")
-
-        # Check if nomic-embed-text is available
-        model_names = [model.get("name", "") for model in models]
-
-        if "nomic-embed-text" not in model_names:
-            print("⚠️ nomic-embed-text not found. Trying to pull...")
-            try:
-                ollama.pull("nomic-embed-text")
-                print("✅ nomic-embed-text pulled successfully")
-            except Exception as pull_error:
-                print(f"❌ Failed to pull nomic-embed-text: {pull_error}")
-                return False
-
         # Test embedding model directly - use correct method
         print("\n🧪 Testing nomic-embed-text model...")
         start_time = time.time()
