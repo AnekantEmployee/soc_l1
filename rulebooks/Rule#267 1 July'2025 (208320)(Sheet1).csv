@@ -1,0 +1,13 @@
+Sr.No.,Inputs Required,INPUT details,Instructions
+,"Rule#267-Detect outbound emails to public domains(Gmail, Yahoo etc)and review",,When an outbound email are detected going to email address associated with public domain providers.
+1,Incident,208320,
+2,Reported Time,7/1/2025 22:32,
+3,How many Users are impacted ?,2,
+4,Provide the User name which are involved in the incident,Next sheet,
+5,Sender's email address / and Recipient's email address,next sheet,"if more than one, capture all details and attached to the sheet as an artifact"
+6,Check the Events,"Triaging Steps performed : Observed the events, Arcutis users sent business related mail, No suspicious mail or activity was detected, Closing as false positive","Identify the sender, subject and context of the email"
+7,Check Email Content,NO suspicious files or url shared.,"Analyze the content of the outbound emails for any suspicious or unauthorized information, attachments or any links."
+8,Analyze Email Headers (MxToolbox),No potential anomalies found.,Analyze the sender email header to determine the source of the emails and any potential anomalies or signs of spoofing
+9,Check Email Authentication,No suspicious,"Verify if the Email passess authentication checks, such as SPF, DKIM and DMARC to ensure it originates from a legitimate source. If all the categories the email pass its fine, If not take an action like blocking it in Email gateway."
+10,If any suspicious link or URL find block,No suspicious URLs found,After all the Investigation if the Email didn't pass any othe authentication block the URL or quarntine it in Baracudda Email gateway.
+11,Document the findings / closure,Closed,Document all the findings and action taken for future prevention. Report the Incident to the IT Team for their action and awareness.

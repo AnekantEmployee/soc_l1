@@ -1,0 +1,16 @@
+Sr.No.,Inputs Required,INPUT details,Instructions
+,Rule#006-Box - Item shared to external entity,,Detects when an item was shared to external entity.
+1,Incident Id,10245,
+2,How many users are impacted ?,,
+3,Reported Time,,
+4,Provide the username which are involved in the incident,smagante@arcutis.com,Gather all details of users - (By adding sheet to this excel)
+5,VIP Users,,Cross verify if the user is VIP or not - with the list (Shared by Arcutis) 
+6,Run the KQL query then check the basic details ,,"Check for UserWhoshared, OfficeObjectId, External Operation, External User"
+7,,,"If the shared file reputation is BAD and suspecting malicious and then check how many users access this file also suggest to all users to delete this files, and scan the device. Then inform the User to delete the file immediately.
+If shared file is clean no malicious score found it is fine"
+8,Collect all information and ask for the confirmation with User,,
+9,"User Confirmation - If YES 
+If user confirm that he/she shared the documents for external user for business proposal then it is fine","Collect basic details like:
+ FileName, FileLocation,Accessedby, Number of items shared",If user confirm the activity - False Positive
+10,,,Inform IT team if any unwanted software downloaded in the system and affected. Run EDR (Sophos)scan and update the software make patches if required
+11,Track for the closer/closer confirmation from IT team,,"After all the investigation document the steps taken, findings, and any remediation actions required"

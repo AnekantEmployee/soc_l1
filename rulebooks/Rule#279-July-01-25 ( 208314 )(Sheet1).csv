@@ -1,0 +1,14 @@
+Sr.No.,Inputs Required,INPUT details,Instructions
+,Rule#279- Detect when Alert Triggered in Sophos,,"When ever alerts triggered in Sophos, it will reflect in SIEM and the rule triggers"
+1,Incident Number,208314,
+2,Reported Time,7/1/2025 20:32,
+3,How many users are impacted ?,1,
+4,Provide the list of devices which are involved in the incident,Yes,
+5,VIP Users,No,Cross verify if the user is VIP or not - with the list (Shared by Arcutis) 
+6,Check Sophos ,Yes,Check Sophos console and look for user associated with the device 
+7,Investigate Alert,Bas Testing,Investigate the alert based on alert events (Ex - Sophos Services missing or Sophos Updater doesn't have Full Disk Access )
+8,Inform IT Team,NA,Inform IT team by raising ticket for the particular concern
+9,Incident Number,208314,"If ticket raised then mention the incident number, if not mark it as false positive"
+10,Track for the closer/closer confirmation from IT team,Closed,Implement additional security measures based on the findings of the investigation and have follow up if its resolved or not
+,,,
+,,,

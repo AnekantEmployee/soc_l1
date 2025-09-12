@@ -1,0 +1,54 @@
+Sr.No.,Inputs Required,INPUT details,Instructions,
+,Rule#290- Detect High Volume of downloads_deletions in 24 hours time from BOX,,,
+1,Incident,208323,,
+2,Reported Time,"7/01/2025, 11:30PM",,
+3,Provide the username which are involved in the incident,"Box Admin
+
+ Kirby Wong-Moon
+
+Clay Kiser",,
+,,,,
+,,,,
+,,,,
+,,,,
+4,Run the KQL query ,Yes,Record the alert details:,
+,,,• Date and Time of detection.,
+,,,• Total downloads or deletions logged.,
+,,,• User associated with the activity.,
+5,VIP Users,No,Cross verify if the user is VIP or not - with the list (Shared by Arcutis) ,
+6,Analyze the Alert,"3533430566
+
+12639993914
+
+9689195854
+
+3433895386
+
+2886061978",Confirm if the activity exceeds the usual pattern:,
+,,,• Compare the volume of downloads or deletions against the user’s historical activity.,
+,,,"• Check for any recent activity spikes.Run queries to collect relevant data points, such as:",
+,,,• File names involved in the activity.,
+,,,• File sizes for downloads or deletions.,
+,,,• TimeGenerated to identify when the bulk actions occurred.,
+7,Check for Correlated Alerts,,Verify if other alerts are triggered for this user within the same timeframe:,
+,,,• Login anomalies.,
+,,,• IP reputation issues.,
+,,,• Suspicious file-sharing activities.,
+8,Cross-Verify Patterns,,Confirm if this user has a usual pattern of high-volume activity:,
+,,,• Review their role and whether such activity aligns with their job functions.,
+,,,• Compare with historical trends.,
+9,Investigate User Activity,"Triaging steps: checked the events there are 3 users were triggered( Box Admin, Kirby Wong-Moon, Clay Kiser) By pulling box audit logs we seen users downloaded the high valume files, nothing suspicious Escalating (Yes/No)",Confirm the following:,
+,,,• Login IP Address: Check for geolocation and reputation.,
+,,,• Sign-in Device: Verify if it matches the user’s usual device.,
+,,,• File Access History: Look for abnormal file accesses in addition to downloads or deletions,
+10,Contact the User,,Reach out to the user to confirm:,
+,,,• If they performed the actions intentionally.,
+,,,• The purpose behind the bulk download or deletion.,
+11,Escalate to Eddie,No need,• If the activity is deemed suspicious or the user cannot confirm legitimacy:,
+,,,• Escalate the incident to Eddie with detailed findings.,
+,,,"• Share all supporting evidence, including correlated alerts and unusual patterns.",
+12,Inform to IT Team ,No need,If confirmed suspicious,
+,,,• Inform the IT team.:,
+,,,• Temporarily suspend the user’s account.,
+,,,• Recover deleted files if applicable.,
+13,Track for the closer/closer confirmation from IT team,closed,Update security policies and conduct user awareness training to prevent future incidents.,

@@ -1,0 +1,16 @@
+Sr.No.,Inputs Required,Details,exisiting / new,Duration
+,Rule#002-Attempt to bypass conditional access rule in Azure AD,,,
+1,Incident No:,208326,,
+2,Reported Time:,7/2/2025 1:11,,
+3,Response Time:,7/2/2025 1:13,,
+4,Resolved Time:,7/2/2025 1:24,,
+5,"VIPS Users ?			",No,,Cross verify if the user is VIP or not - with the list (Shared by Arcutis)
+6,Collect the user details and add in attached sheet(Ex:jelkins@arcutis.com),yes,,10 mnts
+7,Run The KQL to check location the logs from where user logged in match to approved location,"Triaging Steps performed: Check ip reputation - clean. check history -- no suspicious activities, closure comments: Observed the events, detected users from US,CR, MX & IN location only and there are Non-Interactive signin logs detected, reason being failed ""Access has been blocked due to conditional access policies"" No suspicious activity found",,
+8,Run The KQL to check location the logs from where user logged in not match to approved location,"Triaging Steps performed: Check ip reputation - clean. check history -- no suspicious activities, closure comments: Observed the events, detected users from US,CR, MX & IN location only and there are Non-Interactive signin logs detected, reason being failed ""Access has been blocked due to conditional access policies"" No suspicious activity found",,
+9,Connect with user to verify loggin change locations(user no which denied),"Not required, No suspicious activity found.",,
+10,Flag the incident as true positive,No,,
+11,find details of comparised users  (By using audit sign in logs and locations),"Not required, No suspicious activity found.",,
+12,"Verify all the sign in/ Audit logs of the user account along with Ips/Locations, Need to Block the unfamiliar IPs if u found any Need to Find total how many of rules bypassed and other activities done by this account, and need to revoke modifications.",not detected malicious IPs address,,
+13,"inform to IT Team to Reset the account, Revoke the MFA tokens, Temporary disable the account",Not required.,,
+14,Track for the closer/closer confirmation,Closed,,

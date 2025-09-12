@@ -1,0 +1,17 @@
+Sr.No.,Inputs Required,INPUT details,Instructions
+,Rule#021- Authentication attempt from New country,,Designed to detect authentication attempts from a new or unfamiliar country.
+1,Incident Number,208315,
+2,How many users are involved / impacted ?,10,
+3,Reported Time,7/1/2025 20:57,
+4,VIP Users,No VIP Users detected,Cross verify if the user is VIP or not - with the list (Shared by Arcutis)
+5,Collect the User Details in Attached Sheet,"triaging steps performed:checked IP Reputation Clean, observed the events checked the IP's no malicious IP's detected,checked history-sign in logs of the users and the location are DE, observed that No successfull attempts found due to Access has been blocked due to conditional access policies and user using known apps and IP is clean No suspicious activity found closing as false positive",Export and Add the list in this template.
+6,Run the KQL query then check for basic details ,DE location,"Observe the basic details like UserPrincipalName, Location, category, IP address"
+7,Collect all basic information - Like IP Address / Hostname / VPN IP,"Yes, No suspicious activity found. Verified IP reputation they are clean.",Check for IP Repuataiton on IP void / virus total.
+,,,"Validate the IP address, Check for the history of Hostname and verify VPN IP."
+,,,Check for application details. 
+8,Check Sign in Logs or Audit Logs of User,Observe sign in logs of user for past 7 days for location change if any user is within US location only.,"If there is no suspicious sigin activities then, close incident."
+9,"Based on the output of triaging, if you still find suspicious, then get confirmation from the user.",No,
+10,User Confirmation - If YES ,Not required because it's a non-interactive signin logs,If user says that he/she travelling or using VPN- False Positive
+11,User confirmation - If NO,Not required.,Check he/she declines that they are not using VPN or travelling- True Positive
+12,Inform to IT Team ,Not required.,"If any compromise happens Infrom IT team to reset the user credentials, not to use Public Wi-Fi. Check for any activities happened on that device / account. "
+13,Track for the closer/closer confirmation from IT team,Closed,"After all the investigation document the steps taken, findings, and any remediation actions required"
