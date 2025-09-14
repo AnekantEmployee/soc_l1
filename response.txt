@@ -1,0 +1,996 @@
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Extracted block length: 1
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Block too short, looking for Row prefix
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 3
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 002
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '002'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*2.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Found match at position 0
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Extracted block length: 1
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Block too short, looking for Row prefix
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 4
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 002
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '002'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*2.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Found match at position 0
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Extracted block length: 1
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Block too short, looking for Row prefix
+🔍 [DEBUG] build_context_block_dual: Built context with 8100 characters
+🔍 [DEBUG] answer_query_with_rag: Context block built
+🔍 [DEBUG] answer_query_with_rag: Calling LLM...
+🔍 [DEBUG] call_llm_dual_markdown called with model: 'qwen2.5:0.5b'
+🔍 [DEBUG] call_llm_dual_markdown: Context length: 8100 chars
+🔍 [DEBUG] call_llm_dual_markdown: Calling ollama.chat...
+🔍 [DEBUG] call_llm_dual_markdown: Got response
+🔍 [DEBUG] call_llm_dual_markdown: Response length: 1418 chars
+🔍 [DEBUG] answer_query_with_rag: LLM call completed
+🔍 [DEBUG] answer_query_with_rag: Saving context to file...
+🔍 [DEBUG] answer_query_with_rag: Context saved to artifacts/query_contexts/Rule_2.txt
+🔍 [DEBUG] answer_query_with_rag: Completed successfully
+🔍 [DEBUG] write_rule_markdown: Got response
+🔍 [DEBUG] write_rule_markdown: Writing to artifacts\rule_002.md
+🔍 [DEBUG] write_rule_markdown: Completed successfully
+[Answer]
+# Title
+
+## Key points
+
+The provided context contains a set of incident reports and their respective details, organized into the "Tracker" section. Each incident report is associated with specific rules and statuses.
+
+### Tracker facts
+
+- **Rule 2**: This rule identifies atypical travel incidents.
+- **Rule 019-Signin Logs with expanded Conditional access policies**: This rule checks for login logs that have been extended to conditional access policies, indicating potential security risks.
+- **Rule 183-Detect passwordless authentication**: This rule monitors for activities related to passwordless authentication mechanisms.
+- **Rule 286 - Atypical travel**: This rule identifies atypical travel incidents.
+
+### Rulebook procedures
+
+- **Rule 286 -01-Jul'25 (208304).xlsx**: This is the first incident report, detailing an alert and a resolution. It involves checking IP reputation, history, and sign-in logs to identify suspicious activities.
+
+- **Rule 280-July-01-25 ( 208311 ).xlsx**: This is another incident report, showing that the service owner has taken time to escalate the ticket.
+
+- **Rule 280-July-01-25 ( 208308 ).xlsx**: This incident report shows a false positive due to legitimate user activities.
+
+- **Rule 280-July-01-25 ( 208312 ).xlsx**: This is another incident report, showing that the service owner has taken time to escalate the ticket again.     
+
+### Remediation
+
+The service owner has not provided any specific remediation steps or comments for these incidents. The most appropriate action would be to review and address the identified security risks in a timely manner.
+
+**Actionable remediation steps**: Check IP reputation, history, and sign-in logs for potential suspicious activities.
+- **Rule 286 -01-Jul'25 (208304).xlsx**: This rule requires checking IP reputation and history to identify any suspicious activities.
+- **Rule 280-July-01-25 ( 208311 ).xlsx**: This rule involves checking for login logs that have been extended to conditional access policies, which could indicate potential security risks.
+
+**Not in context**: The incident reports do not provide specific remediation steps or comments. For a more detailed analysis and action plan, the service owner should review these rules and follow the appropriate procedures.
+
+✅ Markdown written to: artifacts\rule_002.md
+🧾 Context saved to: artifacts/query_contexts/Rule_2.txt
+
+[Context Preview]
+=== TRACKER ===
+[score=1.000] [src=tracker_sheet] [row=1]
+{
+  "s.no.": 2.0,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208304.0,
+  "data connecter": "AD",
+  "priority": "High",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 11:46",
+  "responded time stamp": "07-01-2025 11:50",
+  "mttd (mins)": 4.0,
+  "resolution time stamp": "07-01-2025 11:52",
+  "mttr    (mins)": 6.0,
+  "time to breach sla": "07-01-2025 12:46",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps 
+with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known 
+apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+  "vip users": "No",
+  "rule": "Rule#286- Atypical travel",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#286 -01-Jul'25
+
+[Q] Rule 014
+🔍 [DEBUG] answer_query_with_rag called with query: 'Rule 014'
+🔍 [DEBUG] answer_query_with_rag: k=5, persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] answer_query_with_rag: embed_model='nomic-embed-text', gen_model='qwen2.5:0.5b'
+🔍 [DEBUG] answer_query_with_rag: Calling retrieve_dual_source...
+🔍 [DEBUG] retrieve_dual_source called with query: 'Rule 014'
+🔍 [DEBUG] retrieve_dual_source params: persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] retrieve_dual_source: Creating embedder with model 'nomic-embed-text'
+🔍 [DEBUG] retrieve_dual_source: Creating indexer...
+🔍 [DEBUG] retrieve_dual_source: Indexer created, count=34
+🔍 [DEBUG] retrieve_dual_source: Classifying query...
+🔍 [DEBUG] classify_query called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] classify_query result: {'about_rule': True, 'about_tracker': False}
+🔍 [DEBUG] retrieve_dual_source: Expanding queries...
+🔍 [DEBUG] expand_rulebook_queries called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] expand_rulebook_queries: Found rule ID 014, adding variants
+🔍 [DEBUG] expand_rulebook_queries result: 8 variants
+🔍 [DEBUG] retrieve_dual_source: About to call _retrieve_any...
+🔍 [DEBUG] retrieve_dual_source: Total queries to process: 9
+🔍 [DEBUG] _retrieve_any called with 9 queries, k_per_query=6
+🔍 [DEBUG] _retrieve_any queries: ['Rule 014', 'Rule 014', 'Rule 014 rulebook', 'Rule 014 procedure steps remediation escalation', 'Rule #014', 'Rule#014', 
+'Rule 14', 'Rule 014 procedure remediation', 'Rule 014 triage investigation steps']
+🔍 [DEBUG] _retrieve_any: Processing query 1/9: 'Rule 014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 6 with score 0.472
+🔍 [DEBUG] _retrieve_any: Processing query 2/9: 'Rule 014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 3/9: 'Rule 014 rulebook'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 4/9: 'Rule 014 procedure steps remediation escalation'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.487
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.485
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.483
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Processing query 5/9: 'Rule #014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 6/9: 'Rule#014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 7/9: 'Rule 14'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.422
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 8/9: 'Rule 014 procedure remediation'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 2e8db2240d79e77cefce8d5622f49efddb3d117416e6a1ff6b3bee2709790080-ec6551c4
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: b2a3c87f6029864146deb84159e4d01e7d6eafa7af9c16313e5bfbbc06a0b3a4-974c2827
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 9/9: 'Rule 014 triage investigation steps'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 2e8db2240d79e77cefce8d5622f49efddb3d117416e6a1ff6b3bee2709790080-ec6551c4
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.498
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: d50a3309b1f7b25790f59711df898d732669419f07e6d8a0e26eff292816cd1a-5b71ca0a
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.491
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.486
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: b2a3c87f6029864146deb84159e4d01e7d6eafa7af9c16313e5bfbbc06a0b3a4-974c2827
+🔍 [DEBUG] _retrieve_any: Sorting 13 total results by score
+🔍 [DEBUG] _retrieve_any: Returning 13 results
+🔍 [DEBUG] retrieve_dual_source: _retrieve_any completed, got 13 results
+🔍 [DEBUG] retrieve_dual_source: Partitioning results by source...
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208311 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208311 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.498)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.491)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.487)
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208312 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208312 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.486)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.485)
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208308 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208308 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.483)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.422)
+🔍 [DEBUG] retrieve_dual_source: Before cropping - tracker: 10, rule: 3
+🔍 [DEBUG] retrieve_dual_source: After cropping - tracker: 6, rule: 3
+🔍 [DEBUG] retrieve_dual_source: Normalizing scores...
+🔍 [DEBUG] retrieve_dual_source: Completed successfully
+🔍 [DEBUG] answer_query_with_rag: retrieve_dual_source completed
+🔍 [DEBUG] answer_query_with_rag: Building context block...
+🔍 [DEBUG] build_context_block_dual called with query: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] build_context_block_dual: Parsed rule ID: '014'
+🔍 [DEBUG] build_context_block_dual: Processing 6 tracker hits
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 1
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 2
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 3
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 4
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 5
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 6
+🔍 [DEBUG] build_context_block_dual: Processing 3 rulebook hits
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 1
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 2
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 2
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 2
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 3
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Built context with 6389 characters
+🔍 [DEBUG] answer_query_with_rag: Context block built
+🔍 [DEBUG] answer_query_with_rag: Calling LLM...
+🔍 [DEBUG] call_llm_dual_markdown called with model: 'qwen2.5:0.5b'
+🔍 [DEBUG] call_llm_dual_markdown: Context length: 6389 chars
+🔍 [DEBUG] call_llm_dual_markdown: Calling ollama.chat...
+🔍 [DEBUG] call_llm_dual_markdown: Got response
+🔍 [DEBUG] call_llm_dual_markdown: Response length: 1215 chars
+🔍 [DEBUG] answer_query_with_rag: LLM call completed
+🔍 [DEBUG] answer_query_with_rag: Saving context to file...
+🔍 [DEBUG] answer_query_with_rag: Context saved to artifacts/query_contexts/Rule_014.txt
+🔍 [DEBUG] answer_query_with_rag: Completed successfully
+🔍 [DEBUG] write_rule_markdown called with query: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] write_rule_markdown: Parsed rule ID: '014'
+🔍 [DEBUG] write_rule_markdown: Calling answer_query_with_rag...
+🔍 [DEBUG] answer_query_with_rag called with query: 'Rule 014'
+🔍 [DEBUG] answer_query_with_rag: k=5, persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] answer_query_with_rag: embed_model='nomic-embed-text', gen_model='qwen2.5:0.5b'
+🔍 [DEBUG] answer_query_with_rag: Calling retrieve_dual_source...
+🔍 [DEBUG] retrieve_dual_source called with query: 'Rule 014'
+🔍 [DEBUG] retrieve_dual_source params: persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] retrieve_dual_source: Creating embedder with model 'nomic-embed-text'
+🔍 [DEBUG] retrieve_dual_source: Creating indexer...
+🔍 [DEBUG] retrieve_dual_source: Indexer created, count=34
+🔍 [DEBUG] retrieve_dual_source: Classifying query...
+🔍 [DEBUG] classify_query called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] classify_query result: {'about_rule': True, 'about_tracker': False}
+🔍 [DEBUG] retrieve_dual_source: Expanding queries...
+🔍 [DEBUG] expand_rulebook_queries called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] expand_rulebook_queries: Found rule ID 014, adding variants
+🔍 [DEBUG] expand_rulebook_queries result: 8 variants
+🔍 [DEBUG] retrieve_dual_source: About to call _retrieve_any...
+🔍 [DEBUG] retrieve_dual_source: Total queries to process: 9
+🔍 [DEBUG] _retrieve_any called with 9 queries, k_per_query=6
+🔍 [DEBUG] _retrieve_any queries: ['Rule 014', 'Rule 014', 'Rule 014 rulebook', 'Rule 014 procedure steps remediation escalation', 'Rule #014', 'Rule#014', 
+'Rule 14', 'Rule 014 procedure remediation', 'Rule 014 triage investigation steps']
+🔍 [DEBUG] _retrieve_any: Processing query 1/9: 'Rule 014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.472
+🔍 [DEBUG] _retrieve_any: Added result 6 with score 0.472
+🔍 [DEBUG] _retrieve_any: Processing query 2/9: 'Rule 014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 3/9: 'Rule 014 rulebook'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 4/9: 'Rule 014 procedure steps remediation escalation'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.487
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.485
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.483
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Processing query 5/9: 'Rule #014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 6/9: 'Rule#014'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 0b45a567cabda72090c6fc0ea865c3077b86852032f693c52d943cd66c99c0cd-1752c3e0
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 7/9: 'Rule 14'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.422
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 8/9: 'Rule 014 procedure remediation'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 2e8db2240d79e77cefce8d5622f49efddb3d117416e6a1ff6b3bee2709790080-ec6551c4
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: b2a3c87f6029864146deb84159e4d01e7d6eafa7af9c16313e5bfbbc06a0b3a4-974c2827
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 9/9: 'Rule 014 triage investigation steps'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 2e8db2240d79e77cefce8d5622f49efddb3d117416e6a1ff6b3bee2709790080-ec6551c4
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.498
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: d50a3309b1f7b25790f59711df898d732669419f07e6d8a0e26eff292816cd1a-5b71ca0a
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.491
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.486
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: b2a3c87f6029864146deb84159e4d01e7d6eafa7af9c16313e5bfbbc06a0b3a4-974c2827
+🔍 [DEBUG] _retrieve_any: Sorting 13 total results by score
+🔍 [DEBUG] _retrieve_any: Returning 13 results
+🔍 [DEBUG] retrieve_dual_source: _retrieve_any completed, got 13 results
+🔍 [DEBUG] retrieve_dual_source: Partitioning results by source...
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208311 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208311 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.498)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.491)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.487)
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208312 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208312 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.486)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.485)
+🔍 [DEBUG] _is_tracker_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208308 )(investigation steps).csv', result=False
+🔍 [DEBUG] _is_rulebook_meta: doctype='rulebook', source='rule 280-july-01-25 ( 208308 )(investigation steps).csv', filetype='csv', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to rule_hits (score=0.483)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.472)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.422)
+🔍 [DEBUG] retrieve_dual_source: Before cropping - tracker: 10, rule: 3
+🔍 [DEBUG] retrieve_dual_source: After cropping - tracker: 6, rule: 3
+🔍 [DEBUG] retrieve_dual_source: Normalizing scores...
+🔍 [DEBUG] retrieve_dual_source: Completed successfully
+🔍 [DEBUG] answer_query_with_rag: retrieve_dual_source completed
+🔍 [DEBUG] answer_query_with_rag: Building context block...
+🔍 [DEBUG] build_context_block_dual called with query: 'Rule 014'
+🔍 [DEBUG] parse_rule_id called with: 'Rule 014'
+🔍 [DEBUG] parse_rule_id: Found rule pattern, returning: '014'
+🔍 [DEBUG] build_context_block_dual: Parsed rule ID: '014'
+🔍 [DEBUG] build_context_block_dual: Processing 6 tracker hits
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 1
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 2
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 3
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 4
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 5
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 6
+🔍 [DEBUG] build_context_block_dual: Processing 3 rulebook hits
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 1
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 2
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Processing rulebook hit 3
+🔍 [DEBUG] build_context_block_dual: Extracting rule block for rule 014
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text called with rule_id: '014'
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 1: (?i)(^.*Rule[ #]*0*14.*$)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 2: (?i)("inputs required"\s*:\s*".*Rule#?0*14[^"]*")
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: Trying pattern 3: (?i)(Rule#?0*14\b.*)
+🔍 [DEBUG] _extract_rule_block_from_rulebook_text: No rule pattern found
+🔍 [DEBUG] build_context_block_dual: No rule block found, skipping
+🔍 [DEBUG] build_context_block_dual: Built context with 6389 characters
+🔍 [DEBUG] answer_query_with_rag: Context block built
+🔍 [DEBUG] answer_query_with_rag: Calling LLM...
+🔍 [DEBUG] call_llm_dual_markdown called with model: 'qwen2.5:0.5b'
+🔍 [DEBUG] call_llm_dual_markdown: Context length: 6389 chars
+🔍 [DEBUG] call_llm_dual_markdown: Calling ollama.chat...
+🔍 [DEBUG] call_llm_dual_markdown: Got response
+🔍 [DEBUG] call_llm_dual_markdown: Response length: 1234 chars
+🔍 [DEBUG] answer_query_with_rag: LLM call completed
+🔍 [DEBUG] answer_query_with_rag: Saving context to file...
+🔍 [DEBUG] answer_query_with_rag: Context saved to artifacts/query_contexts/Rule_014.txt
+🔍 [DEBUG] answer_query_with_rag: Completed successfully
+🔍 [DEBUG] write_rule_markdown: Got response
+🔍 [DEBUG] write_rule_markdown: Writing to artifacts\rule_014.md
+🔍 [DEBUG] write_rule_markdown: Completed successfully
+[Answer]
+# Title
+
+## Key points
+
+- Rule 014: This rule pertains to the tracking of incidents related to user login and access control.
+- It involves checking various factors such as IP reputation, history logs, and sign-in logs for suspicious activities.
+
+## Tracker facts
+
+- The incident was reported on July 1st, 2025 at 7:01 AM.
+- The incident involved a user named "chorton@arcutis.com".
+- The resolution time stamp indicates that the issue has been resolved by the service owner.
+- No additional details are provided in the tracker sheet.
+
+## Rulebook procedures
+
+1. Check IP reputation - clean
+2. Check history logs - no suspicious activities
+3. Check sign-in logs - user using known apps with MFA Satisfied closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No  
+
+## Remediation
+
+- Since no specific remediation steps were provided in the tracker sheet, we cannot determine a proper action to take for this incident.
+- The service owner should investigate further to identify any potential issues and take appropriate measures.
+
+✅ Markdown written to: artifacts\rule_014.md
+🧾 Context saved to: artifacts/query_contexts/Rule_014.txt
+
+[Context Preview]
+=== TRACKER ===
+[score=1.000] [src=tracker_sheet] [row=2]
+{
+  "s.no.": 3.0,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208305.0,
+  "data connecter": "AD",
+  "priority": "Medium",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 12:30",
+  "responded time stamp": "07-01-2025 12:48",
+  "mttd (mins)": 18.0,
+  "resolution time stamp": "07-01-2025 12:59",
+  "mttr    (mins)": 29.0,
+  "time to breach sla": "07-01-2025 16:30",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Triaging Steps performed : Check history -- no suspicious activities Sign in logs / -- no suspicious closure comments :Observed the 
+events detected countries US only no successfull attempt , guest sigin policy with clean IP, nothing suspicious. Escalating (yes/ No) No",
+  "vip users": "No",
+  "rule": "Rule#019-Signin Logs with expanded Conditional access policies",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#286 -01-Jul'25 (208304).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "L
+
+[Q] User Assigned Privileged Role
+🔍 [DEBUG] answer_query_with_rag called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] answer_query_with_rag: k=5, persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] answer_query_with_rag: embed_model='nomic-embed-text', gen_model='qwen2.5:0.5b'
+🔍 [DEBUG] answer_query_with_rag: Calling retrieve_dual_source...
+🔍 [DEBUG] retrieve_dual_source called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] retrieve_dual_source params: persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] retrieve_dual_source: Creating embedder with model 'nomic-embed-text'
+🔍 [DEBUG] retrieve_dual_source: Creating indexer...
+🔍 [DEBUG] retrieve_dual_source: Indexer created, count=34
+🔍 [DEBUG] retrieve_dual_source: Classifying query...
+🔍 [DEBUG] classify_query called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id: No pattern found, returning empty string
+🔍 [DEBUG] classify_query result: {'about_rule': False, 'about_tracker': True}
+🔍 [DEBUG] retrieve_dual_source: Expanding queries...
+🔍 [DEBUG] expand_tracker_queries called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] expand_tracker_queries result: 7 variants
+🔍 [DEBUG] retrieve_dual_source: About to call _retrieve_any...
+🔍 [DEBUG] retrieve_dual_source: Total queries to process: 8
+🔍 [DEBUG] _retrieve_any called with 8 queries, k_per_query=6
+🔍 [DEBUG] _retrieve_any queries: ['User Assigned Privileged Role', 'User Assigned Privileged Role tracker', 'User Assigned Privileged Role incident row', 'User Assigned Privileged Role categories counts', 'User Assigned Privileged Role status priority owner', 'User Assigned Privileged Role reported time response time resolved time', 'User Assigned Privileged Role daily incident dashboard', 'User Assigned Privileged Role']
+🔍 [DEBUG] _retrieve_any: Processing query 1/8: 'User Assigned Privileged Role'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.533
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.494
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 6 with score 0.484
+🔍 [DEBUG] _retrieve_any: Processing query 2/8: 'User Assigned Privileged Role tracker'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 3/8: 'User Assigned Privileged Role incident row'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 4/8: 'User Assigned Privileged Role categories counts'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.465
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 5/8: 'User Assigned Privileged Role status priority owner'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 6/8: 'User Assigned Privileged Role reported time response time resolved time'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 7/8: 'User Assigned Privileged Role daily incident dashboard'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 8/8: 'User Assigned Privileged Role'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Sorting 7 total results by score
+🔍 [DEBUG] _retrieve_any: Returning 7 results
+🔍 [DEBUG] retrieve_dual_source: _retrieve_any completed, got 7 results
+🔍 [DEBUG] retrieve_dual_source: Partitioning results by source...
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.533)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.494)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.465)
+🔍 [DEBUG] retrieve_dual_source: Before cropping - tracker: 7, rule: 0
+🔍 [DEBUG] retrieve_dual_source: After cropping - tracker: 6, rule: 0
+🔍 [DEBUG] retrieve_dual_source: Normalizing scores...
+🔍 [DEBUG] retrieve_dual_source: Completed successfully
+🔍 [DEBUG] answer_query_with_rag: retrieve_dual_source completed
+🔍 [DEBUG] answer_query_with_rag: Building context block...
+🔍 [DEBUG] build_context_block_dual called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id: No pattern found, returning empty string
+🔍 [DEBUG] build_context_block_dual: Parsed rule ID: ''
+🔍 [DEBUG] build_context_block_dual: Processing 6 tracker hits
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 1
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 2
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 3
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 4
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 5
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 6
+🔍 [DEBUG] build_context_block_dual: Processing 0 rulebook hits
+🔍 [DEBUG] build_context_block_dual: Built context with 5313 characters
+🔍 [DEBUG] answer_query_with_rag: Context block built
+🔍 [DEBUG] answer_query_with_rag: Calling LLM...
+🔍 [DEBUG] call_llm_dual_markdown called with model: 'qwen2.5:0.5b'
+🔍 [DEBUG] call_llm_dual_markdown: Context length: 5313 chars
+🔍 [DEBUG] call_llm_dual_markdown: Calling ollama.chat...
+🔍 [DEBUG] call_llm_dual_markdown: Got response
+🔍 [DEBUG] call_llm_dual_markdown: Response length: 580 chars
+🔍 [DEBUG] answer_query_with_rag: LLM call completed
+🔍 [DEBUG] answer_query_with_rag: Saving context to file...
+🔍 [DEBUG] answer_query_with_rag: Context saved to artifacts/query_contexts/User_Assigned_Privileged_Role.txt
+🔍 [DEBUG] answer_query_with_rag: Completed successfully
+🔍 [DEBUG] write_rule_markdown called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id: No pattern found, returning empty string
+🔍 [DEBUG] write_rule_markdown: Parsed rule ID: ''
+🔍 [DEBUG] write_rule_markdown: Calling answer_query_with_rag...
+🔍 [DEBUG] answer_query_with_rag called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] answer_query_with_rag: k=5, persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] answer_query_with_rag: embed_model='nomic-embed-text', gen_model='qwen2.5:0.5b'
+🔍 [DEBUG] answer_query_with_rag: Calling retrieve_dual_source...
+🔍 [DEBUG] retrieve_dual_source called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] retrieve_dual_source params: persist_dir='vector_store_faiss', index_name='soc_rag'
+🔍 [DEBUG] retrieve_dual_source: Creating embedder with model 'nomic-embed-text'
+🔍 [DEBUG] retrieve_dual_source: Creating indexer...
+🔍 [DEBUG] retrieve_dual_source: Indexer created, count=34
+🔍 [DEBUG] retrieve_dual_source: Classifying query...
+🔍 [DEBUG] classify_query called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id: No pattern found, returning empty string
+🔍 [DEBUG] classify_query result: {'about_rule': False, 'about_tracker': True}
+🔍 [DEBUG] retrieve_dual_source: Expanding queries...
+🔍 [DEBUG] expand_tracker_queries called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] expand_tracker_queries result: 7 variants
+🔍 [DEBUG] retrieve_dual_source: About to call _retrieve_any...
+🔍 [DEBUG] retrieve_dual_source: Total queries to process: 8
+🔍 [DEBUG] _retrieve_any called with 8 queries, k_per_query=6
+🔍 [DEBUG] _retrieve_any queries: ['User Assigned Privileged Role', 'User Assigned Privileged Role tracker', 'User Assigned Privileged Role incident row', 'User Assigned Privileged Role categories counts', 'User Assigned Privileged Role status priority owner', 'User Assigned Privileged Role reported time response time resolved time', 'User Assigned Privileged Role daily incident dashboard', 'User Assigned Privileged Role']
+🔍 [DEBUG] _retrieve_any: Processing query 1/8: 'User Assigned Privileged Role'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Added result 1 with score 0.533
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.494
+🔍 [DEBUG] _retrieve_any: Added result 3 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 4 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 5 with score 0.484
+🔍 [DEBUG] _retrieve_any: Added result 6 with score 0.484
+🔍 [DEBUG] _retrieve_any: Processing query 2/8: 'User Assigned Privileged Role tracker'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 3/8: 'User Assigned Privileged Role incident row'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 4/8: 'User Assigned Privileged Role categories counts'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Added result 2 with score 0.465
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 5/8: 'User Assigned Privileged Role status priority owner'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e686c3ba44f6af85403a62fc8c533cec7248b936b3f395897de848210298b3a8-a58c81a5
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 6/8: 'User Assigned Privileged Role reported time response time resolved time'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 7/8: 'User Assigned Privileged Role daily incident dashboard'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Processing query 8/8: 'User Assigned Privileged Role'
+🔍 [DEBUG] _retrieve_any: Embedding query...
+🔍 [DEBUG] _retrieve_any: Embedding shape: (1, 768)
+🔍 [DEBUG] _retrieve_any: Querying index...
+🔍 [DEBUG] _retrieve_any: Got 6 results
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: e1f55444d1af866fc8cd079abb0cddb52b6144fd65339926bf6a5b9732d4d704-72745cdd
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 93c8b368cb5e87ee5b41447423a825b4ead3f8fdaedca1ebf32f6e49e4c51dac-44e4f034
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 6db882126e4060c24c8ebf822e877000f2791e2b05a0b5451e83eb02997291a8-147ff02e
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: c9605c704ed0fd16aee3342ea2c43afd1a35008252560c545b0b506c105c4a80-bdaf208c
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: 4cbe8b3547f2a2b8c09dd3aadcc59e3ea84d9a2c5065462f0e98c5c5a445f054-e496b36f
+🔍 [DEBUG] _retrieve_any: Skipping duplicate ID: a98abd2d5d22332452e0bebc61402bc45a60994d9b9b0102ae432789888d198e-9be1a53a
+🔍 [DEBUG] _retrieve_any: Sorting 7 total results by score
+🔍 [DEBUG] _retrieve_any: Returning 7 results
+🔍 [DEBUG] retrieve_dual_source: _retrieve_any completed, got 7 results
+🔍 [DEBUG] retrieve_dual_source: Partitioning results by source...
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.533)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.494)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.484)
+🔍 [DEBUG] _is_tracker_meta: doctype='tracker_row', source='tracker_sheet', result=True
+🔍 [DEBUG] retrieve_dual_source: Added to tracker_hits (score=0.465)
+🔍 [DEBUG] retrieve_dual_source: Before cropping - tracker: 7, rule: 0
+🔍 [DEBUG] retrieve_dual_source: After cropping - tracker: 6, rule: 0
+🔍 [DEBUG] retrieve_dual_source: Normalizing scores...
+🔍 [DEBUG] retrieve_dual_source: Completed successfully
+🔍 [DEBUG] answer_query_with_rag: retrieve_dual_source completed
+🔍 [DEBUG] answer_query_with_rag: Building context block...
+🔍 [DEBUG] build_context_block_dual called with query: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id called with: 'User Assigned Privileged Role'
+🔍 [DEBUG] parse_rule_id: No pattern found, returning empty string
+🔍 [DEBUG] build_context_block_dual: Parsed rule ID: ''
+🔍 [DEBUG] build_context_block_dual: Processing 6 tracker hits
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 1
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 2
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 3
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 4
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 5
+🔍 [DEBUG] build_context_block_dual: Processing tracker hit 6
+🔍 [DEBUG] build_context_block_dual: Processing 0 rulebook hits
+🔍 [DEBUG] build_context_block_dual: Built context with 5313 characters
+🔍 [DEBUG] answer_query_with_rag: Context block built
+🔍 [DEBUG] answer_query_with_rag: Calling LLM...
+🔍 [DEBUG] call_llm_dual_markdown called with model: 'qwen2.5:0.5b'
+🔍 [DEBUG] call_llm_dual_markdown: Context length: 5313 chars
+🔍 [DEBUG] call_llm_dual_markdown: Calling ollama.chat...
+🔍 [DEBUG] call_llm_dual_markdown: Got response
+🔍 [DEBUG] call_llm_dual_markdown: Response length: 317 chars
+🔍 [DEBUG] answer_query_with_rag: LLM call completed
+🔍 [DEBUG] answer_query_with_rag: Saving context to file...
+🔍 [DEBUG] answer_query_with_rag: Context saved to artifacts/query_contexts/User_Assigned_Privileged_Role.txt
+🔍 [DEBUG] answer_query_with_rag: Completed successfully
+🔍 [DEBUG] write_rule_markdown: Got response
+🔍 [DEBUG] write_rule_markdown: Writing to artifacts\answer.md
+🔍 [DEBUG] write_rule_markdown: Completed successfully
+[Answer]
+# Title
+
+## Key points
+
+- User Assigned Privileged Role: A user was assigned a privileged role in the Microsoft Entra system.
+
+## Tracker facts
+
+- There are 4 incidents associated with this rule.
+
+## Rulebook procedures
+
+- None of the incident details provided directly relate to user assignments or privileges. The incidents do not mention any specific user, their assigned privilege, or the status of the incident.
+
+## Remediation
+
+- No remediation steps have been specified for this rule.
+
+## Quality Audit
+
+- All incidents are marked as 'Pass' in the quality audit report.
+
+✅ Markdown written to: artifacts\answer.md
+🧾 Context saved to: artifacts/query_contexts/User_Assigned_Privileged_Role.txt
+
+[Context Preview]
+=== TRACKER ===
+[score=1.000] [src=tracker_sheet] [row=6]
+{
+  "s.no.": 7.0,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Afternoon",
+  "incidnet no #": 208309.0,
+  "data connecter": "AD",
+  "priority": "High",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Saranya",
+  "handover shift engineer": "Harish,Venkat",
+  "reported time stamp": "07-01-2025 17:28",
+  "responded time stamp": "07-01-2025 17:29",
+  "mttd (mins)": 1.0,
+  "resolution time stamp": "07-01-2025 17:32",
+  "mttr    (mins)": 4.0,
+  "time to breach sla": "07-01-2025 18:28",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.", 
+  "vip users": "No",
+  "rule": "Rule#014-New User Assigned to Privileged Role",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#014-July-01-25 ( 208309 ).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "Legitimate user",
+  "justification": null,
+  "quality audit": "Pass",
+  "description": null
+}
+[score=0.927] [src=tracker_sheet] [row=7]
+{
+  "s.no.": 8.0,
+  "date": "01-Ju
+
+============================================================
+✅ SYSTEM IS WORKING!
+============================================================

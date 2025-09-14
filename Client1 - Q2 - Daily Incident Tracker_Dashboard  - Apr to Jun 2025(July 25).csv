@@ -9,18 +9,3 @@ S.NO.,Date,Month,SHIFT ,Incidnet No #,Data connecter,Priority,Alert/Incident,Nam
 8,01-Jul-25,July,Afternoon,208310,AD,Medium,Alert ,Uday,"Harish,Venkat",07-01-2025 18:27,07-01-2025 18:29,2,07-01-2025 18:33,6,07-01-2025 22:27,Resolved,"Observed the Events and checked user(Jgreenwood) was added into MS-PIM, nothing Suspicious activities found, closing as FP",No,Rule#016-User added to Microsoft Entra ID Privileged Groups,Sentinel,Closed,Rule#016-July-01-25 ( 208310 ).xlsx,False Positive,Legitimate user,,Pass,
 9,01-Jul-25,July,Afternoon,208311,sophos,High,Incident ,Uday,"Harish,Venkat",07-01-2025 19:09,07-01-2025 19:18,9,07-01-2025 19:31,22,07-01-2025 20:09,Resolved,Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00374 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095259,No,Rule#280- Detect when One or more Sophos services are missing or not running.,Sentinel,Closed,Rule 280-July-01-25 ( 208311 ).xlsx,True Positive,,Took time for raising the ticket,Pass,INC0095259
 10,01-Jul-25,July,Afternoon,208312,sophos,High,Incident ,Uday,"Harish,Venkat",07-01-2025 19:54,07-01-2025 19:57,3,07-01-2025 20:22,28,07-01-2025 20:54,Resolved,Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00450 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095260,No,Rule#280- Detect when One or more Sophos services are missing or not running.,Sentinel,Closed,Rule 280-July-01-25 ( 208312 ).xlsx,True Positive,,Took time for raising the ticket,Pass,INC0095260
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
