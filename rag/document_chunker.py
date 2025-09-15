@@ -8,7 +8,9 @@ from langchain.docstore.document import Document
 
 # Enhanced rule patterns with stricter matching
 RULE_ID_PAT = re.compile(r"rule\s*#?\s*0*(\d{1,4})(?:\s*[-:]|$)", re.I)
-ENHANCED_RULE_PAT = re.compile(r"(?:rule\s*#?\s*)0*(\d{1,4})(?:\s*[-:]\s*(.+?))?(?:\n|$)", re.I)
+ENHANCED_RULE_PAT = re.compile(
+    r"(?:rule\s*#?\s*)0*(\d{1,4})(?:\s*[-:]\s*(.+?))?(?:\n|$)", re.I
+)
 
 # Improved alert name patterns - prioritize rule titles over procedure steps
 RULE_TITLE_PATTERNS = [
@@ -20,11 +22,32 @@ RULE_TITLE_PATTERNS = [
 
 # Procedure step keywords to exclude from alert names
 PROCEDURE_KEYWORDS = {
-    'follow up', 'track for', 'check', 'verify', 'escalate', 'inform', 'raise',
-    'document', 'upload', 'make a word', 'write', 'gather', 'collect', 'run',
-    'observe', 'validate', 'contact', 'notify', 'reset', 'disable', 'block',
-    'false positive', 'true positive', 'benign positive'
+    "follow up",
+    "track for",
+    "check",
+    "verify",
+    "escalate",
+    "inform",
+    "raise",
+    "document",
+    "upload",
+    "make a word",
+    "write",
+    "gather",
+    "collect",
+    "run",
+    "observe",
+    "validate",
+    "contact",
+    "notify",
+    "reset",
+    "disable",
+    "block",
+    "false positive",
+    "true positive",
+    "benign positive",
 }
+
 
 def _extract_rule_id_from_text(s: str) -> str:
     """Enhanced rule ID extraction with exact boundary matching."""
@@ -47,6 +70,7 @@ def _extract_rule_id_from_text(s: str) -> str:
 
     return ""
 
+
 def _is_procedure_step(text: str) -> bool:
     """Check if text appears to be a procedure step rather than a rule name."""
     if not text:
@@ -59,21 +83,24 @@ def _is_procedure_step(text: str) -> bool:
         return True
 
     # Check for question-like patterns
-    if text_lower.endswith('?') or text_lower.startswith(('how', 'what', 'when', 'where', 'why')):
+    if text_lower.endswith("?") or text_lower.startswith(
+        ("how", "what", "when", "where", "why")
+    ):
         return True
 
     # Check for imperative verbs (common in procedure steps)
-    imperative_starters = ['check', 'verify', 'ensure', 'confirm', 'review', 'analyze']
+    imperative_starters = ["check", "verify", "ensure", "confirm", "review", "analyze"]
     if any(text_lower.startswith(verb) for verb in imperative_starters):
         return True
 
     return False
 
+
 def _extract_alert_name_from_row(row_dict: Dict[str, Any]) -> str:
     """Enhanced alert name extraction prioritizing actual rule titles."""
 
     # Strategy 1: Look for rule titles in specific fields
-    title_fields = ['inputs required', 'rule name', 'alert name', 'title', 'rule']
+    title_fields = ["inputs required", "rule name", "alert name", "title", "rule"]
 
     for field_name in title_fields:
         for k, v in row_dict.items():
@@ -83,10 +110,16 @@ def _extract_alert_name_from_row(row_dict: Dict[str, Any]) -> str:
                     continue
 
                 # Extract rule title from "Rule#XXX - Title" pattern
-                rule_title_match = re.search(r"rule\s*#?\s*\d+\s*[-:]?\s*(.+?)(?:$|\n)", v_str, re.I)
+                rule_title_match = re.search(
+                    r"rule\s*#?\s*\d+\s*[-:]?\s*(.+?)(?:$|\n)", v_str, re.I
+                )
                 if rule_title_match:
                     candidate = rule_title_match.group(1).strip()
-                    if candidate and not _is_procedure_step(candidate) and len(candidate) > 5:
+                    if (
+                        candidate
+                        and not _is_procedure_step(candidate)
+                        and len(candidate) > 5
+                    ):
                         return candidate
 
                 # If field contains rule info but no clear title, use as-is if not procedural
@@ -104,10 +137,15 @@ def _extract_alert_name_from_row(row_dict: Dict[str, Any]) -> str:
             match = re.search(pattern, v_str, flags=re.I)
             if match:
                 candidate = match.group(1).strip()
-                if candidate and not _is_procedure_step(candidate) and len(candidate) > 8:
+                if (
+                    candidate
+                    and not _is_procedure_step(candidate)
+                    and len(candidate) > 8
+                ):
                     return candidate
 
     return ""
+
 
 def _create_rule_metadata_mapping(row_dict: Dict[str, Any]) -> Dict[str, str]:
     """Create comprehensive rule metadata mapping with better filtering."""
@@ -138,13 +176,16 @@ def _create_rule_metadata_mapping(row_dict: Dict[str, Any]) -> Dict[str, str]:
 
     return metadata
 
+
 class DocumentChunker:
     def __init__(self, tracker_df: pd.DataFrame, rulebook_dfs: Dict[str, pd.DataFrame]):
         self.tracker_df = tracker_df
         self.rulebook_dfs = rulebook_dfs
         self.tracker_chunks: List[Document] = []
         self.rulebook_chunks: List[Document] = []
-        self.rule_key_rows: List[Dict[str, Any]] = []  # Changed to dict for deduplication
+        self.rule_key_rows: List[Dict[str, Any]] = (
+            []
+        )  # Changed to dict for deduplication
         self.rule_metadata_map: Dict[str, Dict] = {}
 
     def _clean_metadata(self, metadata: Dict) -> Dict:
@@ -195,14 +236,16 @@ class DocumentChunker:
             rule_metadata = _create_rule_metadata_mapping(row_dict)
 
             # Only add to rule keys if we have good quality data
-            if rule_metadata["rule_id"] and not _is_procedure_step(rule_metadata["alert_name"]):
+            if rule_metadata["rule_id"] and not _is_procedure_step(
+                rule_metadata["alert_name"]
+            ):
                 rule_key = {
                     "rule_id": rule_metadata["rule_id"],
                     "alert_name": rule_metadata["alert_name"],
                     "source": "tracker_sheet",
                     "row_index": int(idx),
                     "description": rule_metadata["description"],
-                    "type": "tracker_data"
+                    "type": "tracker_data",
                 }
                 self.rule_key_rows.append(rule_key)
 
@@ -222,7 +265,11 @@ class DocumentChunker:
                 "columns_count": len(df.columns),
                 "rule_id": rule_metadata["rule_id"],
                 "alert_name": rule_metadata["alert_name"],
-                "has_rule_info": bool(rule_metadata["rule_id"] and rule_metadata["alert_name"] and not _is_procedure_step(rule_metadata["alert_name"])),
+                "has_rule_info": bool(
+                    rule_metadata["rule_id"]
+                    and rule_metadata["alert_name"]
+                    and not _is_procedure_step(rule_metadata["alert_name"])
+                ),
             }
 
             clean_metadata = self._clean_metadata(metadata)
@@ -233,7 +280,7 @@ class DocumentChunker:
         return tracker_chunks
 
     def chunk_rulebooks(self) -> List[Document]:
-        """Enhanced rulebook chunking with better rule extraction and deduplication."""
+        """Enhanced rulebook chunking with complete procedure preservation."""
         if not self.rulebook_dfs:
             raise ValueError("Rulebook DataFrames dictionary is empty")
 
@@ -279,13 +326,17 @@ class DocumentChunker:
                 rule_metadata = _create_rule_metadata_mapping(row_data)
 
                 # Create unique key for deduplication
-                rule_key_signature = f"{rule_metadata['rule_id']}_{rule_metadata['alert_name']}"
+                rule_key_signature = (
+                    f"{rule_metadata['rule_id']}_{rule_metadata['alert_name']}"
+                )
 
                 # Only add high-quality, non-duplicate rule entries
-                if (rule_metadata["rule_id"] and 
-                    rule_metadata["alert_name"] and 
-                    not _is_procedure_step(rule_metadata["alert_name"]) and
-                    rule_key_signature not in seen_rule_entries):
+                if (
+                    rule_metadata["rule_id"]
+                    and rule_metadata["alert_name"]
+                    and not _is_procedure_step(rule_metadata["alert_name"])
+                    and rule_key_signature not in seen_rule_entries
+                ):
 
                     rule_key = {
                         "rule_id": rule_metadata["rule_id"],
@@ -293,14 +344,18 @@ class DocumentChunker:
                         "source": filename,
                         "row_index": int(idx),
                         "description": rule_metadata["description"],
-                        "type": "rulebook_procedure"
+                        "type": "rulebook_procedure",
                     }
                     self.rule_key_rows.append(rule_key)
                     seen_rule_entries.add(rule_key_signature)
 
                 # Store in metadata map
                 rid = rule_metadata["rule_id"] or file_rule_id
-                if rid and rule_metadata["alert_name"] and not _is_procedure_step(rule_metadata["alert_name"]):
+                if (
+                    rid
+                    and rule_metadata["alert_name"]
+                    and not _is_procedure_step(rule_metadata["alert_name"])
+                ):
                     self.rule_metadata_map[rid] = {
                         "alert_name": rule_metadata["alert_name"],
                         "description": rule_metadata["description"],
@@ -334,20 +389,81 @@ class DocumentChunker:
 
             full_content = "\n".join(content_parts)
 
+            # *** KEY ADDITION: Enhanced metadata for complete rulebooks ***
             metadata = {
                 "source": filename,
-                "doctype": "rulebook", 
+                "doctype": (
+                    "complete_rulebook"
+                    if file_rule_id and len(df_clean) <= 25
+                    else "rulebook"
+                ),
                 "rows": len(df_clean),
                 "columns_count": len(df_clean.columns),
                 "filetype": filename.split(".")[-1],
                 "primary_rule_id": file_rule_id,
                 "contains_procedures": len(rule_procedures) > 0,
                 "procedure_count": len(rule_procedures),
+                "is_complete": (
+                    True if file_rule_id and len(df_clean) <= 25 else False
+                ),  # NEW: Complete flag
+                "total_content_length": len(full_content),  # NEW: Content length
             }
 
             clean_metadata = self._clean_metadata(metadata)
             doc = Document(page_content=full_content, metadata=clean_metadata)
             rulebook_chunks.append(doc)
+
+            # *** KEY ADDITION: Create additional focused chunks for specific rules ***
+            if file_rule_id and len(rule_procedures) > 0:
+                # Create a focused chunk with just the rule procedures for better retrieval
+                focused_content_parts = []
+                focused_content_parts.append(f"FOCUSED RULE PROCEDURES: {filename}")
+                focused_content_parts.append("=" * 60)
+                focused_content_parts.append(f"RULE ID: {file_rule_id}")
+
+                # Add alert names from procedures
+                alert_names = [
+                    proc["rule_metadata"]["alert_name"]
+                    for proc in rule_procedures
+                    if proc["rule_metadata"]["alert_name"]
+                    and not _is_procedure_step(proc["rule_metadata"]["alert_name"])
+                ]
+                if alert_names:
+                    focused_content_parts.append(
+                        f"ALERT NAMES: {', '.join(set(alert_names))}"
+                    )
+
+                focused_content_parts.append("")
+
+                # Add all procedure rows with full details
+                for proc in rule_procedures:
+                    focused_content_parts.append(f"Step {proc['row_index']}:")
+                    focused_content_parts.append(
+                        json.dumps(proc, indent=2, ensure_ascii=False)
+                    )
+                    focused_content_parts.append("")
+
+                focused_content = "\n".join(focused_content_parts)
+
+                focused_metadata = {
+                    "source": filename,
+                    "doctype": "focused_rule_procedures",  # NEW: Focused type
+                    "rows": len(rule_procedures),
+                    "columns_count": len(df_clean.columns),
+                    "filetype": filename.split(".")[-1],
+                    "primary_rule_id": file_rule_id,
+                    "contains_procedures": True,
+                    "procedure_count": len(rule_procedures),
+                    "is_complete": True,
+                    "is_focused": True,  # NEW: Focused flag
+                    "total_content_length": len(focused_content),
+                }
+
+                focused_clean_metadata = self._clean_metadata(focused_metadata)
+                focused_doc = Document(
+                    page_content=focused_content, metadata=focused_clean_metadata
+                )
+                rulebook_chunks.append(focused_doc)
 
         self.rulebook_chunks = rulebook_chunks
         return rulebook_chunks
@@ -357,24 +473,32 @@ class DocumentChunker:
         print("📝 Creating enhanced document chunks with improved rule extraction...")
 
         tracker_chunks = self.chunk_tracker_sheet()
-        print(f"✅ Created {len(tracker_chunks)} tracker chunks (with enhanced rule awareness)")
+        print(
+            f"✅ Created {len(tracker_chunks)} tracker chunks (with enhanced rule awareness)"
+        )
 
         rulebook_chunks = self.chunk_rulebooks()
-        print(f"✅ Created {len(rulebook_chunks)} rulebook chunks (with better rule extraction)")
+        print(
+            f"✅ Created {len(rulebook_chunks)} rulebook chunks (with better rule extraction)"
+        )
 
         # Deduplicate rule keys
         unique_rule_keys = []
         seen_keys = set()
 
         for rule_key in self.rule_key_rows:
-            key_signature = f"{rule_key['rule_id']}_{rule_key['alert_name']}_{rule_key['source']}"
+            key_signature = (
+                f"{rule_key['rule_id']}_{rule_key['alert_name']}_{rule_key['source']}"
+            )
             if key_signature not in seen_keys:
                 unique_rule_keys.append(rule_key)
                 seen_keys.add(key_signature)
 
         self.rule_key_rows = unique_rule_keys
 
-        print(f"📊 Extracted {len(self.rule_key_rows)} unique rule mappings (deduplicated)")
+        print(
+            f"📊 Extracted {len(self.rule_key_rows)} unique rule mappings (deduplicated)"
+        )
         print(f"🗂️ Built metadata for {len(self.rule_metadata_map)} unique rules")
 
         return {
@@ -383,7 +507,12 @@ class DocumentChunker:
             "all_chunks": tracker_chunks + rulebook_chunks,
         }
 
-    def export_chunks_to_text(self, chunks: Dict[str, Any], out_path: str = "artifacts/all_chunks_dump.txt", max_chars_per_chunk: int = 0) -> str:
+    def export_chunks_to_text(
+        self,
+        chunks: Dict[str, Any],
+        out_path: str = "artifacts/all_chunks_dump.txt",
+        max_chars_per_chunk: int = 0,
+    ) -> str:
         """Export chunks with enhanced formatting and quality indicators."""
         os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
         now = datetime.utcnow().isoformat() + "Z"
@@ -415,7 +544,9 @@ class DocumentChunker:
 
         lines = []
         lines.append(f"=== ENHANCED CHUNKS DUMP ===\nwritten_utc: {now}\n")
-        lines.append(f"counts: tracker={len(tracker)}, rulebook={len(rulebook)}, all={len(allc)}\n")
+        lines.append(
+            f"counts: tracker={len(tracker)}, rulebook={len(rulebook)}, all={len(allc)}\n"
+        )
         lines.append(f"rule_mappings: {len(self.rule_key_rows)}\n")
         lines.append(f"unique_rules: {len(self.rule_metadata_map)}\n")
 
@@ -447,9 +578,22 @@ class DocumentChunker:
             "extraction_stats": {
                 "total_rules_found": len(self.rule_key_rows),
                 "unique_rules": len(self.rule_metadata_map),
-                "rules_with_names": len([r for r in self.rule_key_rows if r["alert_name"] and not _is_procedure_step(r["alert_name"])]),
+                "rules_with_names": len(
+                    [
+                        r
+                        for r in self.rule_key_rows
+                        if r["alert_name"] and not _is_procedure_step(r["alert_name"])
+                    ]
+                ),
                 "files_processed": len(set(r["source"] for r in self.rule_key_rows)),
-                "quality_score": len([r for r in self.rule_key_rows if r["alert_name"] and not _is_procedure_step(r["alert_name"])]) / max(len(self.rule_key_rows), 1)
+                "quality_score": len(
+                    [
+                        r
+                        for r in self.rule_key_rows
+                        if r["alert_name"] and not _is_procedure_step(r["alert_name"])
+                    ]
+                )
+                / max(len(self.rule_key_rows), 1),
             },
         }
 
@@ -458,7 +602,9 @@ class DocumentChunker:
 
         return out_path
 
-    def export_rule_metadata_map(self, out_path: str = "artifacts/rule_metadata_map.json") -> str:
+    def export_rule_metadata_map(
+        self, out_path: str = "artifacts/rule_metadata_map.json"
+    ) -> str:
         """Export the rule metadata mapping for quick lookup."""
         os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
 

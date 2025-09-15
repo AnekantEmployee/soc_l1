@@ -7,12 +7,34 @@ Alert Names: Attempt to bypass conditional access rule in Microsoft Entra ID, At
 === TRACKER DATA ===
 [score=1.000] [src=tracker_sheet] [row=4]
 {
+  "s.no.": 5,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208307,
+  "data connecter": "AD",
   "priority": "Low",
   "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 13:11",
+  "responded time stamp": "07-01-2025 13:12",
+  "mttd (mins)": 1,
+  "resolution time stamp": "07-01-2025 13:23",
+  "mttr    (mins)": 12,
+  "time to breach sla": "07-01-2025 21:11",
+  "remaining mins to breach": "Resolved",
   "resolver comments": "Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US,IN,MX & MA, guest MFA enabled for users nothing supicious found.",
+  "vip users": "Yes",
   "rule": "Rule#002-Attempt to bypass conditional access rule in Microsoft Entra ID",
+  "service owner": "Sentinel",
   "status": "Closed",
   "remarks / comments": "Rule#002 -01-Jul'25 (208307).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "Legitimate user",
+  "justification": "Workspace not working",
+  "quality audit": "Pass",
+  "description": null,
   "_extracted_rule_info": {
     "rule_id": "002",
     "alert_name": "Attempt to bypass conditional access rule in Microsoft Entra ID",
@@ -22,33 +44,28 @@ Alert Names: Attempt to bypass conditional access rule in Microsoft Entra ID, At
   }
 }
 
-[score=0.752] [src=tracker_sheet] [row=1]
-{
-  "priority": "High",
-  "alert/incident": "Alert",
-  "resolver comments": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
-  "rule": "Rule#286- Atypical travel",
-  "status": "Closed",
-  "remarks / comments": "Rule#286 -01-Jul'25 (208304).xlsx",
-  "_extracted_rule_info": {
-    "rule_id": "286",
-    "alert_name": "Atypical travel",
-    "description": "",
-    "severity": "High",
-    "category": ""
-  }
-}
-
 === RULEBOOK PROCEDURES ===
 [score=1.000] [src=Rule#002 -01-Jul'25 (208307)(Sheet1).csv]
-RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
-==================================================
-PRIMARY RULE: 002
-Columns: sr.no., inputs required, details, exisiting / new, duration
-Total Rows: 15
+FOCUSED RULE PROCEDURES: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
+============================================================
+RULE ID: 002
+ALERT NAMES: Attempt to bypass conditional access rule in Azure AD
 
-Row 1:
+Step 1:
 {
   "row_index": 1,
   "data": {
     "sr.no.": null,
+    "inputs required": "Rule#002-Attempt to bypass conditional access rule in Azure AD",
+    "details": null,
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "002",
+    "alert_name": "Attempt to bypass conditional access rule in Azure AD",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}

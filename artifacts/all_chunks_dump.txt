@@ -1,7 +1,7 @@
 === ENHANCED CHUNKS DUMP ===
-written_utc: 2025-09-15T05:56:39.073254Z
+written_utc: 2025-09-15T08:14:58.379771Z
 
-counts: tracker=10, rulebook=9, all=19
+counts: tracker=10, rulebook=18, all=28
 
 rule_mappings: 15
 
@@ -509,12 +509,12 @@ metadata: {"source": "tracker_sheet", "row_index": 9, "doctype": "tracker_row", 
 
 ----- CHUNK START -----
 index: 11
-doctype: rulebook
+doctype: complete_rulebook
 source: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv", "doctype": "complete_rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 4839}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
 ==================================================
@@ -677,12 +677,45 @@ Row 9:
 
 ----- CHUNK START -----
 index: 12
-doctype: rulebook
+doctype: focused_rule_procedures
+source: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 606}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
+============================================================
+RULE ID: 280
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "s.no": null,
+    "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+    "input details": null,
+    "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+  },
+  "rule_metadata": {
+    "rule_id": "280",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 13
+doctype: complete_rulebook
 source: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv", "doctype": "complete_rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 4838}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
 ==================================================
@@ -844,13 +877,46 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 13
-doctype: rulebook
+index: 14
+doctype: focused_rule_procedures
+source: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 608}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
+============================================================
+RULE ID: 280
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+    "input details": null,
+    "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+  },
+  "rule_metadata": {
+    "rule_id": "280",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 15
+doctype: complete_rulebook
 source: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "complete_rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 4850}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 ==================================================
@@ -1012,13 +1078,46 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 14
-doctype: rulebook
+index: 16
+doctype: focused_rule_procedures
+source: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 608}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
+============================================================
+RULE ID: 280
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+    "input details": null,
+    "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+  },
+  "rule_metadata": {
+    "rule_id": "280",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 17
+doctype: complete_rulebook
 source: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv", "doctype": "rulebook", "rows": 15, "columns_count": 5, "filetype": "csv", "primary_rule_id": "002", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv", "doctype": "complete_rulebook", "rows": 15, "columns_count": 5, "filetype": "csv", "primary_rule_id": "002", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 6451}
 ----- CONTENT -----
 RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
 ==================================================
@@ -1207,13 +1306,48 @@ Row 10:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 15
-doctype: rulebook
+index: 18
+doctype: focused_rule_procedures
+source: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 5, "filetype": "csv", "primary_rule_id": "002", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 619}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
+============================================================
+RULE ID: 002
+ALERT NAMES: Attempt to bypass conditional access rule in Azure AD
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#002-Attempt to bypass conditional access rule in Azure AD",
+    "details": null,
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "002",
+    "alert_name": "Attempt to bypass conditional access rule in Azure AD",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 19
+doctype: complete_rulebook
 source: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 5, "filetype": "csv", "primary_rule_id": "014", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv", "doctype": "complete_rulebook", "rows": 13, "columns_count": 5, "filetype": "csv", "primary_rule_id": "014", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 7452}
 ----- CONTENT -----
 RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
 ==================================================
@@ -1380,13 +1514,48 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 16
-doctype: rulebook
+index: 20
+doctype: focused_rule_procedures
+source: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 5, "filetype": "csv", "primary_rule_id": "014", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 802}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
+============================================================
+RULE ID: 014
+ALERT NAMES: User Assigned Privileged Role
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Rule#014-User Assigned Privileged Role",
+    "input details": null,
+    "instructions": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
+    "reviewer comments": null
+  },
+  "rule_metadata": {
+    "rule_id": "014",
+    "alert_name": "User Assigned Privileged Role",
+    "description": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 21
+doctype: complete_rulebook
 source: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv", "doctype": "rulebook", "rows": 14, "columns_count": 5, "filetype": "csv", "primary_rule_id": "016", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv", "doctype": "complete_rulebook", "rows": 14, "columns_count": 5, "filetype": "csv", "primary_rule_id": "016", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 7744}
 ----- CONTENT -----
 RULEBOOK: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
 ==================================================
@@ -1553,13 +1722,48 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 17
-doctype: rulebook
+index: 22
+doctype: focused_rule_procedures
+source: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 5, "filetype": "csv", "primary_rule_id": "016", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 836}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
+============================================================
+RULE ID: 016
+ALERT NAMES: User added to Azure Active Directory Privileged Groups
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #016 - User added to Azure Active Directory Privileged Groups",
+    "input details": null,
+    "instructions": "A user has been added to a privileged AAD group, which may indicate unauthorized privilege elevation.",
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "016",
+    "alert_name": "User added to Azure Active Directory Privileged Groups",
+    "description": "A user has been added to a privileged AAD group, which may indicate unauthorized privilege elevation.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 23
+doctype: complete_rulebook
 source: Rule#183 01-Jul'25 (208306)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "183", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv", "doctype": "complete_rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "183", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 6034}
 ----- CONTENT -----
 RULEBOOK: Rule#183 01-Jul'25 (208306)(Sheet1).csv
 ==================================================
@@ -1723,13 +1927,47 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 18
-doctype: rulebook
+index: 24
+doctype: focused_rule_procedures
+source: Rule#183 01-Jul'25 (208306)(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "183", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 724}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#183 01-Jul'25 (208306)(Sheet1).csv
+============================================================
+RULE ID: 183
+ALERT NAMES: Detect passwordless authentication
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#183 - Detect passwordless authentication",
+    "input details": null,
+    "instructions": "Paswordless aunthintication may be happen due to compromised account or privileged account."
+  },
+  "rule_metadata": {
+    "rule_id": "183",
+    "alert_name": "Detect passwordless authentication",
+    "description": "Paswordless aunthintication may be happen due to compromised account or privileged account.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 25
+doctype: complete_rulebook
 source: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv", "doctype": "complete_rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 6248}
 ----- CONTENT -----
 RULEBOOK: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
 ==================================================
@@ -1893,13 +2131,47 @@ Row 9:
 ----- CHUNK END -----
 
 ----- CHUNK START -----
-index: 19
-doctype: rulebook
+index: 26
+doctype: focused_rule_procedures
+source: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 489}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
+============================================================
+RULE ID: 286
+ALERT NAMES: Atypical Travel
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #286 - Atypical Travel",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "286",
+    "alert_name": "Atypical Travel",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 27
+doctype: complete_rulebook
 source: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1}
+metadata: {"source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv", "doctype": "complete_rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 6246}
 ----- CONTENT -----
 RULEBOOK: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
 ==================================================
@@ -2060,4 +2332,38 @@ Row 9:
     "input details": "nothing suspicious",
     "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if 
 ...[TRUNCATED]
+----- CHUNK END -----
+
+----- CHUNK START -----
+index: 28
+doctype: focused_rule_procedures
+source: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
+rule_id: 
+alert_name: 
+has_rule_info: 
+metadata: {"source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv", "doctype": "focused_rule_procedures", "rows": 1, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "is_focused": true, "total_content_length": 489}
+----- CONTENT -----
+FOCUSED RULE PROCEDURES: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
+============================================================
+RULE ID: 286
+ALERT NAMES: Atypical Travel
+
+Step 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #286 - Atypical Travel",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "286",
+    "alert_name": "Atypical Travel",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
 ----- CHUNK END -----

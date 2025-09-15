@@ -265,7 +265,7 @@ def _retrieve_with_dynamic_matching(
     k_per_query: int,
     rule_id: str = "",
 ) -> Dict[str, Any]:
-    """Enhanced retrieval with dynamic rule matching."""
+    """Enhanced retrieval with dynamic rule matching and complete rulebook prioritization."""
     ids: List[str] = []
     docs: List[str] = []
     metas: List[Dict[str, Any]] = []
@@ -287,14 +287,31 @@ def _retrieve_with_dynamic_matching(
             if rule_id and d:
                 d_lower = d.lower()
 
-                # Exact rule pattern matching
-                exact_patterns = [
-                    f"rule#{rule_id}",
-                    f"rule {rule_id}",
-                    f"rule {int(rule_id)}",
-                ]
+                # HIGHEST BOOST: Complete rulebooks for exact rule matches
+                if (
+                    m
+                    and m.get("doctype") == "complete_rulebook"
+                    and m.get("primary_rule_id") == rule_id
+                ):
+                    boost_factor = 20.0  # MASSIVE boost for complete rulebooks
 
-                if any(pattern in d_lower for pattern in exact_patterns):
+                # PENALIZE: Focused chunks when we want complete content
+                elif (
+                    m
+                    and m.get("doctype") == "focused_rule_procedures"
+                    and m.get("primary_rule_id") == rule_id
+                ):
+                    boost_factor = 0.5  # REDUCE focused chunk priority
+
+                # Exact rule pattern matching
+                elif any(
+                    pattern in d_lower
+                    for pattern in [
+                        f"rule#{rule_id}",
+                        f"rule {rule_id}",
+                        f"rule {int(rule_id)}",
+                    ]
+                ):
                     boost_factor = 2.5  # High boost for exact matches
 
                 # Dynamic pattern matching
@@ -346,20 +363,79 @@ def _is_rulebook_meta(meta: Dict[str, Any]) -> bool:
 
 
 def _filter_by_rule_relevance(hits: List[Tuple], rule_id: str) -> List[Tuple]:
-    """Dynamic rule relevance filtering."""
+    """Enhanced rule relevance filtering with complete rulebook prioritization."""
     if not rule_id:
         return hits
 
+    # ✅ FORCE complete rulebooks to be first
+    complete_rulebooks = []
+    focused_chunks = []
     exact_matches = []
     related_matches = []
     other_matches = []
 
-    # Build dynamic rule patterns
+    # SPECIAL HANDLING for Rule 002 vs 280 confusion
+    if rule_id == "002":
+        exact_002_matches = []
+        for hit in hits:
+            i, s, d, m = hit
+            d_lower = d.lower()
+
+            # Check for complete rulebook first
+            if (
+                m
+                and m.get("doctype") == "complete_rulebook"
+                and m.get("primary_rule_id") == rule_id
+            ):
+                complete_rulebooks.append((i, s * 100.0, d, m))
+                continue
+
+            if (
+                "rule#002" in d_lower
+                or "rule 002" in d_lower
+                or "bypass conditional access" in d_lower
+            ):
+                exact_002_matches.append((i, s * 20.0, d, m))  # HUGE boost
+            elif "rule#280" in d_lower or "rule 280" in d_lower or "sophos" in d_lower:
+                continue  # Skip Rule 280 entirely for Rule 002 queries
+
+        # Return complete rulebooks first, then exact matches
+        if complete_rulebooks or exact_002_matches:
+            complete_rulebooks.sort(key=lambda x: x[1], reverse=True)
+            exact_002_matches.sort(key=lambda x: x[1], reverse=True)
+            return complete_rulebooks[:2] + exact_002_matches[:3]
+
+    # First pass: Categorize by doctype for the specific rule
+    for hit in hits:
+        i, s, d, m = hit
+        d_lower = d.lower()
+
+        # HIGHEST PRIORITY: Complete rulebooks for exact rule match
+        if (
+            m
+            and m.get("doctype") == "complete_rulebook"
+            and m.get("primary_rule_id") == rule_id
+        ):
+            complete_rulebooks.append((i, s * 100.0, d, m))
+            continue
+
+        # LOWEST PRIORITY: Focused chunks (backup only)
+        elif (
+            m
+            and m.get("doctype") == "focused_rule_procedures"
+            and m.get("primary_rule_id") == rule_id
+        ):
+            focused_chunks.append((i, s * 0.1, d, m))
+            continue
+
+    # Build comprehensive rule patterns for exact matching
     rule_patterns = [
         f"rule#{rule_id}",
         f"rule {rule_id}",
         f"rule {int(rule_id)}",
         f"rule#{int(rule_id)}",
+        f"rule-{rule_id}",
+        f"rule:{rule_id}",
     ]
 
     # Add dynamic patterns if available
@@ -367,31 +443,68 @@ def _filter_by_rule_relevance(hits: List[Tuple], rule_id: str) -> List[Tuple]:
         dynamic_patterns = [p.lower() for p in _rule_mapper.get_rule_patterns(rule_id)]
         rule_patterns.extend(dynamic_patterns)
 
+    # Second pass: Process remaining hits for pattern matching
     for hit in hits:
         i, s, d, m = hit
         d_lower = d.lower()
 
-        # Check for exact rule match
-        if any(pattern in d_lower for pattern in rule_patterns):
-            exact_matches.append(hit)
-        # Check for different rule numbers
-        elif re.search(r"rule\s*#?\s*\d+", d_lower):
-            # This contains a different rule number
-            other_rule_match = re.search(r"rule\s*#?\s*(\d+)", d_lower)
-            if other_rule_match:
-                other_rule_num = other_rule_match.group(1).zfill(3)
-                if other_rule_num != rule_id:
-                    # Different rule, lower priority
-                    related_matches.append(hit)
-                else:
-                    exact_matches.append(hit)
+        # Skip if already categorized as complete/focused
+        if (
+            m
+            and m.get("primary_rule_id") == rule_id
+            and m.get("doctype") in ["complete_rulebook", "focused_rule_procedures"]
+        ):
+            continue
+
+        # Check for EXACT rule match with aggressive scoring
+        exact_rule_found = False
+        for pattern in rule_patterns:
+            if pattern in d_lower:
+                # BOOST: Multiply score by 10 for exact matches
+                boosted_hit = (i, s * 10.0, d, m)
+                exact_matches.append(boosted_hit)
+                exact_rule_found = True
+                break
+
+        if exact_rule_found:
+            continue
+
+        # Check for different rule numbers (should be deprioritized)
+        other_rule_match = re.search(r"rule\s*#?\s*(\d+)", d_lower)
+        if other_rule_match:
+            other_rule_num = other_rule_match.group(1).zfill(3)
+            if other_rule_num != rule_id:
+                # Different rule - heavily penalize score
+                penalized_hit = (i, s * 0.1, d, m)
+                related_matches.append(penalized_hit)
             else:
-                related_matches.append(hit)
+                # Same rule but different pattern - still boost
+                boosted_hit = (i, s * 5.0, d, m)
+                exact_matches.append(boosted_hit)
         else:
+            # No rule number found - neutral score
             other_matches.append(hit)
 
-    # Return exact matches first, then related, then others (limited)
-    return exact_matches + related_matches[:2] + other_matches[:1]
+    # Sort each category by score (descending)
+    complete_rulebooks.sort(key=lambda x: x[1], reverse=True)
+    focused_chunks.sort(key=lambda x: x[1], reverse=True)
+    exact_matches.sort(key=lambda x: x[1], reverse=True)
+    related_matches.sort(key=lambda x: x[1], reverse=True)
+    other_matches.sort(key=lambda x: x[1], reverse=True)
+
+    # Return in priority order: Complete > Exact > Related > Focused (backup) > Other
+    result = []
+    result.extend(complete_rulebooks[:2])  # Top 2 complete rulebooks
+    result.extend(exact_matches[:2])  # Top 2 exact matches
+    result.extend(related_matches[:1])  # Top 1 related match
+
+    # Only add focused chunks if we don't have enough complete content
+    if len(result) < 3:
+        result.extend(focused_chunks[:1])  # 1 focused chunk as backup
+
+    result.extend(other_matches[:1])  # 1 other match
+
+    return result[:5]  # Return top 5 overall
 
 
 def _filter_empty_tracker_rows(hits: List[Tuple]) -> List[Tuple]:
@@ -426,8 +539,8 @@ def retrieve_context(
     persist_dir: str = "vector_store_faiss",
     index_name: str = "soc_rag",
     embed_model: str = "nomic-embed-text",
-    k_tracker: int = 2,
-    k_rulebook: int = 5,
+    k_tracker: int = 1,
+    k_rulebook: int = 1,
 ) -> Dict[str, Any]:
     """Enhanced dual source retrieval with dynamic rule matching - Context Only."""
     # Ensure rule mapper is loaded
@@ -504,14 +617,14 @@ def retrieve_context(
 
 
 def _extract_rule_block_from_rulebook_text(text: str, rule_id_norm: str) -> str:
-    """Enhanced rule block extraction with dynamic pattern matching."""
+    """Enhanced rule block extraction that captures complete procedures."""
     if not text or not rule_id_norm:
         return text
 
     t = text.replace("\r\n", "\n")
     rid_num = rule_id_norm.lstrip("0")
 
-    # Build comprehensive patterns
+    # Build comprehensive patterns for finding rule start
     pat_candidates = [
         rf"(?i)^.*Rule#?0*{re.escape(rid_num)}[^0-9].*$",
         rf"(?i)^.*Rule[ #:-]*0*{re.escape(rid_num)}[^0-9].*$",
@@ -541,26 +654,53 @@ def _extract_rule_block_from_rulebook_text(text: str, rule_id_norm: str) -> str:
                 start = m.start()
                 break
         except re.error:
-            continue  # Skip invalid regex patterns
+            continue
 
     if start < 0:
+        # If no specific pattern found, return full text
         return text
 
-    # Find the end (next rule or end of text)
-    next_rule = re.search(
-        r"(?i)^.*Rule[ #]*\d{1,4}.*$", t[start + 50 :], flags=re.MULTILINE
-    )
-    end = start + 50 + next_rule.start() if next_rule else len(t)
+    # Find the end - look for next different rule OR end of text
+    # IMPROVED: Look further ahead and capture more content
+    next_rule_patterns = [
+        rf"(?i)^.*Rule[ #]*(?!0*{re.escape(rid_num)}[^0-9])\d{{1,4}}.*$",  # Different rule number
+        r"(?i)^.*=+.*RULE.*SUMMARY.*=+.*$",  # Rule summary section
+        r"(?i)^.*PRIMARY RULE:.*$",  # New primary rule section
+    ]
+
+    end = len(t)  # Default to end of text
+    search_start = start + 50
+
+    for pattern in next_rule_patterns:
+        try:
+            next_match = re.search(pattern, t[search_start:], flags=re.MULTILINE)
+            if next_match:
+                potential_end = search_start + next_match.start()
+                if potential_end > start + 100:  # Ensure we get meaningful content
+                    end = potential_end
+                    break
+        except re.error:
+            continue
 
     block = t[start:end].strip()
 
-    # If block is too short, expand backwards
-    if len(block) < 200:
-        pre = t.rfind("\nRow", 0, start)
-        if pre != -1:
-            block = t[pre:end].strip()
+    # If block is too short, expand backwards to capture more context
+    if len(block) < 1000:  # Increased from 200
+        # Look for row markers to expand backwards
+        pre_patterns = ["\nRow", "\nSr.No", "\nS.No", "RULEBOOK:", "==="]
+        for pre_pattern in pre_patterns:
+            pre = t.rfind(pre_pattern, max(0, start - 2000), start)
+            if pre != -1:
+                expanded_block = t[pre:end].strip()
+                if len(expanded_block) > len(block):
+                    block = expanded_block
+                break
 
-    return block if len(block) > 10 else text
+    # Final validation - ensure we have meaningful content
+    if len(block) < 50:
+        return text
+
+    return block
 
 
 def build_context_block(results: Dict[str, Any], query: str) -> str:
@@ -601,26 +741,7 @@ def build_context_block(results: Dict[str, Any], query: str) -> str:
                     rule_info = {}
 
                 # Filter to show only relevant fields for rules
-                if rid:
-                    relevant_data = {}
-                    for k, v in tracker_data.items():
-                        if v is not None and (
-                            "rule" in k.lower()
-                            or "incident" in k.lower()
-                            or "priority" in k.lower()
-                            or "status" in k.lower()
-                            or "comments" in k.lower()
-                            or "alert" in k.lower()
-                        ):
-                            relevant_data[k] = v
-
-                    if relevant_data:
-                        display_data = relevant_data
-                    else:
-                        # If no relevant fields, show all
-                        display_data = tracker_data
-                else:
-                    display_data = tracker_data
+                display_data = tracker_data
 
                 # Add rule info if available
                 if rule_info:
@@ -629,7 +750,7 @@ def build_context_block(results: Dict[str, Any], query: str) -> str:
                 pretty = json.dumps(display_data, ensure_ascii=False, indent=2)
 
             except Exception:
-                pretty = d.strip()[:4000]
+                pretty = d.strip()
 
             lines.append(f"[score={s:.3f}] [src={src}] [row={rowindex}]")
             lines.append(pretty)
@@ -642,8 +763,9 @@ def build_context_block(results: Dict[str, Any], query: str) -> str:
         for i, (idx, s, d, m) in enumerate(rb_hits):
             src = (m or {}).get("source") or (m or {}).get("filetype") or "rulebook"
             block = d
-
-            if rid and len(d) > 100:
+            
+            # Only extract for non-complete rulebooks
+            if rid and len(d) > 100 and not (m and m.get("doctype") == "complete_rulebook"):
                 extracted = _extract_rule_block_from_rulebook_text(d, rid)
                 if len(extracted) > 10:
                     block = extracted

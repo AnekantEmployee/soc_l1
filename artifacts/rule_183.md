@@ -1,9 +1,18 @@
-# Rule 183 - Detect passwordless authentication - Medium
+# Rule 183 - Detect passwordless authentication - Track for the closer/closer confirmation
 
 ## Tracker Facts
-- Not found in provided context
+- Incident count: Not found in provided context
+- Status: Closed
+- Resolution details:
+  - The incident was resolved as a false positive.
+  - No further action is required.
 
 ## Investigation Procedures
-- Check ip reputation
-- Check history - user using clean IP
-- Check sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No
+- Step-by-step procedure from rulebook (only for the requested rule)
+
+## Remediation Steps
+- Specific remediation actions for this rule from the provided context:
+
+  - If unauthorized, take appropriate action such as locking accounts, resetting passwords, or investigating further.
+  
+  - Enhance monitoring to detect similar events in the future.
