@@ -2,39 +2,53 @@ Query: Rule 2
 ==================================================
 === QUERY CONTEXT ===
 Searching for: Rule 002
-Alert Names: Track for the closer/closer confirmation
+Alert Names: Attempt to bypass conditional access rule in Microsoft Entra ID, Attempt to bypass conditional access rule in Azure AD
 
 === TRACKER DATA ===
-[score=1.000] [src=tracker_sheet] [row=5]
+[score=1.000] [src=tracker_sheet] [row=4]
+{
+  "priority": "Low",
+  "alert/incident": "Alert",
+  "resolver comments": "Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US,IN,MX & MA, guest MFA enabled for users nothing supicious found.",
+  "rule": "Rule#002-Attempt to bypass conditional access rule in Microsoft Entra ID",
+  "status": "Closed",
+  "remarks / comments": "Rule#002 -01-Jul'25 (208307).xlsx",
+  "_extracted_rule_info": {
+    "rule_id": "002",
+    "alert_name": "Attempt to bypass conditional access rule in Microsoft Entra ID",
+    "description": "",
+    "severity": "Low",
+    "category": ""
+  }
+}
+
+[score=0.752] [src=tracker_sheet] [row=1]
 {
   "priority": "High",
-  "alert/incident": "Incident",
-  "resolver comments": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00463 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095255",
-  "rule": "Rule#280- Detect when One or more Sophos services are missing or not running.",
+  "alert/incident": "Alert",
+  "resolver comments": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+  "rule": "Rule#286- Atypical travel",
   "status": "Closed",
-  "remarks / comments": "Rule 280-July-01-25 ( 208308 ).xlsx",
+  "remarks / comments": "Rule#286 -01-Jul'25 (208304).xlsx",
   "_extracted_rule_info": {
-    "rule_id": "280",
-    "alert_name": "Incident",
-    "description": "INC0095255",
+    "rule_id": "286",
+    "alert_name": "Atypical travel",
+    "description": "",
     "severity": "High",
     "category": ""
   }
 }
 
-[score=0.960] [src=tracker_sheet] [row=9]
+=== RULEBOOK PROCEDURES ===
+[score=1.000] [src=Rule#002 -01-Jul'25 (208307)(Sheet1).csv]
+RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
+==================================================
+PRIMARY RULE: 002
+Columns: sr.no., inputs required, details, exisiting / new, duration
+Total Rows: 15
+
+Row 1:
 {
-  "priority": "High",
-  "alert/incident": "Incident",
-  "resolver comments": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00450 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095260",
-  "rule": "Rule#280- Detect when One or more Sophos services are missing or not running.",
-  "status": "Closed",
-  "remarks / comments": "Rule 280-July-01-25 ( 208312 ).xlsx",
-  "_extracted_rule_info": {
-    "rule_id": "280",
-    "alert_name": "Incident",
-    "description": "INC0095260",
-    "severity": "High",
-    "category": ""
-  }
-}
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,

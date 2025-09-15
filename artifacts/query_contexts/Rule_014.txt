@@ -2,7 +2,7 @@ Query: Rule 014
 ==================================================
 === QUERY CONTEXT ===
 Searching for: Rule 014
-Alert Names: False Positive (FP) Scenarios
+Alert Names: New User Assigned to Privileged Role, User Assigned Privileged Role
 
 === TRACKER DATA ===
 [score=1.000] [src=tracker_sheet] [row=6]
@@ -15,7 +15,7 @@ Alert Names: False Positive (FP) Scenarios
   "remarks / comments": "Rule#014-July-01-25 ( 208309 ).xlsx",
   "_extracted_rule_info": {
     "rule_id": "014",
-    "alert_name": "Alert",
+    "alert_name": "New User Assigned to Privileged Role",
     "description": "",
     "severity": "High",
     "category": ""
@@ -35,3 +35,263 @@ Row 1:
   "row_index": 1,
   "data": {
     "sr.no.": 1.0,
+
+[score=0.435] [src=Rule#002 -01-Jul'25 (208307)(Sheet1).csv]
+RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
+==================================================
+PRIMARY RULE: 002
+Columns: sr.no., inputs required, details, exisiting / new, duration
+Total Rows: 15
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#002-Attempt to bypass conditional access rule in Azure AD",
+    "details": null,
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "002",
+    "alert_name": "Attempt to bypass conditional access rule in Azure AD",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 2:
+{
+  "row_index": 2,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Incident No:",
+    "details": "208307",
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 3:
+{
+  "row_index": 3,
+  "data": {
+    "sr.no.": 2.0,
+    "inputs required": "Reported Time:",
+    "details": "7/1/2025 13:11",
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 4:
+{
+  "row_index": 4,
+  "data": {
+    "sr.no.": 3.0,
+    "inputs required": "Response Time:",
+    "details": "7/1/2025 13:12",
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 5:
+{
+  "row_index": 5,
+  "data": {
+    "sr.no.": 4.0,
+    "inputs required": "Resolved Time:",
+    "details": "7/1/2025 13:23",
+    "exisiting / new": null,
+    "duration": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 6:
+{
+  "row_index": 6,
+  "data": {
+    "sr.no.": 5.0,
+    "inputs required": "VIPS Users ?",
+    "details": "No",
+    "exisiting / new": null,
+    "duration": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 7:
+{
+  "row_index": 7,
+  "data": {
+    "sr.no.": 6.0,
+    "inputs required": "Collect the user details and add in attached sheet(Ex:jelkins@arcutis.com)",
+    "details": "Multiple users",
+    "exisiting / new": null,
+    "duration": "10 mnts"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "Run The KQL to check location the logs from where user logged in match to approved location",
+    "details": "Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US
+
+[score=0.377] [src=Rule#016-July-01-25 ( 208310 )(Sheet1).csv]
+RULEBOOK: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
+==================================================
+PRIMARY RULE: 016
+Columns: sr.no., inputs required, input details, instructions, reviwer comments
+Total Rows: 14
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #016 - User added to Azure Active Directory Privileged Groups",
+    "input details": null,
+    "instructions": "A user has been added to a privileged AAD group, which may indicate unauthorized privilege elevation.",
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "016",
+    "alert_name": "User added to Azure Active Directory Privileged Groups",
+    "description": "A user has been added to a privileged AAD group, which may indicate unauthorized privilege elevation.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 2:
+{
+  "row_index": 2,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Incident Number",
+    "input details": "208310",
+    "instructions": null,
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 3:
+{
+  "row_index": 3,
+  "data": {
+    "sr.no.": 2.0,
+    "inputs required": "How many users are impacted ?",
+    "input details": "1",
+    "instructions": "Gather details of all users - (By adding sheet to this excel)",
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 4:
+{
+  "row_index": 4,
+  "data": {
+    "sr.no.": 3.0,
+    "inputs required": "Check Alert Details",
+    "input details": "Yes",
+    "instructions": "Username, Group Name, Added By, Time of Addition, IP Address, Location",
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Username, Group Name, Added By, Time of Addition, IP Address, Location",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 5:
+{
+  "row_index": 5,
+  "data": {
+    "sr.no.": 4.0,
+    "inputs required": "Validate Group Sensitivity",
+    "input details": "Yes",
+    "instructions": "Confirm if the group is high-risk (e.g., Global Admin, Conditional Access Admin)",
+    "reviwer comments": ""
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 6:
+{
+  "row_index": 6,
+  "data": {
+    "sr.no.": 5.0,
+    "inputs required": "Check Sign-in Logs of added user",
+    "input details": "Observed the Events and checked user(Jgreenwood) was added into MS-PIM, nothing Suspicious activities found, closing as FP",
+    "instructions": "Check recent login patterns, location, and app access",
+    "reviwer comments": "Also  initiator around time activity like before adding in to group verify user precompromise actvity Like  user acccsesing  any link or  emails or files and also is  logging  from any new IP or loctaion or user agent"

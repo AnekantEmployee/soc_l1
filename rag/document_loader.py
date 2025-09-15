@@ -153,9 +153,9 @@ class DocumentLoader:
                 raise ValueError(f"Invalid tracker data: {msg}")
 
             # Clean column names
-            self.tracker_sheet.columns = self.tracker_sheet.columns.astype(
-                str
-            ).str.strip()
+            self.tracker_sheet.columns = [
+                str(col).strip() for col in self.tracker_sheet.columns
+            ]
 
             print(
                 f"✅ Loaded tracker sheet: {self.tracker_sheet.shape[0]} rows, "
@@ -237,7 +237,7 @@ class DocumentLoader:
                         continue
 
                     # Clean column names
-                    df.columns = df.columns.astype(str).str.strip()
+                    df.columns = [str(col).strip() for col in df.columns]
 
                     self.rulebooks[file] = df
                     successful_loads += 1
@@ -287,15 +287,15 @@ class DocumentLoader:
     def _check_rule_content(self, df: pd.DataFrame) -> bool:
         """Check if dataframe contains rule-related content."""
         if df.empty:
-            return False
+            return False    
 
         # Check column names
         rule_indicators = [
             "rule",
-            "alert",
+            "alert", 
             "incident",
             "procedure",
-            "step",
+            "step", 
             "instruction",
         ]
 
@@ -306,14 +306,14 @@ class DocumentLoader:
 
         # Check a sample of data content
         sample_size = min(10, len(df))
-        sample_data = df.head(sample_size).astype(str).str.lower()
-
-        for _, row in sample_data.iterrows():
-            row_text = " ".join(row.values)
+        
+        for _, row in df.head(sample_size).iterrows():
+            row_text = " ".join([str(val).lower() for val in row.values])
             if "rule" in row_text and any(c.isdigit() for c in row_text):
                 return True
 
         return False
+
 
     def load_all_documents(self) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame]]:
         """Enhanced document loading with comprehensive error handling."""

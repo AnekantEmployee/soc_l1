@@ -252,7 +252,7 @@ class FaissIndexer:
 
 
 def prepare_simple_docs(
-    all_chunks: List[Any], max_chars: int = 3000
+    all_chunks: List[Any], max_chars: int = 10000
 ) -> List[Dict[str, Any]]:
     """Enhanced document preparation with rule awareness."""
     docs = []

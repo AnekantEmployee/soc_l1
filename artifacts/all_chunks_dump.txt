@@ -1,20 +1,20 @@
 === ENHANCED CHUNKS DUMP ===
-written_utc: 2025-09-15T05:25:15.884521Z
+written_utc: 2025-09-15T05:56:39.073254Z
 
 counts: tracker=10, rulebook=9, all=19
 
-rule_mappings: 111
+rule_mappings: 15
 
-unique_rules: 6
+unique_rules: 5
 
 ----- CHUNK START -----
 index: 1
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 286
-alert_name: Alert
+alert_name: Atypical travel
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 0, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "286", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 0, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "286", "alert_name": "Atypical travel", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -49,7 +49,7 @@ metadata: {"source": "tracker_sheet", "row_index": 0, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "286",
-    "alert_name": "Alert",
+    "alert_name": "Atypical travel",
     "description": "",
     "severity": "High",
     "category": ""
@@ -62,9 +62,9 @@ index: 2
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 286
-alert_name: Alert
+alert_name: Atypical travel
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 1, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "286", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 1, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "286", "alert_name": "Atypical travel", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -99,7 +99,7 @@ metadata: {"source": "tracker_sheet", "row_index": 1, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "286",
-    "alert_name": "Alert",
+    "alert_name": "Atypical travel",
     "description": "",
     "severity": "High",
     "category": ""
@@ -112,9 +112,9 @@ index: 3
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 019
-alert_name: Alert
+alert_name: Signin Logs with expanded Conditional access policies
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 2, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "019", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 2, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "019", "alert_name": "Signin Logs with expanded Conditional access policies", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -149,7 +149,7 @@ metadata: {"source": "tracker_sheet", "row_index": 2, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "019",
-    "alert_name": "Alert",
+    "alert_name": "Signin Logs with expanded Conditional access policies",
     "description": "",
     "severity": "Medium",
     "category": ""
@@ -162,9 +162,9 @@ index: 4
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 183
-alert_name: Alert
+alert_name: Detect passwordless authentication
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 3, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "183", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 3, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "183", "alert_name": "Detect passwordless authentication", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -199,7 +199,7 @@ metadata: {"source": "tracker_sheet", "row_index": 3, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "183",
-    "alert_name": "Alert",
+    "alert_name": "Detect passwordless authentication",
     "description": "",
     "severity": "Medium",
     "category": ""
@@ -212,9 +212,9 @@ index: 5
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 002
-alert_name: Alert
+alert_name: Attempt to bypass conditional access rule in Microsoft Entra ID
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 4, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "002", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 4, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "002", "alert_name": "Attempt to bypass conditional access rule in Microsoft Entra ID", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -249,7 +249,7 @@ metadata: {"source": "tracker_sheet", "row_index": 4, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "002",
-    "alert_name": "Alert",
+    "alert_name": "Attempt to bypass conditional access rule in Microsoft Entra ID",
     "description": "",
     "severity": "Low",
     "category": ""
@@ -262,9 +262,9 @@ index: 6
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 280
-alert_name: Incident
+alert_name: July-01-25 ( 208308 ).xlsx
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 5, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "Incident", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 5, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "July-01-25 ( 208308 ).xlsx", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -299,8 +299,8 @@ metadata: {"source": "tracker_sheet", "row_index": 5, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "280",
-    "alert_name": "Incident",
-    "description": "INC0095255",
+    "alert_name": "July-01-25 ( 208308 ).xlsx",
+    "description": "",
     "severity": "High",
     "category": ""
   }
@@ -312,9 +312,9 @@ index: 7
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 014
-alert_name: Alert
+alert_name: New User Assigned to Privileged Role
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 6, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "014", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 6, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "014", "alert_name": "New User Assigned to Privileged Role", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -349,7 +349,7 @@ metadata: {"source": "tracker_sheet", "row_index": 6, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "014",
-    "alert_name": "Alert",
+    "alert_name": "New User Assigned to Privileged Role",
     "description": "",
     "severity": "High",
     "category": ""
@@ -362,9 +362,9 @@ index: 8
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 016
-alert_name: Alert
+alert_name: User added to Microsoft Entra ID Privileged Groups
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 7, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "016", "alert_name": "Alert", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 7, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "016", "alert_name": "User added to Microsoft Entra ID Privileged Groups", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -399,7 +399,7 @@ metadata: {"source": "tracker_sheet", "row_index": 7, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "016",
-    "alert_name": "Alert",
+    "alert_name": "User added to Microsoft Entra ID Privileged Groups",
     "description": "",
     "severity": "Medium",
     "category": ""
@@ -412,9 +412,9 @@ index: 9
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 280
-alert_name: Incident
+alert_name: July-01-25 ( 208311 ).xlsx
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 8, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "Incident", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 8, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "July-01-25 ( 208311 ).xlsx", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -449,8 +449,8 @@ metadata: {"source": "tracker_sheet", "row_index": 8, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "280",
-    "alert_name": "Incident",
-    "description": "INC0095259",
+    "alert_name": "July-01-25 ( 208311 ).xlsx",
+    "description": "",
     "severity": "High",
     "category": ""
   }
@@ -462,9 +462,9 @@ index: 10
 doctype: tracker_row
 source: tracker_sheet
 rule_id: 280
-alert_name: Incident
+alert_name: July-01-25 ( 208312 ).xlsx
 has_rule_info: True
-metadata: {"source": "tracker_sheet", "row_index": 9, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "Incident", "has_rule_info": true}
+metadata: {"source": "tracker_sheet", "row_index": 9, "doctype": "tracker_row", "total_rows": 10, "columns_count": 28, "rule_id": "280", "alert_name": "July-01-25 ( 208312 ).xlsx", "has_rule_info": true}
 ----- CONTENT -----
 {
   "tracker_data": {
@@ -499,8 +499,8 @@ metadata: {"source": "tracker_sheet", "row_index": 9, "doctype": "tracker_row", 
   },
   "extracted_rule_info": {
     "rule_id": "280",
-    "alert_name": "Incident",
-    "description": "INC0095260",
+    "alert_name": "July-01-25 ( 208312 ).xlsx",
+    "description": "",
     "severity": "High",
     "category": ""
   }
@@ -514,7 +514,7 @@ source: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 10}
+metadata: {"source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv
 ==================================================
@@ -533,8 +533,8 @@ Row 1:
   },
   "rule_metadata": {
     "rule_id": "280",
-    "alert_name": "Detect when One or more Sophos services are missing or not running.",
-    "description": "Description:The rule will detect when one or more sophos services are missing or not running properly",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -551,7 +551,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -569,7 +569,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -587,8 +587,8 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Observe the events",
-    "description": "Check the device, name of service (missing or not running) , source IP, source name, time",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -605,8 +605,8 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Sophos Console for the user health agent status",
-    "description": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -623,8 +623,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check if the status all the services are running or not",
-    "description": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -641,7 +641,37 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-   
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "s.no": 7.0,
+    "inputs required": "Raise a Incident ticket in SNOW",
+    "input details": "Yes ( INC0095255)",
+    "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Steps to create incident (Ref: Incident Screeshot)",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "s.no": 8.0,
+    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix\" video 
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -652,7 +682,7 @@ source: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 10}
+metadata: {"source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
 ==================================================
@@ -671,8 +701,8 @@ Row 1:
   },
   "rule_metadata": {
     "rule_id": "280",
-    "alert_name": "Detect when One or more Sophos services are missing or not running.",
-    "description": "Description:The rule will detect when one or more sophos services are missing or not running properly",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -689,7 +719,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -707,7 +737,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -725,8 +755,8 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Observe the events",
-    "description": "Check the device, name of service (missing or not running) , source IP, source name, time",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -743,8 +773,8 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Sophos Console for the user health agent status",
-    "description": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -761,8 +791,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check if the status all the services are running or not",
-    "description": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -779,7 +809,37 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-   
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "Raise a Incident ticket in SNOW",
+    "input details": "INC0095259",
+    "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Steps to create incident (Ref: Incident Screeshot)",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix\" video whi
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -790,7 +850,7 @@ source: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 10}
+metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 ==================================================
@@ -809,8 +869,8 @@ Row 1:
   },
   "rule_metadata": {
     "rule_id": "280",
-    "alert_name": "Detect when One or more Sophos services are missing or not running.",
-    "description": "Description:The rule will detect when one or more sophos services are missing or not running properly",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -827,7 +887,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -845,7 +905,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -863,8 +923,8 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Observe the events",
-    "description": "Check the device, name of service (missing or not running) , source IP, source name, time",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -881,8 +941,8 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Sophos Console for the user health agent status",
-    "description": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -899,8 +959,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check if the status all the services are running or not",
-    "description": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -916,7 +976,38 @@ Row 7:
     "instructions": "Attached the details as an Artificats to next sheet based on the details available in the events, update accordingly in the word document."
   },
   "rule_metadata": {
-    "rule_
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "Raise a Incident ticket in SNOW",
+    "input details": "INC0095260",
+    "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Steps to create incident (Ref: Incident Screeshot)",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -927,7 +1018,7 @@ source: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv", "doctype": "rulebook", "rows": 15, "columns_count": 5, "filetype": "csv", "primary_rule_id": "002", "contains_procedures": true, "procedure_count": 15}
+metadata: {"source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv", "doctype": "rulebook", "rows": 15, "columns_count": 5, "filetype": "csv", "primary_rule_id": "002", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv
 ==================================================
@@ -966,7 +1057,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident No:",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -985,7 +1076,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time:",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1004,7 +1095,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Response Time:",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1023,7 +1114,7 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Resolved Time:",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1042,7 +1133,7 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "VIPS Users ?",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1061,7 +1152,7 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Collect the user details and add in attached sheet(Ex:jelkins@arcutis.com)",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1080,7 +1171,7 @@ Row 8:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Run The KQL to check location the logs from where user logged in match to approved location",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1098,7 +1189,20 @@ Row 9:
     "duration": null
   },
   "rule_metadata": {
-    "rule_id":
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 10:
+{
+  "row_index": 10,
+  "data": {
+    "sr.no.": 9.0,
+    "inputs required": "Connect with user to verify loggin change locations
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -1109,7 +1213,7 @@ source: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 5, "filetype": "csv", "primary_rule_id": "014", "contains_procedures": true, "procedure_count": 13}
+metadata: {"source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 5, "filetype": "csv", "primary_rule_id": "014", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
 ==================================================
@@ -1148,7 +1252,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident Number",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1167,8 +1271,8 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "How many users are impacted ?",
-    "description": "Gather details of all users - (By adding sheet to this excel)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1186,7 +1290,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Alert Details",
+    "alert_name": "",
     "description": "Username, Role Assigned, Time of Assignment, Initiator, Source IP, Location",
     "severity": "",
     "category": ""
@@ -1205,7 +1309,7 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Verify Role Sensitivity",
+    "alert_name": "",
     "description": "Determine if the assigned role is high-risk (e.g., Global Admin)",
     "severity": "",
     "category": ""
@@ -1224,7 +1328,7 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Review Sign-In Logs",
+    "alert_name": "",
     "description": "Look for unusual sign-in patterns by the assigned user for last 7 days",
     "severity": "",
     "category": ""
@@ -1243,8 +1347,8 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Activity of Initiator",
-    "description": "Validate if the assigning user had legitimate access and permissions",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1257,7 +1361,21 @@ Row 8:
     "sr.no.": 8.0,
     "inputs required": "Escalate if Unauthorized",
     "input details": "Not Required",
-    "instructions": "if suspicious, escalate
+    "instructions": "if suspicious, escalate to L3/IT for investigation",
+    "reviewer comments": "If  initiator  found compromise then Escalte to L3"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_i
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -1268,7 +1386,7 @@ source: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv", "doctype": "rulebook", "rows": 14, "columns_count": 5, "filetype": "csv", "primary_rule_id": "016", "contains_procedures": true, "procedure_count": 14}
+metadata: {"source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv", "doctype": "rulebook", "rows": 14, "columns_count": 5, "filetype": "csv", "primary_rule_id": "016", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#016-July-01-25 ( 208310 )(Sheet1).csv
 ==================================================
@@ -1307,7 +1425,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident Number",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1326,8 +1444,8 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "How many users are impacted ?",
-    "description": "Gather details of all users - (By adding sheet to this excel)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1345,7 +1463,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Alert Details",
+    "alert_name": "",
     "description": "Username, Group Name, Added By, Time of Addition, IP Address, Location",
     "severity": "",
     "category": ""
@@ -1364,8 +1482,8 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Validate Group Sensitivity",
-    "description": "Confirm if the group is high-risk (e.g., Global Admin, Conditional Access Admin)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1383,8 +1501,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Sign-in Logs of added user",
-    "description": "Check recent login patterns, location, and app access",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1402,8 +1520,8 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Check Initiator’s Identity",
-    "description": "Validate the identity and permissions of the user who added the member",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1413,7 +1531,24 @@ Row 8:
 {
   "row_index": 8,
   "data": {
-    "sr.no.": 7.0
+    "sr.no.": 7.0,
+    "inputs required": "Check IP Reputation (if public IP)",
+    "input details": "Clean",
+    "instructions": "Use VirusTotal, document result with screenshot if malicious",
+    "reviwer comments": "Prevalence of IP & alerts on IP and Initiator"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -1424,7 +1559,7 @@ source: Rule#183 01-Jul'25 (208306)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "183", "contains_procedures": true, "procedure_count": 13}
+metadata: {"source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "183", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#183 01-Jul'25 (208306)(Sheet1).csv
 ==================================================
@@ -1461,7 +1596,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1479,7 +1614,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1497,7 +1632,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Provide the username which are involved in the incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1515,8 +1650,8 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "VIPS Users ?",
-    "description": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1533,8 +1668,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Run the KQL query",
-    "description": "Verify the logs whether there is any Application without sign in attempts",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1551,8 +1686,8 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Collect the basic info like UserName, App DisplayName, User Agent, Time",
-    "description": "If there is any application sign in without password check whether the application is critical or not",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1565,7 +1700,25 @@ Row 8:
     "sr.no.": 7.0,
     "inputs required": "User Confirmation - If YES",
     "input details": "No need",
-    "instructions": "If no cri
+    "instructions": "If no critical applications close the incident as false positive"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "User Confirmation --- NO. (True Positive)",
+    "input details": null,
+    "instructions": "If any critical application found consider as True Positi
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -1576,7 +1729,7 @@ source: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 13}
+metadata: {"source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
 ==================================================
@@ -1613,7 +1766,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1631,7 +1784,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1649,7 +1802,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Provide the username which are involved in the incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1667,7 +1820,7 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Run the KQL query",
+    "alert_name": "",
     "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
     "severity": "",
     "category": ""
@@ -1685,8 +1838,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "VIP Users",
-    "description": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1703,8 +1856,8 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Analyze Login Patterns",
-    "description": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1719,7 +1872,23 @@ Row 8:
     "input details": "IP is clean",
     "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
   },
-  
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Verify User Behavior",
+    "input details": "nothing suspicious",
+    "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify i
 ...[TRUNCATED]
 ----- CHUNK END -----
 
@@ -1730,7 +1899,7 @@ source: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 13}
+metadata: {"source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv", "doctype": "rulebook", "rows": 13, "columns_count": 4, "filetype": "csv", "primary_rule_id": "286", "contains_procedures": true, "procedure_count": 1}
 ----- CONTENT -----
 RULEBOOK: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
 ==================================================
@@ -1767,7 +1936,7 @@ Row 2:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1785,7 +1954,7 @@ Row 3:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Reported Time",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1803,7 +1972,7 @@ Row 4:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Provide the username which are involved in the incident",
+    "alert_name": "",
     "description": "",
     "severity": "",
     "category": ""
@@ -1821,7 +1990,7 @@ Row 5:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Run the KQL query",
+    "alert_name": "",
     "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
     "severity": "",
     "category": ""
@@ -1839,8 +2008,8 @@ Row 6:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "VIP Users",
-    "description": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1857,8 +2026,8 @@ Row 7:
   },
   "rule_metadata": {
     "rule_id": "",
-    "alert_name": "Analyze Login Patterns",
-    "description": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity.",
+    "alert_name": "",
+    "description": "",
     "severity": "",
     "category": ""
   }
@@ -1873,6 +2042,22 @@ Row 8:
     "input details": "IP is clean",
     "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
   },
-  "r
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Verify User Behavior",
+    "input details": "nothing suspicious",
+    "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if 
 ...[TRUNCATED]
 ----- CHUNK END -----

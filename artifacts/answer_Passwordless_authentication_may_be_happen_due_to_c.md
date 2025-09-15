@@ -1,1 +1,0 @@
-# Rule 286 - Atypical travel - Not found in provided context
