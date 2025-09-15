@@ -1,0 +1,111 @@
+{
+  "tracker": [
+    [
+      "f45e0ba4444bf2b2a5db04da1f8a68ceecbb3f12d777d51a4a0b2e4af9b81a33-0021efc1",
+      1.0,
+      "{\n  \"tracker_data\": {\n    \"s.no.\": 7,\n    \"date\": \"01-Jul-25\",\n    \"month\": \"July\",\n    \"shift\": \"Afternoon\",\n    \"incidnet no #\": 208309,\n    \"data connecter\": \"AD\",\n    \"priority\": \"High\",\n    \"alert/incident\": \"Alert\",\n    \"name of the shift engineer\": \"Saranya\",\n    \"handover shift engineer\": \"Harish,Venkat\",\n    \"reported time stamp\": \"07-01-2025 17:28\",\n    \"responded time stamp\": \"07-01-2025 17:29\",\n    \"mttd (mins)\": 1,\n    \"resolution time stamp\": \"07-01-2025 17:32\",\n    \"mttr    (mins)\": 4,\n    \"time to breach sla\": \"07-01-2025 18:28\",\n    \"remaining mins to breach\": \"Resolved\",\n    \"resolver comments\": \"Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.\",\n    \"vip users\": \"No\",\n    \"rule\": \"Rule#014-New User Assigned to Privileged Role\",\n    \"service owner\": \"Sentinel\",\n    \"status\": \"Closed\",\n    \"remarks / comments\": \"Rule#014-July-01-25 ( 208309 ).xlsx\",\n    \"false / true positive\": \"False Positive\",\n    \"why false positive\": \"Legitimate user\",\n    \"justification\": null,\n    \"quality audit\": \"Pass\",\n    \"description\": null\n  },\n  \"extracted_rule_info\": {\n    \"rule_id\": \"014\",\n    \"alert_name\": \"New User Assigned to Privileged Role\",\n    \"description\": \"\",\n    \"severity\": \"High\",\n    \"category\": \"\"\n  }\n}",
+      {
+        "source": "tracker_sheet",
+        "row_index": 6,
+        "doctype": "tracker_row",
+        "total_rows": 10,
+        "columns_count": 28,
+        "rule_id": "014",
+        "alert_name": "New User Assigned to Privileged Role",
+        "has_rule_info": true,
+        "has_rule_content": true,
+        "len": 1315,
+        "doc_length": 1315
+      }
+    ],
+    [
+      "54a3de9d1668aeb0ae425236405a104ed1f76978e4d899e6adf84a9d4ad47b0c-be8145de",
+      0.40654427344997174,
+      "{\n  \"tracker_data\": {\n    \"s.no.\": 3,\n    \"date\": \"01-Jul-25\",\n    \"month\": \"July\",\n    \"shift\": \"Morning\",\n    \"incidnet no #\": 208305,\n    \"data connecter\": \"AD\",\n    \"priority\": \"Medium\",\n    \"alert/incident\": \"Alert\",\n    \"name of the shift engineer\": \"Sarvesh\",\n    \"handover shift engineer\": \"Aman,Dhroovi,Saranya& Uday\",\n    \"reported time stamp\": \"07-01-2025 12:30\",\n    \"responded time stamp\": \"07-01-2025 12:48\",\n    \"mttd (mins)\": 18,\n    \"resolution time stamp\": \"07-01-2025 12:59\",\n    \"mttr    (mins)\": 29,\n    \"time to breach sla\": \"07-01-2025 16:30\",\n    \"remaining mins to breach\": \"Resolved\",\n    \"resolver comments\": \"Triaging Steps performed : Check history -- no suspicious activities Sign in logs / -- no suspicious closure comments :Observed the events detected countries US only no successfull attempt , guest sigin policy with clean IP, nothing suspicious. Escalating (yes/ No) No\",\n    \"vip users\": \"No\",\n    \"rule\": \"Rule#019-Signin Logs with expanded Conditional access policies\",\n    \"service owner\": \"Sentinel\",\n    \"status\": \"Closed\",\n    \"remarks / comments\": \"Rule#286 -01-Jul'25 (208304).xlsx\",\n    \"false / true positive\": \"False Positive\",\n    \"why false positive\": \"Legitimate user\",\n    \"justification\": \"Workspace not working\",\n    \"quality audit\": \"Pass\",\n    \"description\": null\n  },\n  \"extracted_rule_info\": {\n    \"rule_id\": \"019\",\n    \"alert_name\": \"Signin Logs with expanded Conditional access policies\",\n    \"description\": \"\",\n    \"severity\": \"Medium\",\n    \"category\": \"\"\n  }\n}",
+      {
+        "source": "tracker_sheet",
+        "row_index": 2,
+        "doctype": "tracker_row",
+        "total_rows": 10,
+        "columns_count": 28,
+        "rule_id": "019",
+        "alert_name": "Signin Logs with expanded Conditional access policies",
+        "has_rule_info": true,
+        "has_rule_content": true,
+        "len": 1522,
+        "doc_length": 1522
+      }
+    ]
+  ],
+  "rulebook": [
+    [
+      "4b2dd8c936367e4d82e73dd086aa3afb28392a3226ce6b9f23fcfdf41ee98e61-ae176c41",
+      1.0,
+      "RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv\n==================================================\nPRIMARY RULE: 014\nColumns: sr.no., inputs required, input details, instructions, reviewer comments\nTotal Rows: 13\n\nRow 1:\n{\n  \"row_index\": 1,\n  \"data\": {\n    \"sr.no.\": 1.0,\n    \"inputs required\": \"Rule#014-User Assigned Privileged Role\",\n    \"input details\": null,\n    \"instructions\": \"A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"014\",\n    \"alert_name\": \"User Assigned Privileged Role\",\n    \"description\": \"A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 2:\n{\n  \"row_index\": 2,\n  \"data\": {\n    \"sr.no.\": 2.0,\n    \"inputs required\": \"Incident Number\",\n    \"input details\": \"208309\",\n    \"instructions\": null,\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 3:\n{\n  \"row_index\": 3,\n  \"data\": {\n    \"sr.no.\": 3.0,\n    \"inputs required\": \"How many users are impacted ?\",\n    \"input details\": \"1\",\n    \"instructions\": \"Gather details of all users - (By adding sheet to this excel)\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 4:\n{\n  \"row_index\": 4,\n  \"data\": {\n    \"sr.no.\": 4.0,\n    \"inputs required\": \"Check Alert Details\",\n    \"input details\": \"Yes\",\n    \"instructions\": \"Username, Role Assigned, Time of Assignment, Initiator, Source IP, Location\",\n    \"reviewer comments\": \"Check Ip prevalence & Repuation\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"Username, Role Assigned, Time of Assignment, Initiator, Source IP, Location\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 5:\n{\n  \"row_index\": 5,\n  \"data\": {\n    \"sr.no.\": 5.0,\n    \"inputs required\": \"Verify Role Sensitivity\",\n    \"input details\": \"Yes\",\n    \"instructions\": \"Determine if the assigned role is high-risk (e.g., Global Admin)\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"Determine if the assigned role is high-risk (e.g., Global Admin)\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 6:\n{\n  \"row_index\": 6,\n  \"data\": {\n    \"sr.no.\": 6.0,\n    \"inputs required\": \"Review Sign-In Logs\",\n    \"input details\": \"Yes\",\n    \"instructions\": \"Look for unusual sign-in patterns by the assigned user for last 7 days\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"Look for unusual sign-in patterns by the assigned user for last 7 days\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 7:\n{\n  \"row_index\": 7,\n  \"data\": {\n    \"sr.no.\": 7.0,\n    \"inputs required\": \"Check Activity of Initiator\",\n    \"input details\": \"Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.\",\n    \"instructions\": \"Validate if the assigning user had legitimate access and permissions\",\n    \"reviewer comments\": \"Check the Historical data of initiator  & alerts on initiator\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 8:\n{\n  \"row_index\": 8,\n  \"data\": {\n    \"sr.no.\": 8.0,\n    \"inputs required\": \"Escalate if Unauthorized\",\n    \"input details\": \"Not Required\",\n    \"instructions\": \"if suspicious, escalate to L3/IT for investigation\",\n    \"reviewer comments\": \"If  initiator  found compromise then Escalte to L3\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 9:\n{\n  \"row_index\": 9,\n  \"data\": {\n    \"sr.no.\": 9.0,\n    \"inputs required\": \"if True Positive - Inform to IT Team to Reset the account, Revoke the MFA tokens, Temporary disable the account\",\n    \"input details\": null,\n    \"instructions\": \"Reach out to the Network/EDR teams to block the detected suspicious IP, Inform user to reset password, maintain complex password and enable MFA.\",\n    \"reviewer comments\": \"Also Reset the all actvie user sessions  & Need to perform user precompromise & post compromise  actvity\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 10:\n{\n  \"row_index\": 10,\n  \"data\": {\n    \"sr.no.\": 10.0,\n    \"inputs required\": \"Track for the closer/closer confirmation\",\n    \"input details\": \"Closed\",\n    \"instructions\": \"After all the investigation document the steps taken, findings, and any remediation actions required\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 11:\n{\n  \"row_index\": 11,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"True Positive (TP) Scenarios\",\n    \"input details\": \"These indicate malicious or unauthorized role assignments:\\nAttacker assigns themselves or another compromised account to a privileged role (e.g., Global Admin).\\nPrivileged role assigned outside business hours from an unusual IP or geolocation.\\nRole assignment follows a successful risky sign-in (e.g., impossible travel or TOR exit node).\\nAssignment made by an unknown or suspicious app/service principal.\\nMultiple privileged roles assigned in quick succession—suggesting lateral movement.\\nAssignment to a dormant or deactivated account suddenly re-enabled.\",\n    \"instructions\": null,\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 12:\n{\n  \"row_index\": 12,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"Benign Positive (BP) Scenarios\",\n    \"input details\": \"These are unusual but legitimate actions:\\nPrivileged role assigned temporarily via PIM (Privileged Identity Management) for a valid task.\\nSecurity team grants temporary access for an urgent incident response.\\nAdmin assigns a role to a new hire during onboarding, but outside normal hours.\\nRole assignment from a new IP due to remote work or travel.\",\n    \"instructions\": null,\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 13:\n{\n  \"row_index\": 13,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"False Positive (FP) Scenarios\",\n    \"input details\": \"These are normal operations that trigger alerts unnecessarily:\\nAdmin assigns a role to a user as part of routine access management.\\nAssignment from a known corporate IP or trusted device, but not yet whitelisted.\\nBulk role assignments during a migration or reorganization.\\nTemporary elevation via PIM that’s not filtered out in the rule logic.\",\n    \"instructions\": null,\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\n==============================\nRULE PROCEDURES SUMMARY:\n- Rule 014: User Assigned Privileged Role",
+      {
+        "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+        "doctype": "complete_rulebook",
+        "rows": 13,
+        "columns_count": 5,
+        "filetype": "csv",
+        "primary_rule_id": "014",
+        "contains_procedures": true,
+        "procedure_count": 1,
+        "is_complete": true,
+        "total_content_length": 7452,
+        "has_rule_content": true,
+        "len": 7452,
+        "doc_length": 7452
+      }
+    ],
+    [
+      "b53a2c372b8e5d101006d417850f1d24d92902736148bede53426b8d3c3d39ae-10705c0b",
+      5.519598421583247e-05,
+      "RULEBOOK: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv\n==================================================\nPRIMARY RULE: 280\nColumns: sr.no., inputs required, input details, instructions\nTotal Rows: 10\n\nRow 1:\n{\n  \"row_index\": 1,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"Rule#280-Detect when One or more Sophos services are missing or not running.\",\n    \"input details\": null,\n    \"instructions\": \"Description:The rule will detect when one or more sophos services are missing or not running properly\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"280\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 2:\n{\n  \"row_index\": 2,\n  \"data\": {\n    \"sr.no.\": 1.0,\n    \"inputs required\": \"Incident\",\n    \"input details\": \"208311\",\n    \"instructions\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 3:\n{\n  \"row_index\": 3,\n  \"data\": {\n    \"sr.no.\": 2.0,\n    \"inputs required\": \"Reported Time\",\n    \"input details\": null,\n    \"instructions\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 4:\n{\n  \"row_index\": 4,\n  \"data\": {\n    \"sr.no.\": 3.0,\n    \"inputs required\": \"Observe the events\",\n    \"input details\": \"Yes\",\n    \"instructions\": \"Check the device, name of service (missing or not running) , source IP, source name, time\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 5:\n{\n  \"row_index\": 5,\n  \"data\": {\n    \"sr.no.\": 4.0,\n    \"inputs required\": \"Check Sophos Console for the user health agent status\",\n    \"input details\": \"Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00374 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095259\",\n    \"instructions\": \"Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing.\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 6:\n{\n  \"row_index\": 6,\n  \"data\": {\n    \"sr.no.\": 5.0,\n    \"inputs required\": \"Check if the status all the services are running or not\",\n    \"input details\": \"Yes, verified all the details no suspicious found. All services are running with the user.\",\n    \"instructions\": \"If all services are running ok, no need to take action. \\nIf any service is missing raise a ticket or Incident to SSIT Team.\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 7:\n{\n  \"row_index\": 7,\n  \"data\": {\n    \"sr.no.\": 6.0,\n    \"inputs required\": \"Make a word document to list the details of user if any of the sophos services missing\",\n    \"input details\": \"Not required.\",\n    \"instructions\": \"Attached the details as an Artificats to next sheet based on the details available in the events, update accordingly in the word document.\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 8:\n{\n  \"row_index\": 8,\n  \"data\": {\n    \"sr.no.\": 7.0,\n    \"inputs required\": \"Raise a Incident ticket in SNOW\",\n    \"input details\": \"INC0095259\",\n    \"instructions\": \"Steps to create incident (Ref: Incident Screeshot)\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"Steps to create incident (Ref: Incident Screeshot)\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 9:\n{\n  \"row_index\": 9,\n  \"data\": {\n    \"sr.no.\": 8.0,\n    \"inputs required\": \"Upload the same word document (Step no. 6) and also upload the \\\"Sophos perm Fix\\\" video which is shared in the soc group\",\n    \"input details\": \"Not required.\",\n    \"instructions\": \"Attach word document with all the details and upload the video, For video link refer next sheet (Video Link tab)\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\nRow 10:\n{\n  \"row_index\": 10,\n  \"data\": {\n    \"sr.no.\": 9.0,\n    \"inputs required\": \"Follow up with the IT Team for raising the ticket\",\n    \"input details\": \"Not required.Because all services are running.\",\n    \"instructions\": \"Regularly Check for the updates from the SSIT team for status of the ticket.\"\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"\",\n    \"alert_name\": \"\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n\n==============================\nRULE PROCEDURES SUMMARY:",
+      {
+        "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+        "doctype": "complete_rulebook",
+        "rows": 10,
+        "columns_count": 4,
+        "filetype": "csv",
+        "primary_rule_id": "280",
+        "contains_procedures": true,
+        "procedure_count": 1,
+        "is_complete": true,
+        "total_content_length": 4838,
+        "has_rule_content": true,
+        "len": 4838,
+        "doc_length": 4838
+      }
+    ],
+    [
+      "c222897d64b7c48eeb8817a71957e0bb1cb0880029115b8d1eceef7ab6356cc1-26f1ada9",
+      3.258950672002914e-05,
+      "FOCUSED RULE PROCEDURES: Rule#014-July-01-25 ( 208309 )(Sheet1).csv\n============================================================\nRULE ID: 014\nALERT NAMES: User Assigned Privileged Role\n\nStep 1:\n{\n  \"row_index\": 1,\n  \"data\": {\n    \"sr.no.\": 1.0,\n    \"inputs required\": \"Rule#014-User Assigned Privileged Role\",\n    \"input details\": null,\n    \"instructions\": \"A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.\",\n    \"reviewer comments\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"014\",\n    \"alert_name\": \"User Assigned Privileged Role\",\n    \"description\": \"A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n",
+      {
+        "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+        "doctype": "focused_rule_procedures",
+        "rows": 1,
+        "columns_count": 5,
+        "filetype": "csv",
+        "primary_rule_id": "014",
+        "contains_procedures": true,
+        "procedure_count": 1,
+        "is_complete": true,
+        "is_focused": true,
+        "total_content_length": 802,
+        "has_rule_content": true,
+        "len": 802,
+        "doc_length": 802
+      }
+    ]
+  ],
+  "class": {
+    "about_rule": true,
+    "about_tracker": false,
+    "is_exact_rule": false,
+    "rule_id": "014",
+    "confidence": "medium",
+    "is_dynamic_match": true
+  }
+}

@@ -42,9 +42,29 @@ Output format:
 
 
 def generate_response_with_llm(
-    query: str, context_block: str, model: str = "qwen2.5:0.5b"
+    query: str,
+    context_block: str,
+    context_results: Dict[str, Any],
+    model: str = "qwen2.5:0.5b",
 ) -> str:
     """Generate response using LLM with enhanced prompt and context."""
+
+    # ✅ NEW: Save raw context block as JSON
+    try:
+        # Create safe filename from query
+        safe_query = re.sub(r"[^a-zA-Z0-9_-]+", "_", query)[:50]
+        os.makedirs("artifacts/context_json", exist_ok=True)
+        json_path = f"artifacts/context_json/{safe_query}_context.json"
+
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(context_results, f, ensure_ascii=False, indent=2)
+
+        print(f"💾 Raw context saved to: {json_path}")
+
+    except Exception as json_error:
+        print(f"⚠️ Failed to save context JSON: {json_error}")
+
+    # Original LLM processing
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT_DUAL},
         {"role": "user", "content": f"QUESTION:\n{query}\n\nCONTEXT:\n{context_block}"},

@@ -3,6 +3,7 @@
 import os
 import re
 import json
+import pandas as pd
 from typing import List, Dict, Any, Tuple, Optional
 import numpy as np
 from .embedding_indexer import OllamaEmbedder, FaissIndexer
@@ -124,6 +125,152 @@ class DynamicRuleMapper:
 
 # Global dynamic mapper instance
 _rule_mapper = DynamicRuleMapper()
+
+def _read_rulebook_directly(rule_id: str, rulebook_dir: str = "rulebooks") -> str:
+    """Read rulebook directly from file when vector retrieval is incomplete."""
+    if not rule_id or not os.path.exists(rulebook_dir):
+        return ""
+
+    # Look for files matching the rule ID
+    rule_files = []
+    for filename in os.listdir(rulebook_dir):
+        if filename.lower().endswith(('.csv', '.xlsx', '.xls')):
+            # Check if filename contains the rule ID
+            if (f"rule#{rule_id}" in filename.lower() or
+                f"rule {rule_id}" in filename.lower() or
+                f"rule{rule_id}" in filename.lower()):
+                rule_files.append(filename)
+
+    if not rule_files:
+        print(f"⚠️ No rulebook files found for Rule {rule_id} in {rulebook_dir}")
+        return ""
+
+    # Use the first matching file
+    file_path = os.path.join(rulebook_dir, rule_files[0])
+    print(f"📁 Found file: {rule_files[0]}")
+
+    try:
+        # Read the file based on extension with proper encoding handling
+        if file_path.lower().endswith('.csv'):
+            # ✅ Use the same encoding detection logic as document_loader.py
+            encodings_to_try = ["utf-8", "cp1252", "iso-8859-1", "latin1"]
+            
+            df = None
+            for encoding in encodings_to_try:
+                try:
+                    df = pd.read_csv(file_path, encoding=encoding)
+                    print(f"✅ Successfully read CSV with {encoding} encoding")
+                    break
+                except UnicodeDecodeError:
+                    continue
+                except Exception as e:
+                    print(f"⚠️ Error with {encoding}: {e}")
+                    continue
+            
+            if df is None:
+                print(f"❌ Could not read CSV file with any encoding")
+                return ""
+                
+        else:
+            # Excel files
+            try:
+                df = pd.read_excel(file_path)
+                print(f"✅ Successfully read Excel file")
+            except Exception as e:
+                # Try different engines for Excel
+                for engine in ["openpyxl", "xlrd"]:
+                    try:
+                        df = pd.read_excel(file_path, engine=engine)
+                        print(f"✅ Successfully read Excel with {engine} engine")
+                        break
+                    except:
+                        continue
+                else:
+                    print(f"❌ Could not read Excel file: {e}")
+                    return ""
+
+        if df.empty:
+            print(f"⚠️ File is empty: {rule_files[0]}")
+            return ""
+
+        # Clean column names
+        df.columns = df.columns.str.strip().str.lower()
+        print(f"📊 Loaded {len(df)} rows, {len(df.columns)} columns")
+
+        # Build complete content
+        content_parts = []
+        content_parts.append(f"COMPLETE RULEBOOK: {rule_files[0]}")
+        content_parts.append("=" * 60)
+        content_parts.append(f"PRIMARY RULE: {rule_id}")
+        content_parts.append(f"Columns: {', '.join(df.columns)}")
+        content_parts.append(f"Total Rows: {len(df)}")
+        content_parts.append("")
+
+        # Add all rows with full details
+        for idx, row in df.iterrows():
+            row_data = {}
+            for col, value in row.items():
+                if pd.isna(value):
+                    row_data[col] = None
+                elif isinstance(value, (int, float)):
+                    row_data[col] = value
+                else:
+                    row_data[col] = str(value).strip()
+
+            content_parts.append(f"Row {idx + 1}:")
+            content_parts.append(json.dumps({
+                "row_index": idx + 1,
+                "data": row_data
+            }, indent=2, ensure_ascii=False))
+            content_parts.append("")
+
+        complete_content = "\n".join(content_parts)
+        print(f"✅ Generated complete rulebook content: {len(complete_content)} characters")
+        return complete_content
+
+    except Exception as e:
+        print(f"❌ Error reading {file_path} directly: {e}")
+        return ""
+
+
+def _count_procedure_rows(content: str) -> int:
+    """Count actual procedure rows/steps in rulebook content."""
+    if not content:
+        return 0
+
+    # Count different row patterns
+    row_patterns = [
+        r"Row \d+:",  # "Row 1:", "Row 2:", etc.
+        r"Step \d+:",  # "Step 1:", "Step 2:", etc.
+        r'"row_index":\s*\d+',  # JSON row_index fields
+        r"sr\.no\..*:\s*\d+",  # Serial number fields
+    ]
+
+    total_rows = 0
+    for pattern in row_patterns:
+        matches = re.findall(pattern, content, re.IGNORECASE)
+        total_rows = max(total_rows, len(matches))
+
+    # Fallback: count lines that look like procedure steps
+    if total_rows == 0:
+        lines = content.split("\n")
+        step_lines = [
+            line
+            for line in lines
+            if any(
+                keyword in line.lower()
+                for keyword in [
+                    "inputs required",
+                    "instructions",
+                    "check",
+                    "verify",
+                    "observe",
+                ]
+            )
+        ]
+        total_rows = len(step_lines)
+
+    return total_rows
 
 
 def parse_rule_id(q: str) -> str:
@@ -539,10 +686,11 @@ def retrieve_context(
     persist_dir: str = "vector_store_faiss",
     index_name: str = "soc_rag",
     embed_model: str = "nomic-embed-text",
-    k_tracker: int = 1,
-    k_rulebook: int = 1,
+    k_tracker: int = 3,
+    k_rulebook: int = 2,
+    rulebook_dir: str = "rulebooks",  # ✅ NEW: Path to rulebook files
 ) -> Dict[str, Any]:
-    """Enhanced dual source retrieval with dynamic rule matching - Context Only."""
+    """Enhanced dual source retrieval with direct file reading fallback."""
     # Ensure rule mapper is loaded
     if not _rule_mapper.loaded:
         _rule_mapper.load_from_artifacts()
@@ -562,7 +710,7 @@ def retrieve_context(
         tracker_qs + rule_qs,
         indexer,
         embedder,
-        k_per_query=max(k_tracker, k_rulebook),
+        k_per_query=max(k_tracker, k_rulebook, 10),  # ✅ Search more initially
         rule_id=rule_id,
     )
 
@@ -583,6 +731,7 @@ def retrieve_context(
     # Apply dynamic rule-specific filtering
     if rule_id:
         rule_hits = _filter_by_rule_relevance(rule_hits, rule_id)
+
         # For exact rule queries, also filter tracker by rule
         if cls.get("is_exact_rule"):
             rule_patterns = [rule_id, f"rule#{rule_id}", f"rule {rule_id}"]
@@ -594,6 +743,89 @@ def retrieve_context(
                 for hit in tracker_hits
                 if any(pattern.lower() in hit[2].lower() for pattern in rule_patterns)
             ]
+
+    # ✅ NEW: Check if we have complete rulebook content, if not read directly
+    if rule_id and cls.get("is_exact_rule"):
+        has_complete_content = False
+        minimum_rows_threshold = 5  # ✅ Minimum ROWS for "complete" content
+
+        print(f"🔍 Checking completeness for Rule {rule_id}...")
+
+        for hit in rule_hits:
+            i, s, d, m = hit
+            row_count = _count_procedure_rows(d)
+            doctype = m.get("doctype", "") if m else ""
+
+            print(f"  📄 Found {doctype}: {row_count} rows")
+
+            # Check if we have a complete rulebook with sufficient rows
+            if (
+                m
+                and m.get("doctype") == "complete_rulebook"
+                and m.get("primary_rule_id") == rule_id
+                and row_count >= minimum_rows_threshold
+            ):
+                has_complete_content = True
+                print(f"  ✅ Complete content found: {row_count} rows")
+                break
+            elif row_count < minimum_rows_threshold:
+                print(
+                    f"  ⚠️ Insufficient content: only {row_count} rows (need {minimum_rows_threshold})"
+                )
+
+        # If no complete content found, read directly from file
+        if not has_complete_content:
+            print(
+                f"🔄 Incomplete rulebook content for Rule {rule_id} (< {minimum_rows_threshold} rows)"
+            )
+            print(f"📁 Reading complete rulebook directly from file...")
+
+            direct_content = _read_rulebook_directly(rule_id, rulebook_dir)
+
+            if direct_content:
+                # Create a synthetic hit with the direct file content
+                direct_hit = (
+                    f"direct_file_{rule_id}",
+                    1000.0,  # High score to prioritize
+                    direct_content,
+                    {
+                        "source": f"direct_file_rule_{rule_id}",
+                        "doctype": "complete_rulebook",
+                        "primary_rule_id": rule_id,
+                        "is_direct_read": True,
+                        "total_content_length": len(direct_content),
+                    },
+                )
+                # Insert at the beginning with highest priority
+                rule_hits.insert(0, direct_hit)
+                print(
+                    f"✅ Successfully loaded complete rulebook for Rule {rule_id} directly from file"
+                )
+
+    # ✅ STRICT FILTERING: Remove cross-rule contamination
+    if rule_id and cls.get("is_exact_rule"):
+        filtered_rule_hits = []
+        for hit in rule_hits:
+            i, s, d, m = hit
+
+            # Allow direct file reads and exact rule matches only
+            if (
+                (m and m.get("is_direct_read"))
+                or (m and m.get("primary_rule_id") == rule_id)
+                or (f"rule#{rule_id}" in d.lower())
+                or (f"rule {rule_id}" in d.lower())
+            ):
+
+                # Double-check: reject if it contains different rule numbers
+                other_rule_match = re.search(r"rule\s*#?\s*(\d+)", d.lower())
+                if other_rule_match:
+                    found_rule_num = other_rule_match.group(1).zfill(3)
+                    if found_rule_num == rule_id or m.get("is_direct_read"):
+                        filtered_rule_hits.append(hit)
+                else:
+                    filtered_rule_hits.append(hit)
+
+        rule_hits = filtered_rule_hits
 
     # Filter empty tracker rows
     tracker_hits = _filter_empty_tracker_rows(tracker_hits)
@@ -762,16 +994,28 @@ def build_context_block(results: Dict[str, Any], query: str) -> str:
         lines.append("=== RULEBOOK PROCEDURES ===")
         for i, (idx, s, d, m) in enumerate(rb_hits):
             src = (m or {}).get("source") or (m or {}).get("filetype") or "rulebook"
-            block = d
-            
-            # Only extract for non-complete rulebooks
-            if rid and len(d) > 100 and not (m and m.get("doctype") == "complete_rulebook"):
-                extracted = _extract_rule_block_from_rulebook_text(d, rid)
-                if len(extracted) > 10:
-                    block = extracted
 
-            lines.append(f"[score={s:.3f}] [src={src}]")
-            lines.append(block.strip())
+            # ✅ Handle direct file reads differently
+            if m and m.get("is_direct_read"):
+                lines.append(
+                    f"[score={s:.3f}] [src=DIRECT_FILE_READ] [rule={m.get('primary_rule_id')}]"
+                )
+                lines.append(d.strip())  # Show complete content as-is
+            else:
+                block = d
+                # Only extract for non-complete rulebooks
+                if (
+                    rid
+                    and len(d) > 100
+                    and not (m and m.get("doctype") == "complete_rulebook")
+                ):
+                    extracted = _extract_rule_block_from_rulebook_text(d, rid)
+                    if len(extracted) > 10:
+                        block = extracted
+
+                lines.append(f"[score={s:.3f}] [src={src}]")
+                lines.append(block.strip())
+
             lines.append("")
 
     return "\n".join(lines) if lines else "No matching context found."

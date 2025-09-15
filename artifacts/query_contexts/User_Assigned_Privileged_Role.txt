@@ -44,6 +44,45 @@ Alert Names: New User Assigned to Privileged Role, User Assigned Privileged Role
   }
 }
 
+[score=0.407] [src=tracker_sheet] [row=2]
+{
+  "s.no.": 3,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208305,
+  "data connecter": "AD",
+  "priority": "Medium",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 12:30",
+  "responded time stamp": "07-01-2025 12:48",
+  "mttd (mins)": 18,
+  "resolution time stamp": "07-01-2025 12:59",
+  "mttr    (mins)": 29,
+  "time to breach sla": "07-01-2025 16:30",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Triaging Steps performed : Check history -- no suspicious activities Sign in logs / -- no suspicious closure comments :Observed the events detected countries US only no successfull attempt , guest sigin policy with clean IP, nothing suspicious. Escalating (yes/ No) No",
+  "vip users": "No",
+  "rule": "Rule#019-Signin Logs with expanded Conditional access policies",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#286 -01-Jul'25 (208304).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "Legitimate user",
+  "justification": "Workspace not working",
+  "quality audit": "Pass",
+  "description": null,
+  "_extracted_rule_info": {
+    "rule_id": "019",
+    "alert_name": "Signin Logs with expanded Conditional access policies",
+    "description": "",
+    "severity": "Medium",
+    "category": ""
+  }
+}
+
 === RULEBOOK PROCEDURES ===
 [score=1.000] [src=Rule#014-July-01-25 ( 208309 )(Sheet1).csv]
 RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv

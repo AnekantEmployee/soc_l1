@@ -109,18 +109,13 @@ def quick_test_run():
         print(f"   📁 Context saved to: {context_path}")
         print(f"   🎯 Query classification: {context_results.get('class', {})}")
 
-        # Show context preview
-        print(f"\n[Context Preview - First 800 chars]")
-        print("-" * 40)
-        print(context_block[:800])
-        if len(context_block) > 800:
-            print("... [TRUNCATED]")
-        print("-" * 40)
-
         # PHASE B: Response Generation
         print("\n🤖 Phase B: Generating response...")
         answer_md = generate_response_with_llm(
-            query=q, context_block=context_block, model="qwen2.5:0.5b"
+            query=q,
+            context_block=context_block,
+            context_results=context_results,
+            model="qwen2.5:0.5b",
         )
 
         # Write markdown file

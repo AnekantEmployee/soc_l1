@@ -1,1 +1,1 @@
-# Rule 002 - Attempt to bypass conditional access rule in Microsoft Entra ID - Not found in provided context
+# Rule 002 - Attempt to bypass conditional access rule in Azure AD - Not found in provided context

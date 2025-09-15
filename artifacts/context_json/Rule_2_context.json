@@ -1,0 +1,83 @@
+{
+  "tracker": [
+    [
+      "b15e77e1acdf47d20418faf7a86cd2a59b69cb3454f83c73f438a78f05c034c9-d3d6e176",
+      1.0,
+      "{\n  \"tracker_data\": {\n    \"s.no.\": 5,\n    \"date\": \"01-Jul-25\",\n    \"month\": \"July\",\n    \"shift\": \"Morning\",\n    \"incidnet no #\": 208307,\n    \"data connecter\": \"AD\",\n    \"priority\": \"Low\",\n    \"alert/incident\": \"Alert\",\n    \"name of the shift engineer\": \"Sarvesh\",\n    \"handover shift engineer\": \"Aman,Dhroovi,Saranya& Uday\",\n    \"reported time stamp\": \"07-01-2025 13:11\",\n    \"responded time stamp\": \"07-01-2025 13:12\",\n    \"mttd (mins)\": 1,\n    \"resolution time stamp\": \"07-01-2025 13:23\",\n    \"mttr    (mins)\": 12,\n    \"time to breach sla\": \"07-01-2025 21:11\",\n    \"remaining mins to breach\": \"Resolved\",\n    \"resolver comments\": \"Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US,IN,MX & MA, guest MFA enabled for users nothing supicious found.\",\n    \"vip users\": \"Yes\",\n    \"rule\": \"Rule#002-Attempt to bypass conditional access rule in Microsoft Entra ID\",\n    \"service owner\": \"Sentinel\",\n    \"status\": \"Closed\",\n    \"remarks / comments\": \"Rule#002 -01-Jul'25 (208307).xlsx\",\n    \"false / true positive\": \"False Positive\",\n    \"why false positive\": \"Legitimate user\",\n    \"justification\": \"Workspace not working\",\n    \"quality audit\": \"Pass\",\n    \"description\": null\n  },\n  \"extracted_rule_info\": {\n    \"rule_id\": \"002\",\n    \"alert_name\": \"Attempt to bypass conditional access rule in Microsoft Entra ID\",\n    \"description\": \"\",\n    \"severity\": \"Low\",\n    \"category\": \"\"\n  }\n}",
+      {
+        "source": "tracker_sheet",
+        "row_index": 4,
+        "doctype": "tracker_row",
+        "total_rows": 10,
+        "columns_count": 28,
+        "rule_id": "002",
+        "alert_name": "Attempt to bypass conditional access rule in Microsoft Entra ID",
+        "has_rule_info": true,
+        "has_rule_content": true,
+        "len": 1504,
+        "doc_length": 1504
+      }
+    ],
+    [
+      "0ebd8ce67b4b6c96feae46cea84a6924efbf70cef818e7b682914329c2ced9bf-e9afa13e",
+      0.8648126072973069,
+      "{\n  \"tracker_data\": {\n    \"s.no.\": 1,\n    \"date\": \"01-Jul-25\",\n    \"month\": \"July\",\n    \"shift\": \"Morning\",\n    \"incidnet no #\": 208303,\n    \"data connecter\": \"AD\",\n    \"priority\": \"High\",\n    \"alert/incident\": \"Alert\",\n    \"name of the shift engineer\": \"Sarvesh\",\n    \"handover shift engineer\": \"Aman,Dhroovi,Saranya& Uday\",\n    \"reported time stamp\": \"07-01-2025 10:58\",\n    \"responded time stamp\": \"07-01-2025 11:00\",\n    \"mttd (mins)\": 2,\n    \"resolution time stamp\": \"07-01-2025 11:15\",\n    \"mttr    (mins)\": 17,\n    \"time to breach sla\": \"07-01-2025 11:58\",\n    \"remaining mins to breach\": \"Resolved\",\n    \"resolver comments\": \"Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No\",\n    \"vip users\": \"No\",\n    \"rule\": \"Rule#286- Atypical travel\",\n    \"service owner\": \"Sentinel\",\n    \"status\": \"Closed\",\n    \"remarks / comments\": \"Rule#286 -01-Jul'25 (208303).xlsx\",\n    \"false / true positive\": \"False Positive\",\n    \"why false positive\": \"Legitimate user\",\n    \"justification\": \"Takes time in investigation\",\n    \"quality audit\": \"Pass\",\n    \"description\": null\n  },\n  \"extracted_rule_info\": {\n    \"rule_id\": \"286\",\n    \"alert_name\": \"Atypical travel\",\n    \"description\": \"\",\n    \"severity\": \"High\",\n    \"category\": \"\"\n  }\n}",
+      {
+        "source": "tracker_sheet",
+        "row_index": 0,
+        "doctype": "tracker_row",
+        "total_rows": 10,
+        "columns_count": 28,
+        "rule_id": "286",
+        "alert_name": "Atypical travel",
+        "has_rule_info": true,
+        "has_rule_content": true,
+        "len": 1576,
+        "doc_length": 1576
+      }
+    ]
+  ],
+  "rulebook": [
+    [
+      "direct_file_002",
+      1.0,
+      "COMPLETE RULEBOOK: Rule#002 -01-Jul'25 (208307)(Sheet1).csv\n============================================================\nPRIMARY RULE: 002\nColumns: sr.no., inputs required, details, exisiting / new, duration\nTotal Rows: 15\n\nRow 1:\n{\n  \"row_index\": 1,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"Rule#002-Attempt to bypass conditional access rule in Azure AD\",\n    \"details\": null,\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 2:\n{\n  \"row_index\": 2,\n  \"data\": {\n    \"sr.no.\": 1.0,\n    \"inputs required\": \"Incident No:\",\n    \"details\": \"208307\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 3:\n{\n  \"row_index\": 3,\n  \"data\": {\n    \"sr.no.\": 2.0,\n    \"inputs required\": \"Reported Time:\",\n    \"details\": \"7/1/2025 13:11\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 4:\n{\n  \"row_index\": 4,\n  \"data\": {\n    \"sr.no.\": 3.0,\n    \"inputs required\": \"Response Time:\",\n    \"details\": \"7/1/2025 13:12\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 5:\n{\n  \"row_index\": 5,\n  \"data\": {\n    \"sr.no.\": 4.0,\n    \"inputs required\": \"Resolved Time:\",\n    \"details\": \"7/1/2025 13:23\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 6:\n{\n  \"row_index\": 6,\n  \"data\": {\n    \"sr.no.\": 5.0,\n    \"inputs required\": \"VIPS Users ?\",\n    \"details\": \"No\",\n    \"exisiting / new\": null,\n    \"duration\": \"Cross verify if the user is VIP or not - with the list (Shared by Arcutis)\"\n  }\n}\n\nRow 7:\n{\n  \"row_index\": 7,\n  \"data\": {\n    \"sr.no.\": 6.0,\n    \"inputs required\": \"Collect the user details and add in attached sheet(Ex:jelkins@arcutis.com)\",\n    \"details\": \"Multiple users\",\n    \"exisiting / new\": null,\n    \"duration\": \"10 mnts\"\n  }\n}\n\nRow 8:\n{\n  \"row_index\": 8,\n  \"data\": {\n    \"sr.no.\": 7.0,\n    \"inputs required\": \"Run The KQL to check location the logs from where user logged in match to approved location\",\n    \"details\": \"Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US,IN,MX, guest MFA enabled for users nothing supicious found.\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 9:\n{\n  \"row_index\": 9,\n  \"data\": {\n    \"sr.no.\": 8.0,\n    \"inputs required\": \"Run The KQL to check location the logs from where user logged in not match to approved location\",\n    \"details\": \"Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attemps were seen , known clean Ips were seen. location US,IN,MX, guest MFA enabled for users nothing supicious found.\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 10:\n{\n  \"row_index\": 10,\n  \"data\": {\n    \"sr.no.\": 9.0,\n    \"inputs required\": \"Connect with user to verify loggin change locations(user no which denied)\",\n    \"details\": \"Not required, No suspicious activity found.\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 11:\n{\n  \"row_index\": 11,\n  \"data\": {\n    \"sr.no.\": 10.0,\n    \"inputs required\": \"Flag the incident as true positive\",\n    \"details\": \"No\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 12:\n{\n  \"row_index\": 12,\n  \"data\": {\n    \"sr.no.\": 11.0,\n    \"inputs required\": \"find details of comparised users  (By using audit sign in logs and locations)\",\n    \"details\": \"Not required, No suspicious activity found.\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 13:\n{\n  \"row_index\": 13,\n  \"data\": {\n    \"sr.no.\": 12.0,\n    \"inputs required\": \"Verify all the sign in/ Audit logs of the user account along with Ips/Locations, Need to Block the unfamiliar IPs if u found any Need to Find total how many of rules bypassed and other activities done by this account, and need to revoke modifications.\",\n    \"details\": \"not detected malicious IPs address\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 14:\n{\n  \"row_index\": 14,\n  \"data\": {\n    \"sr.no.\": 13.0,\n    \"inputs required\": \"inform to IT Team to Reset the account, Revoke the MFA tokens, Temporary disable the account\",\n    \"details\": \"Not required.\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n\nRow 15:\n{\n  \"row_index\": 15,\n  \"data\": {\n    \"sr.no.\": 14.0,\n    \"inputs required\": \"Track for the closer/closer confirmation\",\n    \"details\": \"Closed\",\n    \"exisiting / new\": null,\n    \"duration\": null\n  }\n}\n",
+      {
+        "source": "direct_file_rule_002",
+        "doctype": "complete_rulebook",
+        "primary_rule_id": "002",
+        "is_direct_read": true,
+        "total_content_length": 4357
+      }
+    ],
+    [
+      "b7e04b6975941adf0566980e0534b96e424341a09887f93f08b93b85aeb7cb62-6e0d09dd",
+      0.005454142689704895,
+      "FOCUSED RULE PROCEDURES: Rule#002 -01-Jul'25 (208307)(Sheet1).csv\n============================================================\nRULE ID: 002\nALERT NAMES: Attempt to bypass conditional access rule in Azure AD\n\nStep 1:\n{\n  \"row_index\": 1,\n  \"data\": {\n    \"sr.no.\": null,\n    \"inputs required\": \"Rule#002-Attempt to bypass conditional access rule in Azure AD\",\n    \"details\": null,\n    \"exisiting / new\": null,\n    \"duration\": null\n  },\n  \"rule_metadata\": {\n    \"rule_id\": \"002\",\n    \"alert_name\": \"Attempt to bypass conditional access rule in Azure AD\",\n    \"description\": \"\",\n    \"severity\": \"\",\n    \"category\": \"\"\n  }\n}\n",
+      {
+        "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+        "doctype": "focused_rule_procedures",
+        "rows": 1,
+        "columns_count": 5,
+        "filetype": "csv",
+        "primary_rule_id": "002",
+        "contains_procedures": true,
+        "procedure_count": 1,
+        "is_complete": true,
+        "is_focused": true,
+        "total_content_length": 619,
+        "has_rule_content": true,
+        "len": 619,
+        "doc_length": 619
+      }
+    ]
+  ],
+  "class": {
+    "about_rule": true,
+    "about_tracker": false,
+    "is_exact_rule": true,
+    "rule_id": "002",
+    "confidence": "high",
+    "is_dynamic_match": true
+  }
+}

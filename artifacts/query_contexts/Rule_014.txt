@@ -303,30 +303,6 @@ Row 13:
 RULE PROCEDURES SUMMARY:
 - Rule 014: User Assigned Privileged Role
 
-[score=0.000] [src=Rule#286 -01-Jul'25 (208303)(Sheet1).csv]
-FOCUSED RULE PROCEDURES: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
-============================================================
-RULE ID: 286
-ALERT NAMES: Atypical Travel
-
-Step 1:
-{
-  "row_index": 1,
-  "data": {
-    "sr.no.": null,
-    "inputs required": "Rule #286 - Atypical Travel",
-    "input details": null,
-    "instructions": null
-  },
-  "rule_metadata": {
-    "rule_id": "286",
-    "alert_name": "Atypical Travel",
-    "description": "",
-    "severity": "",
-    "category": ""
-  }
-}
-
 [score=0.000] [src=Rule#014-July-01-25 ( 208309 )(Sheet1).csv]
 FOCUSED RULE PROCEDURES: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
 ============================================================

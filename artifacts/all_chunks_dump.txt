@@ -1,5 +1,5 @@
 === ENHANCED CHUNKS DUMP ===
-written_utc: 2025-09-15T08:14:58.379771Z
+written_utc: 2025-09-15T10:08:22.583484Z
 
 counts: tracker=10, rulebook=18, all=28
 
