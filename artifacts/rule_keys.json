@@ -1,0 +1,936 @@
+{
+  "rule_keys": [
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "280",
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9,
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "002",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14,
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "014",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12,
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "016",
+      "alert_name": "False Positive (FP) Scenarios",
+      "source": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13,
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "183",
+      "alert_name": "Track for the closer/closer confirmation",
+      "source": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    },
+    {
+      "rule_id": "286",
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12,
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+    }
+  ],
+  "rule_metadata_map": {
+    "280": {
+      "alert_name": "Follow up with the IT Team for raising the ticket",
+      "description": "Regularly Check for the updates from the SSIT team for status of the ticket.",
+      "source_file": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
+      "row_index": 9
+    },
+    "002": {
+      "alert_name": "Track for the closer/closer confirmation",
+      "description": "",
+      "source_file": "Rule#002 -01-Jul'25 (208307)(Sheet1).csv",
+      "row_index": 14
+    },
+    "014": {
+      "alert_name": "False Positive (FP) Scenarios",
+      "description": "",
+      "source_file": "Rule#014-July-01-25 ( 208309 )(Sheet1).csv",
+      "row_index": 12
+    },
+    "016": {
+      "alert_name": "False Positive (FP) Scenarios",
+      "description": "",
+      "source_file": "Rule#016-July-01-25 ( 208310 )(Sheet1).csv",
+      "row_index": 13
+    },
+    "183": {
+      "alert_name": "Track for the closer/closer confirmation",
+      "description": "Enhance monitoring to detect similar events in the future",
+      "source_file": "Rule#183 01-Jul'25 (208306)(Sheet1).csv",
+      "row_index": 12
+    },
+    "286": {
+      "alert_name": "Track for the closer/closer confirmation from IT team",
+      "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+      "source_file": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+      "row_index": 12
+    }
+  },
+  "extraction_stats": {
+    "total_rules_found": 111,
+    "unique_rules": 6,
+    "rules_with_names": 111,
+    "files_processed": 9
+  }
+}

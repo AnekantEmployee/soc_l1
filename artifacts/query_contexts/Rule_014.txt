@@ -1,0 +1,37 @@
+Query: Rule 014
+==================================================
+=== QUERY CONTEXT ===
+Searching for: Rule 014
+Alert Names: False Positive (FP) Scenarios
+
+=== TRACKER DATA ===
+[score=1.000] [src=tracker_sheet] [row=6]
+{
+  "priority": "High",
+  "alert/incident": "Alert",
+  "resolver comments": "Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.",
+  "rule": "Rule#014-New User Assigned to Privileged Role",
+  "status": "Closed",
+  "remarks / comments": "Rule#014-July-01-25 ( 208309 ).xlsx",
+  "_extracted_rule_info": {
+    "rule_id": "014",
+    "alert_name": "Alert",
+    "description": "",
+    "severity": "High",
+    "category": ""
+  }
+}
+
+=== RULEBOOK PROCEDURES ===
+[score=1.000] [src=Rule#014-July-01-25 ( 208309 )(Sheet1).csv]
+RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
+==================================================
+PRIMARY RULE: 014
+Columns: sr.no., inputs required, input details, instructions, reviewer comments
+Total Rows: 13
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": 1.0,

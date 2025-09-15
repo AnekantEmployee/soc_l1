@@ -1,7 +1,12 @@
 import os
 from rag.document_loader import DocumentLoader
 from rag.document_chunker import DocumentChunker
-from rag.retriever_qa import answer_query_with_rag, write_rule_markdown
+from rag.context_retriever import retrieve_context, build_context_block
+from rag.response_generator import (
+    generate_response_with_llm,
+    save_context_to_file,
+    write_rule_markdown,
+)
 from rag.embedding_indexer import (
     index_chunks_with_ollama_faiss,
     faiss_index_exists,
@@ -12,7 +17,7 @@ os.environ.setdefault("OLLAMA_TIMEOUT", "120")
 
 def quick_test_run():
     print("=" * 50)
-    print("🚀 QUICK RAG TEST RUN")
+    print("🚀 ENHANCED RAG TEST RUN - TWO PHASE PROCESSING")
     print("=" * 50)
 
     persist_dir = "vector_store_faiss"
@@ -64,41 +69,80 @@ def quick_test_run():
     else:
         print("ℹ️ FAISS content index already exists. Skipping re-indexing.")
 
-    print("💬 Step 4: RAG QA with qwen2.5:0.5b")
+    print("\n" + "=" * 60)
+    print("🔍 Step 4A: CONTEXT RETRIEVAL PHASE")
+    print("🤖 Step 4B: RESPONSE GENERATION PHASE")
+    print("=" * 60)
+
     sample_queries = [
         "Rule 2",
         "Rule 014",
         "User Assigned Privileged Role",
-        "Paswordless aunthintication may be happen due to compromised account or privileged account.
-"
+        "Passwordless authentication may be happen due to compromised account or privileged account.",
     ]
 
-    for q in sample_queries:
-        print(f"\n[Q] {q}")
-        out = answer_query_with_rag(
+    for query_idx, q in enumerate(sample_queries, 1):
+        print(f"\n{'='*50}")
+        print(f"[Query {query_idx}] {q}")
+        print("=" * 50)
+
+        # PHASE A: Context Retrieval
+        print("🔍 Phase A: Retrieving context...")
+        context_results = retrieve_context(
             query=q,
-            k=5,
             persist_dir=persist_dir,
             index_name=index_name,
             embed_model="nomic-embed-text",
-            gen_model="qwen2.5:0.5b",
+            k_tracker=2,
+            k_rulebook=5,
         )
 
-        md_path = write_rule_markdown(
-            query=q,
-            out_dir="artifacts",
-            persist_dir=persist_dir,
-            index_name=index_name,
-            embed_model="nomic-embed-text",
-            gen_model="qwen2.5:0.5b",
+        # Build context block
+        context_block = build_context_block(context_results, q)
+
+        # Save context to file
+        context_path = save_context_to_file(q, context_block)
+
+        print(f"✅ Context retrieved:")
+        print(f"   📊 Tracker hits: {len(context_results.get('tracker', []))}")
+        print(f"   📚 Rulebook hits: {len(context_results.get('rulebook', []))}")
+        print(f"   📁 Context saved to: {context_path}")
+        print(f"   🎯 Query classification: {context_results.get('class', {})}")
+
+        # Show context preview
+        print(f"\n[Context Preview - First 800 chars]")
+        print("-" * 40)
+        print(context_block[:800])
+        if len(context_block) > 800:
+            print("... [TRUNCATED]")
+        print("-" * 40)
+
+        # PHASE B: Response Generation
+        print("\n🤖 Phase B: Generating response...")
+        answer_md = generate_response_with_llm(
+            query=q, context_block=context_block, model="qwen2.5:0.5b"
         )
 
-        print("[Answer]")
-        print(out["answer"])
-        print(f"\n✅ Markdown written to: {md_path}")
-        print(f"🧾 Context saved to: {out.get('context_saved_to')}")
-        print("\n[Context Preview]")
-        print(out["context_preview"][:1200])
+        # Write markdown file
+        md_path = write_rule_markdown(query=q, answer=answer_md, out_dir="artifacts")
+
+        print(f"✅ Response generated:")
+        print(f"   📄 Markdown written to: {md_path}")
+
+        print(f"\n[Generated Answer]")
+        print("-" * 40)
+        print(answer_md)
+        print("-" * 40)
+
+        # Summary for this query
+        print(f"\n📋 Query {query_idx} Summary:")
+        print(
+            f"   🔍 Context retrieval: ✅ ({len(context_results.get('tracker', []))} tracker + {len(context_results.get('rulebook', []))} rulebook hits)"
+        )
+        print(f"   🤖 Response generation: ✅")
+        print(
+            f"   💾 Files created: {os.path.basename(context_path)}, {os.path.basename(md_path)}"
+        )
 
     return True
 
@@ -107,8 +151,14 @@ def main():
     ok = quick_test_run()
     if ok:
         print("\n" + "=" * 60)
-        print("✅ SYSTEM IS WORKING!")
+        print("✅ ENHANCED TWO-PHASE SYSTEM IS WORKING!")
         print("=" * 60)
+        print("📊 System Features:")
+        print("   🔍 Phase A: Advanced context retrieval with dynamic rule mapping")
+        print("   🤖 Phase B: LLM response generation with structured prompts")
+        print("   💾 Separate file outputs for contexts and responses")
+        print("   🎯 Enhanced query classification and rule detection")
+        print("   📈 Improved scoring and relevance filtering")
     else:
         print("\n❌ System test failed. Check the errors above.")
 

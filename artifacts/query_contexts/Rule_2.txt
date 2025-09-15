@@ -1,0 +1,40 @@
+Query: Rule 2
+==================================================
+=== QUERY CONTEXT ===
+Searching for: Rule 002
+Alert Names: Track for the closer/closer confirmation
+
+=== TRACKER DATA ===
+[score=1.000] [src=tracker_sheet] [row=5]
+{
+  "priority": "High",
+  "alert/incident": "Incident",
+  "resolver comments": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00463 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095255",
+  "rule": "Rule#280- Detect when One or more Sophos services are missing or not running.",
+  "status": "Closed",
+  "remarks / comments": "Rule 280-July-01-25 ( 208308 ).xlsx",
+  "_extracted_rule_info": {
+    "rule_id": "280",
+    "alert_name": "Incident",
+    "description": "INC0095255",
+    "severity": "High",
+    "category": ""
+  }
+}
+
+[score=0.960] [src=tracker_sheet] [row=9]
+{
+  "priority": "High",
+  "alert/incident": "Incident",
+  "resolver comments": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00450 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095260",
+  "rule": "Rule#280- Detect when One or more Sophos services are missing or not running.",
+  "status": "Closed",
+  "remarks / comments": "Rule 280-July-01-25 ( 208312 ).xlsx",
+  "_extracted_rule_info": {
+    "rule_id": "280",
+    "alert_name": "Incident",
+    "description": "INC0095260",
+    "severity": "High",
+    "category": ""
+  }
+}

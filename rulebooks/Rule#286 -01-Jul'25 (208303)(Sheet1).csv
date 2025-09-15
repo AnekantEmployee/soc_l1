@@ -1,7 +1,7 @@
 Sr.No.,Inputs Required,INPUT details,Instructions
 ,Rule #286 - Atypical Travel,,
 1,Incident,208303,
-2,Reported Time,7/1/2025 10:58,
+2,Reported Time,07-01-2025 10:58,
 3,Provide the username which are involved in the incident,,
 4,Run the KQL query ,"Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No","TimeGenerated
 • Username
