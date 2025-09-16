@@ -1,0 +1,7 @@
+{
+  "query": "Now about rule 286",
+  "json_context_length": 21774,
+  "response_length": 835,
+  "has_required_structure": false,
+  "response": "```json\n{\n  \"rule_id\": \"286\",\n  \"incident_date\": \"07-01-2025\",\n  \"incident_time\": \"10:58\",\n  \"username\": \"chorton@arcutis.com\",\n  \"ip_address\": \"clean\",\n  \"user_behavior\": \"nothing suspicious\",\n  \"device_details\": \"\",\n  \"os_platform\": \"unknown\",\n  \"previous_logins\": \"\",\n  \"user_location\": \"US\",\n  \"user_ip_reputation\": \"Malicious IP\",\n  \"user_vpn_reputation\": \"No\",\n  \"user_device_reputation\": \"Clean IP\",\n  \"user_device_os_platform\": \"unknown\",\n  \"user_device_previous_logins\": \"\",\n  \"user_device_os_platform\": \"unknown\",\n  \"user_device_previous_logins\": \"\",\n  \"user_device_ip_reputation\": \"Malicious IP\",\n  \"user_device_vpn_reputation\": \"No\",\n  \"user_device_vpn_reputation\": \"No\",\n  \"user_device_device_reputation\": \"Clean IP\",\n  \"incident_location\": \"US\",\n  \"incident_time\": \"10:58\",\n  \"incident_date\": \"2025-07-01T10:58:00Z\"\n}\n```"
+}

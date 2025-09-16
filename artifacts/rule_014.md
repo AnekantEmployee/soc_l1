@@ -1,34 +1,43 @@
-The provided question and answer are not in the format expected by the system. The question is asking for a summary of specific rules and their details, but the answer does not contain any such information.
+# Rule 014 - User Assigned Privileged Role
 
-To provide a more accurate response:
+## Key Information
+- **Rule ID**: 014
+- **Severity**: High
+- **Category**: Security
 
-### RULE PROCEDURES SUMMARY:
-- **Rule ID:** 014
-- **Alert Names:** User Assigned Privileged Role
+## Recent Incident Summary
+- **Incident Number**: 208309
+- **Date**: July 1, 2025
+- **Priority**: High
+- **Status**: Closed
+- **Engineer**: Saranya
+- **Resolution Time**: 4 minutes
+- **Classification**: FP
 
-#### Step 1:
-```plaintext
-{
-  "row_index": 1,
-  "data": {
-    "sr.no.": 1.0,
-    "inputs required": "Rule#014-User Assigned Privileged Role",
-    "input details": null,
-    "instructions": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
-    "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "014",
-    "alert_name": "User Assigned Privileged Role",
-    "description": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
-    "severity": "",
-    "category": ""
-  }
-}
-```
+## Investigation Findings
+- **Incident Details**: A user has been assigned a privileged role. The user is not authorized to access the system.
+- **Investigation Steps**:
+  - Gather details of all users (incident number: 208309)
+  - Check alert details for unusual sign-in patterns by the assigned user
+  - Verify if the assigning user had legitimate access and permissions
 
-### Summary:
-- **Rule ID:** 014
-- **Alert Name:** User Assigned Privileged Role
+## Investigation Procedure Steps
+1. **Gather Details**: Check incident number, date, time.
+2. **Check Alert Details**: Look for unusual sign-in patterns by the assigned user.
+3. **Verify Role Sensitivity**: Determine if the assigned role is high-risk (e.g., Global Admin).
+4. **Review Sign-In Logs**: Check for unusual sign-in patterns by the assigned user.
 
-This summary provides the rule ID and alert name in a clear format. If you need more detailed information about specific rules or their details, please let me know!
+## Remediation Actions
+- **Escalate to L3/IT**: If suspicious, escalate to L3/IT for investigation.
+- **Reset Account and MFA Tokens**: If True Positive (TP) scenarios are identified, reset the account and revoke MFA tokens.
+- **Temporary Disable Account**: If False Positive (FP) scenarios are identified, temporarily disable the account.
+
+## DATA EXTRACTION RULES
+- Extract rule_id: 014
+- Get incident details from tracker_data section
+- Use resolver_comments for investigation findings
+
+**DATA EXTRACTION RULES:**
+- Extract rule_id: 014
+- Get incident details from tracker_data section
+- Use resolver_comments for investigation findings

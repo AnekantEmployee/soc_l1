@@ -1,45 +1,64 @@
-The provided question and answer are correct. The user has asked for a detailed explanation of the Focused Rules (Rule IDs: 183) in an Excel file named `Sheet1.xlsx`. Here is the summary:
+# Rule 183 - Detect passwordless authentication
 
-### Summary:
-- **Rule ID:** 183
-- **Alert Names:** Detect passwordless authentication
+## Key Information
+- **Rule ID**: 183
+- **Alert Name**: Detect passwordless authentication
+- **Severity**: Medium
+- **Category**: False Positive
 
-### Explanation:
-The provided answer provides a step-by-step breakdown of how to use the Focused Rules (Rule IDs: 183) in an Excel file named `Sheet1.xlsx`. The summary includes:
+## Recent Incident Summary
+- **Incident Number**: 208306
+- **Date**: July 1, 2025
+- **Priority**: Medium
+- **Status**: Closed
+- **Engineer**: Sarvesh
+- **Resolution Time**: 14 minutes
+- **Classification**: False Positive
 
-1. **Step 1:**
-   - A single row with the following data:
-     ```
-     sr.no.
-     ```
+## Investigation Findings
+- **IP Reputation Status**: No IP reputation status is provided.
+- **Locations**: Not specified in the context.
+- **MFA Status**: MFA status is not relevant to this incident.
 
-2. **Data Row:**
-   - This row contains a single cell with the value: 
-     ```
-     sr.no.
-     ```
+## Investigation Procedure Steps
+1. **Triaging Steps:**
+   - **IP Clean**: Check if there are any suspicious or compromised IPs involved.
+   - **Closure Comments**: Review and comment on observed events, check sign-in logs of users with the provided credentials (obarkhordarian@arcutis.com, jfennewald@arcutis.com, nkolla@arcutis.com).
+   - **Clean IP**: Use registered devices and known apps to clean the compromised IP.
+   - **Using Registered Devices and Known Apps**: Check if there are any applications without sign-in attempts.
 
-3. **Rule Metadata:**
-   - The rule metadata includes the following details:
-     - Rule ID: 183
-     - Alert Name: Detect passwordless authentication
+2. **Verification of Application Sign-In Attempts:**
+   - Run a KQL query to verify the application sign-in attempts.
+   - Collect basic information like usernames, app names, user agents, time stamps, etc., from the logs.
 
-### Additional Information:
-- **Explanation of the Data Row:**
-  - This row represents a single data point in the Excel file.
-  - It contains only one cell with the value `sr.no.`, which likely refers to a unique identifier or index for each rule.
+3. **User Confirmation and User Account Details:**
+   - If no critical applications are found without password, consider this as a False Positive.
+   - Inform IT team to investigate further if any critical applications are present.
 
-- **Summary of the Rule:**
-  - The Focused Rules (Rule IDs: 183) are used to identify and alert users based on specific conditions related to passwordless authentication.
-  - These rules can be applied in various scenarios, such as monitoring user activity, detecting unauthorized access attempts, or identifying potential security risks.
+4. **Run AD Logs (Sign-in Logs):**
+   - Ensure that the passwordless authentication method used is legitimate (e.g., biometrics, hardware tokens).
+   - If there are critical applications without password, reach out IT for setting MFA.
 
-- **Usage Example:**
-  - If you want to use these Focused Rules (Rule IDs: 183) in your Excel file, you would typically add a new row with the data from Step 1 and then apply the rule using the appropriate formula or function within the Excel environment. For example:
-    ```
-    =IF(AND(A2="Detect passwordless authentication", B2="True Positive (TP) Scenarios"), "Action Required", "")
-    ```
+5. **User Account Details:**
+   - Collect basic user information like usernames, app names, user agents, time stamps, etc.
+   - Inform IT team if any critical applications are found without password.
 
-- **Alerts:**
-  - The alert names in the Focused Rules are `Detect passwordless authentication`, which indicates that these rules are used to detect and alert users based on specific conditions related to passwordless authentication.
+## Remediation Actions
+- **Run AD Logs (Sign-in Logs)**:
+  - Ensure that the passwordless authentication method used is legitimate (e.g., biometrics, hardware tokens).
+  - If there are critical applications without password, reach out IT for setting MFA.
+  
+- **User Account Details**:
+  - Collect basic user information like usernames, app names, user agents, time stamps, etc.
+  - Inform IT team if any critical applications are found without password.
 
-This summary provides a clear understanding of how to use the Focused Rules (Rule IDs: 183) in an Excel file named `Sheet1.xlsx`.
+## Additional Information
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+- **Attachments**: Not applicable in this context.
+
+This analysis focuses on the detection of passwordless authentication and provides a structured response following the provided guidelines.

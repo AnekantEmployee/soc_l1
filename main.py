@@ -100,13 +100,9 @@ def quick_test_run():
         # Build context block
         context_block = build_context_block(context_results, q)
 
-        # Save context to file
-        context_path = save_context_to_file(q, context_block)
-
         print(f"✅ Context retrieved:")
         print(f"   📊 Tracker hits: {len(context_results.get('tracker', []))}")
         print(f"   📚 Rulebook hits: {len(context_results.get('rulebook', []))}")
-        print(f"   📁 Context saved to: {context_path}")
         print(f"   🎯 Query classification: {context_results.get('class', {})}")
 
         # PHASE B: Response Generation
