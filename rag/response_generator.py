@@ -2,8 +2,6 @@
 
 import os
 import re
-import json
-import ollama
 from typing import Dict, Any
 from .context_retriever import parse_rule_id
 
@@ -41,6 +39,226 @@ Output format:
 """
 
 
+def parse_and_structure_context(
+    query: str, context_results: Dict[str, Any], context_block: str, model: str
+) -> Dict[str, Any]:
+    """Parse and structure context_results into comprehensive JSON format."""
+    from datetime import datetime
+    import json
+    import re
+
+    parsed_data = {
+        "query": query,
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "model": model,
+        "metadata": {
+            "total_tracker_hits": len(context_results.get("tracker", [])),
+            "total_rulebook_hits": len(context_results.get("rulebook", [])),
+            "rule_id": context_results.get("class", {}).get("rule_id", ""),
+            "confidence": context_results.get("class", {}).get("confidence", ""),
+            "is_exact_rule": context_results.get("class", {}).get(
+                "is_exact_rule", False
+            ),
+            "about_rule": context_results.get("class", {}).get("about_rule", False),
+            "context_text_length": len(context_block),
+        },
+        "parsed_data": {
+            "tracker_records": [],
+            "rulebook_records": [],
+            "query_classification": context_results.get("class", {}),
+        },
+        "statistics": {"tracker_stats": {}, "rulebook_stats": {}, "overall_stats": {}},
+    }
+
+    # Parse tracker data
+    tracker_hits = context_results.get("tracker", [])
+    rule_ids_found = set()
+    priorities = []
+    statuses = []
+
+    for tracker_hit in tracker_hits:
+        if len(tracker_hit) >= 4:
+            doc_id, score, json_content, metadata = tracker_hit[:4]
+
+            try:
+                # Parse the JSON content
+                parsed_json = json.loads(json_content)
+
+                # Extract tracker_data if it's nested
+                if "tracker_data" in parsed_json:
+                    tracker_data = parsed_json["tracker_data"]
+                    extracted_rule_info = parsed_json.get("extracted_rule_info", {})
+                else:
+                    tracker_data = parsed_json
+                    extracted_rule_info = {}
+
+                # Collect statistics
+                if "rule_id" in extracted_rule_info:
+                    rule_ids_found.add(extracted_rule_info["rule_id"])
+                if "priority" in tracker_data:
+                    priorities.append(tracker_data["priority"])
+                if "status" in tracker_data:
+                    statuses.append(tracker_data["status"])
+
+                # Create structured record
+                tracker_record = {
+                    "document_id": doc_id,
+                    "relevance_score": float(score),
+                    "metadata": metadata,
+                    "tracker_data": tracker_data,
+                    "extracted_rule_info": extracted_rule_info,
+                    "incident_number": tracker_data.get("incidnet no #")
+                    or tracker_data.get("incident_no"),
+                    "priority": tracker_data.get("priority"),
+                    "status": tracker_data.get("status"),
+                    "rule": tracker_data.get("rule"),
+                    "engineer": tracker_data.get("name of the shift engineer"),
+                    "resolution_time": tracker_data.get("mttr    (mins)")
+                    or tracker_data.get("mttr (mins)"),
+                }
+
+                parsed_data["parsed_data"]["tracker_records"].append(tracker_record)
+
+            except json.JSONDecodeError as e:
+                print(f"⚠️ Failed to parse tracker JSON: {e}")
+                # Add as raw content if JSON parsing fails
+                parsed_data["parsed_data"]["tracker_records"].append(
+                    {
+                        "document_id": doc_id,
+                        "relevance_score": float(score),
+                        "metadata": metadata,
+                        "raw_content": json_content,
+                        "parse_error": str(e),
+                    }
+                )
+
+    # Parse rulebook data
+    rulebook_hits = context_results.get("rulebook", [])
+    content_types = []
+    rule_procedures = []
+
+    for rulebook_hit in rulebook_hits:
+        if len(rulebook_hit) >= 4:
+            doc_id, score, content, metadata = rulebook_hit[:4]
+
+            # Determine content type
+            content_type = metadata.get("doctype", "unknown")
+            content_types.append(content_type)
+
+            # Extract procedural steps if it's a complete rulebook
+            procedure_steps = []
+            if "Row " in content and "{" in content:
+                # Extract JSON blocks from content
+                json_blocks = re.findall(
+                    r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}", content, re.DOTALL
+                )
+                for json_block in json_blocks:
+                    try:
+                        parsed_step = json.loads(json_block)
+                        if "row_index" in parsed_step and "data" in parsed_step:
+                            procedure_steps.append(parsed_step)
+                    except json.JSONDecodeError:
+                        continue
+
+            # Extract rule information
+            rule_info = {
+                "primary_rule_id": metadata.get("primary_rule_id", ""),
+                "total_rows": metadata.get("rows", 0),
+                "is_complete": metadata.get("is_complete", False),
+                "is_direct_read": metadata.get("is_direct_read", False),
+            }
+
+            if procedure_steps:
+                rule_procedures.extend(procedure_steps)
+
+            # Create structured record
+            rulebook_record = {
+                "document_id": doc_id,
+                "relevance_score": float(score),
+                "metadata": metadata,
+                "content_type": content_type,
+                "rule_info": rule_info,
+                "procedure_steps": procedure_steps,
+                "content_length": len(content),
+                "raw_content": (
+                    content
+                    if len(content) < 5000
+                    else content[:5000] + "...[TRUNCATED]"
+                ),
+            }
+
+            parsed_data["parsed_data"]["rulebook_records"].append(rulebook_record)
+
+    # Generate statistics
+    parsed_data["statistics"] = {
+        "tracker_stats": {
+            "total_incidents": len(tracker_hits),
+            "unique_rules": len(rule_ids_found),
+            "rules_found": list(rule_ids_found),
+            "priorities": list(set(priorities)),
+            "statuses": list(set(statuses)),
+            "priority_distribution": {p: priorities.count(p) for p in set(priorities)},
+        },
+        "rulebook_stats": {
+            "total_documents": len(rulebook_hits),
+            "content_types": list(set(content_types)),
+            "total_procedure_steps": len(rule_procedures),
+            "complete_rulebooks": len(
+                [
+                    r
+                    for r in parsed_data["parsed_data"]["rulebook_records"]
+                    if r["rule_info"]["is_complete"]
+                ]
+            ),
+            "direct_file_reads": len(
+                [
+                    r
+                    for r in parsed_data["parsed_data"]["rulebook_records"]
+                    if r["rule_info"]["is_direct_read"]
+                ]
+            ),
+        },
+        "overall_stats": {
+            "total_documents": len(tracker_hits) + len(rulebook_hits),
+            "query_classification": context_results.get("class", {}),
+            "processing_successful": True,
+        },
+    }
+
+    return parsed_data
+
+
+def save_structured_context(query: str, structured_data: Dict[str, Any]) -> str:
+    """Save structured context data to JSON file."""
+    import os
+    import json
+    import re
+
+    try:
+        # Create safe filename from query
+        safe_query = re.sub(r"[^a-zA-Z0-9_-]+", "_", query)[:50]
+        os.makedirs("artifacts/context_json", exist_ok=True)
+        json_path = f"artifacts/context_json/{safe_query}_context.json"
+
+        # Save structured data to JSON file
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(structured_data, f, ensure_ascii=False, indent=2)
+
+        print(f"💾 Structured context saved to: {json_path}")
+        print(
+            f"📊 Parsed: {structured_data['metadata']['total_tracker_hits']} tracker + {structured_data['metadata']['total_rulebook_hits']} rulebook hits"
+        )
+        print(
+            f"🔍 Found {structured_data['statistics']['tracker_stats']['total_incidents']} incidents, {structured_data['statistics']['rulebook_stats']['total_procedure_steps']} procedure steps"
+        )
+
+        return json_path
+
+    except Exception as e:
+        print(f"⚠️ Failed to save structured context JSON: {e}")
+        return ""
+
+
 def generate_response_with_llm(
     query: str,
     context_block: str,
@@ -48,21 +266,20 @@ def generate_response_with_llm(
     model: str = "qwen2.5:0.5b",
 ) -> str:
     """Generate response using LLM with enhanced prompt and context."""
+    import ollama
 
-    # ✅ NEW: Save raw context block as JSON
+    # ✅ Parse and save structured context data
     try:
-        # Create safe filename from query
-        safe_query = re.sub(r"[^a-zA-Z0-9_-]+", "_", query)[:50]
-        os.makedirs("artifacts/context_json", exist_ok=True)
-        json_path = f"artifacts/context_json/{safe_query}_context.json"
+        # Parse the context_results into structured format
+        structured_data = parse_and_structure_context(
+            query, context_results, context_block, model
+        )
 
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(context_results, f, ensure_ascii=False, indent=2)
-
-        print(f"💾 Raw context saved to: {json_path}")
+        # Save structured data to JSON file
+        save_structured_context(query, structured_data)
 
     except Exception as json_error:
-        print(f"⚠️ Failed to save context JSON: {json_error}")
+        print(f"⚠️ Failed to process structured context: {json_error}")
 
     # Original LLM processing
     messages = [

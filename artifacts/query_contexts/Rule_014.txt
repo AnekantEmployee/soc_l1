@@ -4,50 +4,10 @@ Query: Rule 014
 Searching for: Rule 014
 Alert Names: New User Assigned to Privileged Role, User Assigned Privileged Role
 
-=== TRACKER DATA ===
-[score=1.000] [src=tracker_sheet] [row=6]
-{
-  "s.no.": 7,
-  "date": "01-Jul-25",
-  "month": "July",
-  "shift": "Afternoon",
-  "incidnet no #": 208309,
-  "data connecter": "AD",
-  "priority": "High",
-  "alert/incident": "Alert",
-  "name of the shift engineer": "Saranya",
-  "handover shift engineer": "Harish,Venkat",
-  "reported time stamp": "07-01-2025 17:28",
-  "responded time stamp": "07-01-2025 17:29",
-  "mttd (mins)": 1,
-  "resolution time stamp": "07-01-2025 17:32",
-  "mttr    (mins)": 4,
-  "time to breach sla": "07-01-2025 18:28",
-  "remaining mins to breach": "Resolved",
-  "resolver comments": "Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.",
-  "vip users": "No",
-  "rule": "Rule#014-New User Assigned to Privileged Role",
-  "service owner": "Sentinel",
-  "status": "Closed",
-  "remarks / comments": "Rule#014-July-01-25 ( 208309 ).xlsx",
-  "false / true positive": "False Positive",
-  "why false positive": "Legitimate user",
-  "justification": null,
-  "quality audit": "Pass",
-  "description": null,
-  "_extracted_rule_info": {
-    "rule_id": "014",
-    "alert_name": "New User Assigned to Privileged Role",
-    "description": "",
-    "severity": "High",
-    "category": ""
-  }
-}
-
 === RULEBOOK PROCEDURES ===
-[score=1.000] [src=Rule#014-July-01-25 ( 208309 )(Sheet1).csv]
-RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
-==================================================
+[score=1.000] [src=DIRECT_FILE_READ] [rule=014]
+COMPLETE RULEBOOK: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
+============================================================
 PRIMARY RULE: 014
 Columns: sr.no., inputs required, input details, instructions, reviewer comments
 Total Rows: 13
@@ -61,13 +21,6 @@ Row 1:
     "input details": null,
     "instructions": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "014",
-    "alert_name": "User Assigned Privileged Role",
-    "description": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -80,13 +33,6 @@ Row 2:
     "input details": "208309",
     "instructions": null,
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -99,13 +45,6 @@ Row 3:
     "input details": "1",
     "instructions": "Gather details of all users - (By adding sheet to this excel)",
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -118,13 +57,6 @@ Row 4:
     "input details": "Yes",
     "instructions": "Username, Role Assigned, Time of Assignment, Initiator, Source IP, Location",
     "reviewer comments": "Check Ip prevalence & Repuation"
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "Username, Role Assigned, Time of Assignment, Initiator, Source IP, Location",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -137,13 +69,6 @@ Row 5:
     "input details": "Yes",
     "instructions": "Determine if the assigned role is high-risk (e.g., Global Admin)",
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "Determine if the assigned role is high-risk (e.g., Global Admin)",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -156,13 +81,6 @@ Row 6:
     "input details": "Yes",
     "instructions": "Look for unusual sign-in patterns by the assigned user for last 7 days",
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "Look for unusual sign-in patterns by the assigned user for last 7 days",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -175,13 +93,6 @@ Row 7:
     "input details": "Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP.",
     "instructions": "Validate if the assigning user had legitimate access and permissions",
     "reviewer comments": "Check the Historical data of initiator  & alerts on initiator"
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -194,13 +105,6 @@ Row 8:
     "input details": "Not Required",
     "instructions": "if suspicious, escalate to L3/IT for investigation",
     "reviewer comments": "If  initiator  found compromise then Escalte to L3"
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -213,13 +117,6 @@ Row 9:
     "input details": null,
     "instructions": "Reach out to the Network/EDR teams to block the detected suspicious IP, Inform user to reset password, maintain complex password and enable MFA.",
     "reviewer comments": "Also Reset the all actvie user sessions  & Need to perform user precompromise & post compromise  actvity"
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -232,13 +129,6 @@ Row 10:
     "input details": "Closed",
     "instructions": "After all the investigation document the steps taken, findings, and any remediation actions required",
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -251,13 +141,6 @@ Row 11:
     "input details": "These indicate malicious or unauthorized role assignments:\nAttacker assigns themselves or another compromised account to a privileged role (e.g., Global Admin).\nPrivileged role assigned outside business hours from an unusual IP or geolocation.\nRole assignment follows a successful risky sign-in (e.g., impossible travel or TOR exit node).\nAssignment made by an unknown or suspicious app/service principal.\nMultiple privileged roles assigned in quick succession—suggesting lateral movement.\nAssignment to a dormant or deactivated account suddenly re-enabled.",
     "instructions": null,
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -270,13 +153,6 @@ Row 12:
     "input details": "These are unusual but legitimate actions:\nPrivileged role assigned temporarily via PIM (Privileged Identity Management) for a valid task.\nSecurity team grants temporary access for an urgent incident response.\nAdmin assigns a role to a new hire during onboarding, but outside normal hours.\nRole assignment from a new IP due to remote work or travel.",
     "instructions": null,
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
   }
 }
 
@@ -289,41 +165,5 @@ Row 13:
     "input details": "These are normal operations that trigger alerts unnecessarily:\nAdmin assigns a role to a user as part of routine access management.\nAssignment from a known corporate IP or trusted device, but not yet whitelisted.\nBulk role assignments during a migration or reorganization.\nTemporary elevation via PIM that’s not filtered out in the rule logic.",
     "instructions": null,
     "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "",
-    "alert_name": "",
-    "description": "",
-    "severity": "",
-    "category": ""
-  }
-}
-
-==============================
-RULE PROCEDURES SUMMARY:
-- Rule 014: User Assigned Privileged Role
-
-[score=0.000] [src=Rule#014-July-01-25 ( 208309 )(Sheet1).csv]
-FOCUSED RULE PROCEDURES: Rule#014-July-01-25 ( 208309 )(Sheet1).csv
-============================================================
-RULE ID: 014
-ALERT NAMES: User Assigned Privileged Role
-
-Step 1:
-{
-  "row_index": 1,
-  "data": {
-    "sr.no.": 1.0,
-    "inputs required": "Rule#014-User Assigned Privileged Role",
-    "input details": null,
-    "instructions": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
-    "reviewer comments": null
-  },
-  "rule_metadata": {
-    "rule_id": "014",
-    "alert_name": "User Assigned Privileged Role",
-    "description": "A user has been assigned a privileged role, which may indicate unauthorized privilege escalation or administrative misuse.",
-    "severity": "",
-    "category": ""
   }
 }
