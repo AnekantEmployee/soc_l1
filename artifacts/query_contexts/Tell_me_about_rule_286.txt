@@ -1,0 +1,765 @@
+Query: Tell me about rule 286
+==================================================
+=== QUERY CONTEXT ===
+Searching for: Rule 286
+Alert Names: Atypical travel, Atypical Travel
+
+=== TRACKER DATA ===
+[score=1.000] [src=tracker_sheet] [row=1]
+{
+  "s.no.": 2,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208304,
+  "data connecter": "AD",
+  "priority": "High",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 11:46",
+  "responded time stamp": "07-01-2025 11:50",
+  "mttd (mins)": 4,
+  "resolution time stamp": "07-01-2025 11:52",
+  "mttr    (mins)": 6,
+  "time to breach sla": "07-01-2025 12:46",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+  "vip users": "No",
+  "rule": "Rule#286- Atypical travel",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#286 -01-Jul'25 (208304).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "Legitimate user",
+  "justification": null,
+  "quality audit": "Pass",
+  "description": null,
+  "_extracted_rule_info": {
+    "rule_id": "286",
+    "alert_name": "Atypical travel",
+    "description": "",
+    "severity": "High",
+    "category": ""
+  }
+}
+
+[score=0.995] [src=tracker_sheet] [row=0]
+{
+  "s.no.": 1,
+  "date": "01-Jul-25",
+  "month": "July",
+  "shift": "Morning",
+  "incidnet no #": 208303,
+  "data connecter": "AD",
+  "priority": "High",
+  "alert/incident": "Alert",
+  "name of the shift engineer": "Sarvesh",
+  "handover shift engineer": "Aman,Dhroovi,Saranya& Uday",
+  "reported time stamp": "07-01-2025 10:58",
+  "responded time stamp": "07-01-2025 11:00",
+  "mttd (mins)": 2,
+  "resolution time stamp": "07-01-2025 11:15",
+  "mttr    (mins)": 17,
+  "time to breach sla": "07-01-2025 11:58",
+  "remaining mins to breach": "Resolved",
+  "resolver comments": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+  "vip users": "No",
+  "rule": "Rule#286- Atypical travel",
+  "service owner": "Sentinel",
+  "status": "Closed",
+  "remarks / comments": "Rule#286 -01-Jul'25 (208303).xlsx",
+  "false / true positive": "False Positive",
+  "why false positive": "Legitimate user",
+  "justification": "Takes time in investigation",
+  "quality audit": "Pass",
+  "description": null,
+  "_extracted_rule_info": {
+    "rule_id": "286",
+    "alert_name": "Atypical travel",
+    "description": "",
+    "severity": "High",
+    "category": ""
+  }
+}
+
+=== RULEBOOK PROCEDURES ===
+[score=1.000] [src=Rule#286 -01-Jul'25 (208304)(Sheet1).csv]
+RULEBOOK: Rule#286 -01-Jul'25 (208304)(Sheet1).csv
+==================================================
+PRIMARY RULE: 286
+Columns: sr.no., inputs required, input details, instructions
+Total Rows: 13
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #286 - Atypical Travel",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "286",
+    "alert_name": "Atypical Travel",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 2:
+{
+  "row_index": 2,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Incident",
+    "input details": "208304",
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 3:
+{
+  "row_index": 3,
+  "data": {
+    "sr.no.": 2.0,
+    "inputs required": "Reported Time",
+    "input details": "7/19/2025 8:03",
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 4:
+{
+  "row_index": 4,
+  "data": {
+    "sr.no.": 3.0,
+    "inputs required": "Provide the username which are involved in the incident",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 5:
+{
+  "row_index": 5,
+  "data": {
+    "sr.no.": 4.0,
+    "inputs required": "Run the KQL query",
+    "input details": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+    "instructions": "TimeGenerated\n• Username\n• IP Address\n• Geolocation"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 6:
+{
+  "row_index": 6,
+  "data": {
+    "sr.no.": 5.0,
+    "inputs required": "VIP Users",
+    "input details": "No",
+    "instructions": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 7:
+{
+  "row_index": 7,
+  "data": {
+    "sr.no.": 6.0,
+    "inputs required": "Analyze Login Patterns",
+    "input details": "change the location (US to US) with in short time period, but the device is known one, and mfa sent to user's mobile, and used applicaitons are known applications only",
+    "instructions": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "IP Reputation Check",
+    "input details": "IP is clean",
+    "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Verify User Behavior",
+    "input details": "nothing suspicious",
+    "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if the device matches the user’s previous logins."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 10:
+{
+  "row_index": 10,
+  "data": {
+    "sr.no.": 9.0,
+    "inputs required": "Identify Concurrent Logins",
+    "input details": "us",
+    "instructions": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 11:
+{
+  "row_index": 11,
+  "data": {
+    "sr.no.": 10.0,
+    "inputs required": "Contact the User for Verification",
+    "input details": null,
+    "instructions": "If the activity appears suspicious, contact the user directly:\n• Confirm whether they traveled to a new location, they are using any virutal machines/VPN\n• Verify if they recognize the device and IP address"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 12:
+{
+  "row_index": 12,
+  "data": {
+    "sr.no.": 11.0,
+    "inputs required": "Inform to IT Team",
+    "input details": "no need",
+    "instructions": "If the user confirms it is a True Positive or fails to respond:\n• Inform the IT team.\n• Disable the user account.\n• Reset the password."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 13:
+{
+  "row_index": 13,
+  "data": {
+    "sr.no.": 12.0,
+    "inputs required": "Track for the closer/closer confirmation from IT team",
+    "input details": "closed",
+    "instructions": "Update security policies and conduct user awareness training to prevent future incidents."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+==============================
+RULE PROCEDURES SUMMARY:
+- Rule 286: Atypical Travel
+
+[score=1.000] [src=Rule#286 -01-Jul'25 (208303)(Sheet1).csv]
+RULEBOOK: Rule#286 -01-Jul'25 (208303)(Sheet1).csv
+==================================================
+PRIMARY RULE: 286
+Columns: sr.no., inputs required, input details, instructions
+Total Rows: 13
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule #286 - Atypical Travel",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "286",
+    "alert_name": "Atypical Travel",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 2:
+{
+  "row_index": 2,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Incident",
+    "input details": "208303",
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 3:
+{
+  "row_index": 3,
+  "data": {
+    "sr.no.": 2.0,
+    "inputs required": "Reported Time",
+    "input details": "07-01-2025 10:58",
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 4:
+{
+  "row_index": 4,
+  "data": {
+    "sr.no.": 3.0,
+    "inputs required": "Provide the username which are involved in the incident",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 5:
+{
+  "row_index": 5,
+  "data": {
+    "sr.no.": 4.0,
+    "inputs required": "Run the KQL query",
+    "input details": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+    "instructions": "TimeGenerated\n• Username\n• IP Address\n• Geolocation"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 6:
+{
+  "row_index": 6,
+  "data": {
+    "sr.no.": 5.0,
+    "inputs required": "VIP Users",
+    "input details": "No",
+    "instructions": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 7:
+{
+  "row_index": 7,
+  "data": {
+    "sr.no.": 6.0,
+    "inputs required": "Analyze Login Patterns",
+    "input details": "change the location (US to US) with in short time period, but the device is known one, and mfa sent to user's mobile, and used applicaitons are known applications only",
+    "instructions": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "IP Reputation Check",
+    "input details": "IP is clean",
+    "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Verify User Behavior",
+    "input details": "nothing suspicious",
+    "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if the device matches the user’s previous logins."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 10:
+{
+  "row_index": 10,
+  "data": {
+    "sr.no.": 9.0,
+    "inputs required": "Identify Concurrent Logins",
+    "input details": "us",
+    "instructions": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 11:
+{
+  "row_index": 11,
+  "data": {
+    "sr.no.": 10.0,
+    "inputs required": "Contact the User for Verification",
+    "input details": null,
+    "instructions": "If the activity appears suspicious, contact the user directly:\n• Confirm whether they traveled to a new location, they are using any virutal machines/VPN\n• Verify if they recognize the device and IP address"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 12:
+{
+  "row_index": 12,
+  "data": {
+    "sr.no.": 11.0,
+    "inputs required": "Inform to IT Team",
+    "input details": "no need",
+    "instructions": "If the user confirms it is a True Positive or fails to respond:\n• Inform the IT team.\n• Disable the user account.\n• Reset the password."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 13:
+{
+  "row_index": 13,
+  "data": {
+    "sr.no.": 12.0,
+    "inputs required": "Track for the closer/closer confirmation from IT team",
+    "input details": "closed",
+    "instructions": "Update security policies and conduct user awareness training to prevent future incidents."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+    "severity": "",
+    "category": ""
+  }
+}
+
+==============================
+RULE PROCEDURES SUMMARY:
+- Rule 286: Atypical Travel
+
+[score=0.000] [src=Rule 280-July-01-25 ( 208311 )(Investigation steps).csv]
+RULEBOOK: Rule 280-July-01-25 ( 208311 )(Investigation steps).csv
+==================================================
+PRIMARY RULE: 280
+Columns: sr.no., inputs required, input details, instructions
+Total Rows: 10
+
+Row 1:
+{
+  "row_index": 1,
+  "data": {
+    "sr.no.": null,
+    "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+    "input details": null,
+    "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+  },
+  "rule_metadata": {
+    "rule_id": "280",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 2:
+{
+  "row_index": 2,
+  "data": {
+    "sr.no.": 1.0,
+    "inputs required": "Incident",
+    "input details": "208311",
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 3:
+{
+  "row_index": 3,
+  "data": {
+    "sr.no.": 2.0,
+    "inputs required": "Reported Time",
+    "input details": null,
+    "instructions": null
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 4:
+{
+  "row_index": 4,
+  "data": {
+    "sr.no.": 3.0,
+    "inputs required": "Observe the events",
+    "input details": "Yes",
+    "instructions": "Check the device, name of service (missing or not running) , source IP, source name, time"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 5:
+{
+  "row_index": 5,
+  "data": {
+    "sr.no.": 4.0,
+    "inputs required": "Check Sophos Console for the user health agent status",
+    "input details": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00374 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095259",
+    "instructions": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 6:
+{
+  "row_index": 6,
+  "data": {
+    "sr.no.": 5.0,
+    "inputs required": "Check if the status all the services are running or not",
+    "input details": "Yes, verified all the details no suspicious found. All services are running with the user.",
+    "instructions": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 7:
+{
+  "row_index": 7,
+  "data": {
+    "sr.no.": 6.0,
+    "inputs required": "Make a word document to list the details of user if any of the sophos services missing",
+    "input details": "Not required.",
+    "instructions": "Attached the details as an Artificats to next sheet based on the details available in the events, update accordingly in the word document."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 8:
+{
+  "row_index": 8,
+  "data": {
+    "sr.no.": 7.0,
+    "inputs required": "Raise a Incident ticket in SNOW",
+    "input details": "INC0095259",
+    "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "Steps to create incident (Ref: Incident Screeshot)",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 9:
+{
+  "row_index": 9,
+  "data": {
+    "sr.no.": 8.0,
+    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix\" video which is shared in the soc group",
+    "input details": "Not required.",
+    "instructions": "Attach word document with all the details and upload the video, For video link refer next sheet (Video Link tab)"
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+Row 10:
+{
+  "row_index": 10,
+  "data": {
+    "sr.no.": 9.0,
+    "inputs required": "Follow up with the IT Team for raising the ticket",
+    "input details": "Not required.Because all services are running.",
+    "instructions": "Regularly Check for the updates from the SSIT team for status of the ticket."
+  },
+  "rule_metadata": {
+    "rule_id": "",
+    "alert_name": "",
+    "description": "",
+    "severity": "",
+    "category": ""
+  }
+}
+
+==============================
+RULE PROCEDURES SUMMARY:

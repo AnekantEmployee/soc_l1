@@ -16,49 +16,41 @@
 - **Classification**: False Positive
 
 ## Investigation Findings
-- **IP Reputation Status**: No IP reputation status is provided.
-- **Locations**: Not specified in the context.
-- **MFA Status**: MFA status is not relevant to this incident.
+- **IP Reputation Status**: Not found in the provided context.
+- **Locations**: Not found in the provided context.
+- **MFA Status**: Not found in the provided context.
+- **Sign In Logs**: Not found in the provided context.
 
 ## Investigation Procedure Steps
 1. **Triaging Steps:**
-   - **IP Clean**: Check if there are any suspicious or compromised IPs involved.
-   - **Closure Comments**: Review and comment on observed events, check sign-in logs of users with the provided credentials (obarkhordarian@arcutis.com, jfennewald@arcutis.com, nkolla@arcutis.com).
-   - **Clean IP**: Use registered devices and known apps to clean the compromised IP.
-   - **Using Registered Devices and Known Apps**: Check if there are any applications without sign-in attempts.
+   - IP : Clean
+   - Closure Comments: Observed events, checked sign in logs of users(obarkhordarian@arcutis.com,jfennewald@arcutis.com,nkolla@arcutis.com), clean IP, using registered devices and known apps nothing suspicious found , closing as a false positive
 
-2. **Verification of Application Sign-In Attempts:**
-   - Run a KQL query to verify the application sign-in attempts.
-   - Collect basic information like usernames, app names, user agents, time stamps, etc., from the logs.
+2. **Resolution Time:** 14 minutes
 
-3. **User Confirmation and User Account Details:**
-   - If no critical applications are found without password, consider this as a False Positive.
-   - Inform IT team to investigate further if any critical applications are present.
-
-4. **Run AD Logs (Sign-in Logs):**
-   - Ensure that the passwordless authentication method used is legitimate (e.g., biometrics, hardware tokens).
-   - If there are critical applications without password, reach out IT for setting MFA.
-
-5. **User Account Details:**
-   - Collect basic user information like usernames, app names, user agents, time stamps, etc.
-   - Inform IT team if any critical applications are found without password.
+3. **Reason for False Positive:**
+   - The incident was detected due to the use of passwordless authentication methods, which may be compromised or used by unauthorized users.
 
 ## Remediation Actions
-- **Run AD Logs (Sign-in Logs)**:
-  - Ensure that the passwordless authentication method used is legitimate (e.g., biometrics, hardware tokens).
-  - If there are critical applications without password, reach out IT for setting MFA.
-  
-- **User Account Details**:
-  - Collect basic user information like usernames, app names, user agents, time stamps, etc.
-  - Inform IT team if any critical applications are found without password.
+- **Action Taken**: No specific remediation steps are provided in the context.
+- **Action Not Taken**: Not applicable as no remediation actions were mentioned.
 
-## Additional Information
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
-- **Attachments**: Not applicable in this context.
+**DATA EXTRACTION RULES:**
+- Extract rule_id, alert_name from extracted_rule_info
+- Get incident details from tracker_data section
+- Use resolver_comments for investigation findings
+- Extract procedure_steps from rulebook_records
 
-This analysis focuses on the detection of passwordless authentication and provides a structured response following the provided guidelines.
+## FORBIDDEN: 
+- Do not invent or assume any information
+- Do not mix information from different rules
+- Do not add procedural steps not in the context
+- Do not speculate on missing information
+**OUTPUT VALIDATION:**
+Ensure your response:
+1. Follows the exact markdown structure specified above
+2. Uses only information from the provided JSON context
+3. Includes specific data points like incident numbers, dates, times
+4. Maintains professional SOC terminology
+5. Clearly indicates when information is missing from context
+6. Consistently uses "Not found in provided context" where applicable

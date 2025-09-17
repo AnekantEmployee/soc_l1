@@ -1,9 +1,9 @@
-# Rule 014 - User Assigned Privileged Role
+# Rule 014 - High Severity Incident
 
 ## Key Information
 - **Rule ID**: 014
-- **Severity**: High
-- **Category**: Security
+- **Severity Level**: High
+- **Category**: Security Operations Center (SOC) RAG
 
 ## Recent Incident Summary
 - **Incident Number**: 208309
@@ -12,32 +12,59 @@
 - **Status**: Closed
 - **Engineer**: Saranya
 - **Resolution Time**: 4 minutes
-- **Classification**: FP
+- **Classification**: High Severity Incident
 
 ## Investigation Findings
-- **Incident Details**: A user has been assigned a privileged role. The user is not authorized to access the system.
-- **Investigation Steps**:
-  - Gather details of all users (incident number: 208309)
-  - Check alert details for unusual sign-in patterns by the assigned user
-  - Verify if the assigning user had legitimate access and permissions
+- **Investigator Comments**: "Observed the Events and checked user(Adminchintala) was accessed into MS-PIM, nothing Suspicious activities found, closing as FP."
+- **IP Reputation Status**: Not Found in provided context.
+- **Locations**: Not Found in provided context.
+- **MFA Status**: Not Found in provided context.
+- **Other Details**: No additional details available.
 
 ## Investigation Procedure Steps
-1. **Gather Details**: Check incident number, date, time.
-2. **Check Alert Details**: Look for unusual sign-in patterns by the assigned user.
-3. **Verify Role Sensitivity**: Determine if the assigned role is high-risk (e.g., Global Admin).
-4. **Review Sign-In Logs**: Check for unusual sign-in patterns by the assigned user.
+1. **Gather Incident Details**
+   - Check the incident number and date.
+   - Identify the user who was assigned a privileged role (e.g., Adminchintala).
+   - Verify if the user had legitimate access and permissions.
+
+2. **Review Sign-In Logs**
+   - Look for unusual sign-in patterns by the user for the last 7 days.
+   - Check if there are any suspicious activities or signs of unauthorized access.
+
+3. **Check Activity of Initiator**
+   - Identify the initiator who accessed the MS-PIM account (e.g., Adminchintala).
+   - Verify if the activity was legitimate and not suspicious.
+
+4. **Verify Role Sensitivity**
+   - Determine if the assigned role is high-risk (e.g., Global Admin).
+
+5. **Review Sign-In Logs for Suspicious Activity**
+   - Check if there are any unusual sign-in patterns by the user.
+   - Look for signs of unauthorized access or potential breaches.
+
+6. **Check Activity of Initiator**
+   - Identify the initiator who accessed the MS-PIM account (e.g., Adminchintala).
+   - Verify if the activity was legitimate and not suspicious.
+
+7. **Verify Role Sensitivity**
+   - Determine if the assigned role is high-risk (e.g., Global Admin).
+
+8. **Review Sign-In Logs for Suspicious Activity**
+   - Check if there are any unusual sign-in patterns by the user.
+   - Look for signs of unauthorized access or potential breaches.
+
+9. **Check Activity of Initiator**
+   - Identify the initiator who accessed the MS-PIM account (e.g., Adminchintala).
+   - Verify if the activity was legitimate and not suspicious.
+
+10. **Verify Role Sensitivity**
+    - Determine if the assigned role is high-risk (e.g., Global Admin).
 
 ## Remediation Actions
-- **Escalate to L3/IT**: If suspicious, escalate to L3/IT for investigation.
-- **Reset Account and MFA Tokens**: If True Positive (TP) scenarios are identified, reset the account and revoke MFA tokens.
-- **Temporary Disable Account**: If False Positive (FP) scenarios are identified, temporarily disable the account.
+- Escalate to L3/IT for investigation.
+- Reset all active user sessions and maintain complex passwords and enable MFA.
+- Perform a user precompromise and post-compromise activity.
 
-## DATA EXTRACTION RULES
-- Extract rule_id: 014
-- Get incident details from tracker_data section
-- Use resolver_comments for investigation findings
-
-**DATA EXTRACTION RULES:**
-- Extract rule_id: 014
-- Get incident details from tracker_data section
-- Use resolver_comments for investigation findings
+### Additional Notes:
+- The incident was identified as a high severity incident, warranting immediate attention and action.
+- Detailed logs of the incident were collected and analyzed to identify potential risks and vulnerabilities.

@@ -2,7 +2,7 @@ Sr.No.,Inputs Required,INPUT details,Instructions
 ,Rule#280-Detect when One or more Sophos services are missing or not running.,,"Description:The rule will detect when one or more sophos services are missing or not running properly
 "
 1,Incident,208312,
-2,Reported Time,7/1/2025 19:54,
+2,Reported Time,07-01-2025 19:54,
 3,Observe the events,Yes,"Check the device, name of service (missing or not running) , source IP, source name, time"
 4,Check Sophos Console for the user health agent status,Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00450 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095260,Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing.
 5,Check if the status all the services are running or not,"Yes, verified all the details no suspicious found. All services are running with the user.","If all services are running ok, no need to take action. 

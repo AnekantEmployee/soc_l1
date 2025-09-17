@@ -1,0 +1,7 @@
+{
+  "query": "Atypical travel",
+  "json_context_length": 21771,
+  "response_length": 618,
+  "has_required_structure": false,
+  "response": "```json\n{\n  \"rule_id\": \"286\",\n  \"incident_date\": \"07-01-2025\",\n  \"incident_time\": \"10:58\",\n  \"username\": \"chorton@arcutis.com\",\n  \"incident_location\": \"US\",\n  \"incident_details\": {\n    \"device_details\": \"IP is clean\",\n    \"user_behavior\": \"nothing suspicious\",\n    \"login_patterns\": \"no new login attempts detected\"\n  },\n  \"user_verification_status\": \"confirmed\",\n  \"user_contacted\": \"no need\",\n  \"user_confirmation\": \"update security policies and conduct user awareness training to prevent future incidents\",\n  \"incident_location_details\": {\n    \"device_location\": \"US\",\n    \"IP_address\": \"clean IP address\"\n  }\n}\n```"
+}

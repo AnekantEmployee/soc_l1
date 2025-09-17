@@ -15,11 +15,10 @@
 - **Classification**: Incident Management
 
 ## Investigation Findings
-- No specific findings are provided in the context.
+- No specific findings were provided in the context.
 
 ## Investigation Procedure Steps
-- None of the incident details were found in the provided JSON data.
-- The investigation process is not detailed in the given context.
+- None of the incident details are available, so no procedure steps can be extracted from the given information.
 
 ## Remediation Actions
-- No remediation actions are mentioned in the provided JSON context.
+- No remediation actions were mentioned in the context.

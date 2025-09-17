@@ -1,5 +1,5 @@
 === ENHANCED CHUNKS DUMP ===
-written_utc: 2025-09-16T18:53:43.465274Z
+written_utc: 2025-09-17T05:39:28.711444Z
 
 counts: tracker=10, rulebook=18, all=28
 
@@ -916,7 +916,7 @@ source: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 rule_id: 
 alert_name: 
 has_rule_info: 
-metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "complete_rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 4850}
+metadata: {"source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv", "doctype": "complete_rulebook", "rows": 10, "columns_count": 4, "filetype": "csv", "primary_rule_id": "280", "contains_procedures": true, "procedure_count": 1, "is_complete": true, "total_content_length": 4852}
 ----- CONTENT -----
 RULEBOOK: Rule 280-July-01-25 ( 208312 )(Investigation steps).csv
 ==================================================
@@ -966,7 +966,7 @@ Row 3:
   "data": {
     "sr.no.": 2.0,
     "inputs required": "Reported Time",
-    "input details": "7/1/2025 19:54",
+    "input details": "07-01-2025 19:54",
     "instructions": null
   },
   "rule_metadata": {
@@ -1073,7 +1073,7 @@ Row 9:
   "row_index": 9,
   "data": {
     "sr.no.": 8.0,
-    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix
+    "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm F
 ...[TRUNCATED]
 ----- CHUNK END -----
 

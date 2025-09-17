@@ -1,5 +1,5 @@
 {
-  "query": "Now about rule 286",
+  "query": "Tell me about rule 286",
   "metadata": {
     "total_tracker_hits": 2,
     "total_rulebook_hits": 3
@@ -7,7 +7,7 @@
   "parsed_data": {
     "tracker_records": [
       {
-        "document_id": "4aa722b6ca5dcc5024a0265c96f7735832f442c97d7d792aa68fd7e96f033da0-ec56e30e",
+        "document_id": "4aa722b6ca5dcc5024a0265c96f7735832f442c97d7d792aa68fd7e96f033da0-1fc6c8aa",
         "relevance_score": 1.0,
         "metadata": {
           "source": "tracker_sheet",
@@ -67,7 +67,7 @@
         "resolution_time": 6
       },
       {
-        "document_id": "0ebd8ce67b4b6c96feae46cea84a6924efbf70cef818e7b682914329c2ced9bf-c40eefc2",
+        "document_id": "0ebd8ce67b4b6c96feae46cea84a6924efbf70cef818e7b682914329c2ced9bf-fb7c92af",
         "relevance_score": 0.9946668367759129,
         "metadata": {
           "source": "tracker_sheet",
@@ -129,7 +129,7 @@
     ],
     "rulebook_records": [
       {
-        "document_id": "c7664a86cbc274ee0a146e97dd3b65d139ec63b9c229e7344ede7e710b26d197-6ea998fa",
+        "document_id": "c7664a86cbc274ee0a146e97dd3b65d139ec63b9c229e7344ede7e710b26d197-a52155d3",
         "relevance_score": 1.0,
         "metadata": {
           "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
@@ -366,7 +366,7 @@
         "content_length": 6246
       },
       {
-        "document_id": "366689a07b0eea7057fd54aae20f897929147b342a2a593d23f0e926f904fccc-ba052633",
+        "document_id": "366689a07b0eea7057fd54aae20f897929147b342a2a593d23f0e926f904fccc-7c8c1c1d",
         "relevance_score": 1.0,
         "metadata": {
           "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
@@ -603,8 +603,8 @@
         "content_length": 6248
       },
       {
-        "document_id": "b53a2c372b8e5d101006d417850f1d24d92902736148bede53426b8d3c3d39ae-59e85756",
-        "relevance_score": 5.1815897509031515e-05,
+        "document_id": "b53a2c372b8e5d101006d417850f1d24d92902736148bede53426b8d3c3d39ae-ef5f4994",
+        "relevance_score": 5.222073112613437e-05,
         "metadata": {
           "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
           "doctype": "complete_rulebook",

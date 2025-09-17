@@ -7,7 +7,7 @@
   "parsed_data": {
     "tracker_records": [
       {
-        "document_id": "54a3de9d1668aeb0ae425236405a104ed1f76978e4d899e6adf84a9d4ad47b0c-8ee8c557",
+        "document_id": "54a3de9d1668aeb0ae425236405a104ed1f76978e4d899e6adf84a9d4ad47b0c-51c52f8a",
         "relevance_score": 1.0,
         "metadata": {
           "source": "tracker_sheet",
@@ -67,7 +67,7 @@
         "resolution_time": 29
       },
       {
-        "document_id": "4aa722b6ca5dcc5024a0265c96f7735832f442c97d7d792aa68fd7e96f033da0-ec56e30e",
+        "document_id": "4aa722b6ca5dcc5024a0265c96f7735832f442c97d7d792aa68fd7e96f033da0-1fc6c8aa",
         "relevance_score": 0.9857476223382952,
         "metadata": {
           "source": "tracker_sheet",
@@ -129,7 +129,7 @@
     ],
     "rulebook_records": [
       {
-        "document_id": "e1a132bd40d33a1c92ba8f5db62ed6f3815c833e84d1e6e480dd6a2bcbecd270-1caf8e7a",
+        "document_id": "e1a132bd40d33a1c92ba8f5db62ed6f3815c833e84d1e6e480dd6a2bcbecd270-a289700e",
         "relevance_score": 1.0,
         "metadata": {
           "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
@@ -318,7 +318,7 @@
         "content_length": 4839
       },
       {
-        "document_id": "da4a6fbdbd394a7beae620d7d23fb7ecb277b5e37eb0a437034bda855a32136f-353d844d",
+        "document_id": "0e63b5c0639611f3da40d4586df1d57603d502ba95638e2577aad8c3c13d644d-0673ea25",
         "relevance_score": 0.9564459683002003,
         "metadata": {
           "source": "Rule 280-July-01-25 ( 208312 )(Investigation steps).csv",
@@ -330,10 +330,10 @@
           "contains_procedures": true,
           "procedure_count": 1,
           "is_complete": true,
-          "total_content_length": 4850,
+          "total_content_length": 4852,
           "has_rule_content": true,
-          "len": 4850,
-          "doc_length": 4850
+          "len": 4852,
+          "doc_length": 4852
         },
         "content_type": "complete_rulebook",
         "rule_info": {
@@ -380,7 +380,7 @@
             "data": {
               "sr.no.": 2.0,
               "inputs required": "Reported Time",
-              "input details": "7/1/2025 19:54",
+              "input details": "07-01-2025 19:54",
               "instructions": null
             },
             "rule_metadata": {
@@ -504,7 +504,7 @@
             }
           }
         ],
-        "content_length": 4850
+        "content_length": 4852
       }
     ]
   }

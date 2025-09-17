@@ -323,7 +323,7 @@ Row 3:
   "data": {
     "sr.no.": 2.0,
     "inputs required": "Reported Time",
-    "input details": "7/1/2025 19:54",
+    "input details": "07-01-2025 19:54",
     "instructions": null
   },
   "rule_metadata": {
