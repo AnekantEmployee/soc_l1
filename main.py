@@ -1,7 +1,7 @@
 import os
 from rag.document_loader import DocumentLoader
 from rag.document_chunker import DocumentChunker
-from rag.context_retriever import retrieve_context, build_context_block
+from rag.context_retriever import retrieve_context
 from rag.response_generator import (
     generate_response_with_llm,
     write_rule_markdown,

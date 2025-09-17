@@ -1,8 +1,8 @@
 import os
 import logging
-import pandas as pd
-from typing import Dict, List, Tuple
 import chardet
+import pandas as pd
+from typing import Dict, Tuple
 
 
 class DocumentLoader:
@@ -287,15 +287,15 @@ class DocumentLoader:
     def _check_rule_content(self, df: pd.DataFrame) -> bool:
         """Check if dataframe contains rule-related content."""
         if df.empty:
-            return False    
+            return False
 
         # Check column names
         rule_indicators = [
             "rule",
-            "alert", 
+            "alert",
             "incident",
             "procedure",
-            "step", 
+            "step",
             "instruction",
         ]
 
@@ -306,14 +306,13 @@ class DocumentLoader:
 
         # Check a sample of data content
         sample_size = min(10, len(df))
-        
+
         for _, row in df.head(sample_size).iterrows():
             row_text = " ".join([str(val).lower() for val in row.values])
             if "rule" in row_text and any(c.isdigit() for c in row_text):
                 return True
 
         return False
-
 
     def load_all_documents(self) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame]]:
         """Enhanced document loading with comprehensive error handling."""
@@ -389,25 +388,3 @@ class DocumentLoader:
                 print(f"   ... and {len(rule_files) - 5} more")
 
         print("=" * 50)
-
-    def get_loading_stats(self) -> Dict:
-        """Get comprehensive loading statistics."""
-        return {
-            "tracker_loaded": self.tracker_sheet is not None,
-            "tracker_shape": (
-                self.tracker_sheet.shape if self.tracker_sheet is not None else None
-            ),
-            "rulebooks_loaded": len(self.rulebooks),
-            "file_stats": self.loading_stats,
-            "successful_files": [
-                f for f, s in self.loading_stats.items() if s.get("status") == "success"
-            ],
-            "failed_files": [
-                f for f, s in self.loading_stats.items() if s.get("status") == "failed"
-            ],
-            "rule_content_files": [
-                f
-                for f, s in self.loading_stats.items()
-                if s.get("has_rule_content", False)
-            ],
-        }
