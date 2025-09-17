@@ -1,7 +1,0 @@
-{
-  "query": "Tell me about rule 286",
-  "json_context_length": 21778,
-  "response_length": 883,
-  "has_required_structure": false,
-  "response": "```json\n{\n  \"rule_id\": \"286\",\n  \"incident_date\": \"07-01-2025\",\n  \"incident_time\": \"10:58\",\n  \"incident_location\": \"US\",\n  \"incident_details\": {\n    \"username\": \"chorton@arcutis.com\",\n    \"device_ip_reputation\": \"clean\",\n    \"device_os\": \"unknown\"\n  },\n  \"user_behavior\": {\n    \"concurrent_logins\": [\n      {\n        \"location\": \"India and USA\",\n        \"device_ip_reputation\": \"clean\",\n        \"device_os\": \"unknown\"\n      }\n    ],\n    \"user_identification\": {\n      \"device_id\": \"unknown\",\n      \"device_model\": \"unknown\",\n      \"device_type\": \"unknown\"\n    },\n    \"user_behavior_confirmation\": {\n      \"confirmation_status\": \"no\",\n      \"confirmation_time\": \"07-01-2025 10:58\"\n    }\n  },\n  \"security_policy_updates\": [\n    {\n      \"date\": \"07-01-2025\",\n      \"description\": \"Update security policies and conduct user awareness training to prevent future incidents.\"\n    }\n  ]\n}\n```"
-}

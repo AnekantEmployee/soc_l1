@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-09-17 14:18:08",
+  "query": "Rule 2",
+  "extraction_summary": {
+    "total_tracker_records": 1,
+    "total_rulebook_records": 1,
+    "matching_tracker_records": 1,
+    "matching_rulebook_records": 1
+  },
+  "context_length": 9759,
+  "response_length": 5482,
+  "response_line_count": 108,
+  "validation_results": [
+    false,
+    [
+      "Contains JSON blocks"
+    ]
+  ],
+  "l1_friendly_format": true
+}
