@@ -2,10 +2,10 @@
 import os
 import re
 import json
-from typing import Dict, Any, Optional, List, Tuple
+from dotenv import load_dotenv
+from typing import Dict, Any, List, Tuple
 from .context_retriever import parse_rule_id
 from langchain_google_genai import ChatGoogleGenerativeAI
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -189,6 +189,7 @@ Remember: L1 analysts may be new to SOC work, so make the procedures as clear an
 # Just the system prompt has been updated to be more L1 analyst-friendly
 # ---------------------------
 
+
 def extract_rule_specific_data(
     structured_data: Dict[str, Any], query: str
 ) -> Dict[str, Any]:
@@ -286,6 +287,7 @@ def extract_rule_specific_data(
 
     return filtered_data
 
+
 def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
     """Format filtered data as comprehensive JSON for LLM consumption - include ALL details."""
     try:
@@ -297,22 +299,22 @@ def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
                 "extraction_summary": filtered_data.get("extraction_summary"),
             },
             "complete_incident_data": [],
-            "complete_procedure_data": []
+            "complete_procedure_data": [],
         }
 
         # Process tracker records - include EVERY field available
         for record in filtered_data.get("tracker_records", []):
             incident_info = record.get("tracker_data", {})
             extracted_rule = record.get("extracted_rule_info", {})
-            
+
             # Include ALL tracker data fields
             complete_incident = {
                 "document_metadata": record.get("metadata", {}),
                 "relevance_score": record.get("relevance_score"),
                 "extracted_rule_info": extracted_rule,
-                
                 # All incident details
-                "incident_number": incident_info.get("incidnet no #") or incident_info.get("incident_no"),
+                "incident_number": incident_info.get("incidnet no #")
+                or incident_info.get("incident_no"),
                 "serial_number": incident_info.get("s.no."),
                 "date": incident_info.get("date"),
                 "month": incident_info.get("month"),
@@ -322,18 +324,18 @@ def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
                 "alert_type": incident_info.get("alert/incident"),
                 "engineer": incident_info.get("name of the shift engineer"),
                 "handover_engineers": incident_info.get("handover shift engineer"),
-                
                 # Timestamps
                 "reported_timestamp": incident_info.get("reported time stamp"),
                 "responded_timestamp": incident_info.get("responded time stamp"),
                 "resolution_timestamp": incident_info.get("resolution time stamp"),
-                
                 # Metrics
                 "mttd_mins": incident_info.get("mttd (mins)"),
-                "mttr_mins": incident_info.get("mttr    (mins)") or incident_info.get("mttr (mins)"),
+                "mttr_mins": incident_info.get("mttr    (mins)")
+                or incident_info.get("mttr (mins)"),
                 "time_to_breach_sla": incident_info.get("time to breach sla"),
-                "remaining_mins_to_breach": incident_info.get("remaining mins to breach"),
-                
+                "remaining_mins_to_breach": incident_info.get(
+                    "remaining mins to breach"
+                ),
                 # Investigation details
                 "resolver_comments": incident_info.get("resolver comments"),
                 "triaging_steps": incident_info.get("triaging steps"),
@@ -342,7 +344,6 @@ def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
                 "service_owner": incident_info.get("service owner"),
                 "status": incident_info.get("status"),
                 "remarks_comments": incident_info.get("remarks / comments"),
-                
                 # Classification
                 "classification": incident_info.get("false / true positive"),
                 "why_false_positive": incident_info.get("why false positive"),
@@ -350,36 +351,65 @@ def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
                 "quality_audit": incident_info.get("quality audit"),
                 "description": incident_info.get("description"),
                 "escalated_to": incident_info.get("escalated to"),
-                
                 # Include any additional fields
-                "additional_fields": {k: v for k, v in incident_info.items() 
-                                   if k not in ["incidnet no #", "incident_no", "s.no.", "date", "month", "shift",
-                                               "data connecter", "priority", "alert/incident", "name of the shift engineer",
-                                               "handover shift engineer", "reported time stamp", "responded time stamp",
-                                               "resolution time stamp", "mttd (mins)", "mttr    (mins)", "mttr (mins)",
-                                               "time to breach sla", "remaining mins to breach", "resolver comments",
-                                               "triaging steps", "vip users", "rule", "service owner", "status",
-                                               "remarks / comments", "false / true positive", "why false positive",
-                                               "justification", "quality audit", "description", "escalated to"]}
+                "additional_fields": {
+                    k: v
+                    for k, v in incident_info.items()
+                    if k
+                    not in [
+                        "incidnet no #",
+                        "incident_no",
+                        "s.no.",
+                        "date",
+                        "month",
+                        "shift",
+                        "data connecter",
+                        "priority",
+                        "alert/incident",
+                        "name of the shift engineer",
+                        "handover shift engineer",
+                        "reported time stamp",
+                        "responded time stamp",
+                        "resolution time stamp",
+                        "mttd (mins)",
+                        "mttr    (mins)",
+                        "mttr (mins)",
+                        "time to breach sla",
+                        "remaining mins to breach",
+                        "resolver comments",
+                        "triaging steps",
+                        "vip users",
+                        "rule",
+                        "service owner",
+                        "status",
+                        "remarks / comments",
+                        "false / true positive",
+                        "why false positive",
+                        "justification",
+                        "quality audit",
+                        "description",
+                        "escalated to",
+                    ]
+                },
             }
             llm_data["complete_incident_data"].append(complete_incident)
 
         # Process rulebook records - include ALL procedure steps with complete details
         for record in filtered_data.get("rulebook_records", []):
             procedure_steps = record.get("procedure_steps", [])
-            
+
             complete_procedures = {
                 "rule_info": record.get("rule_info", {}),
                 "document_metadata": record.get("metadata", {}),
                 "relevance_score": record.get("relevance_score"),
-                "complete_procedure_steps": []
+                "complete_procedure_steps": [],
             }
-            
+
             # Include ALL procedure steps with ALL details
             for step in procedure_steps:
                 step_data = step.get("data", {})
                 rule_metadata = step.get("rule_metadata", {})
-                
+
                 complete_step = {
                     "row_index": step.get("row_index"),
                     "serial_number": step_data.get("sr.no.") or step_data.get("s.no"),
@@ -390,17 +420,29 @@ def format_json_for_llm(filtered_data: Dict[str, Any]) -> str:
                     "duration": step_data.get("duration"),
                     "rule_metadata": rule_metadata,
                     # Include any additional step fields
-                    "additional_step_data": {k: v for k, v in step_data.items() 
-                                           if k not in ["sr.no.", "s.no", "inputs required", "input details", 
-                                                       "instructions", "exisiting / new", "duration"]}
+                    "additional_step_data": {
+                        k: v
+                        for k, v in step_data.items()
+                        if k
+                        not in [
+                            "sr.no.",
+                            "s.no",
+                            "inputs required",
+                            "input details",
+                            "instructions",
+                            "exisiting / new",
+                            "duration",
+                        ]
+                    },
                 }
                 complete_procedures["complete_procedure_steps"].append(complete_step)
-            
+
             llm_data["complete_procedure_data"].append(complete_procedures)
 
         return json.dumps(llm_data, indent=2, ensure_ascii=False)
     except Exception as e:
         return f"Error formatting comprehensive data: {e}"
+
 
 def validate_response_structure(response: str) -> Tuple[bool, List[str]]:
     """Validate response structure for comprehensive L1 analyst format."""
@@ -409,7 +451,7 @@ def validate_response_structure(response: str) -> Tuple[bool, List[str]]:
         "## ⚡ Quick Summary",
         "## 📊 Incident Details",
         "## 🔍 What Happened",
-        "## 👨‍💻 Simple Investigation Steps"
+        "## 👨‍💻 Simple Investigation Steps",
     ]
 
     missing_sections = []
@@ -428,8 +470,9 @@ def validate_response_structure(response: str) -> Tuple[bool, List[str]]:
 
     return is_valid, validation_issues
 
+
 def parse_and_structure_context(
-    query: str, context_results: Dict[str, Any], context_block: str, model: str
+    query: str, context_results: Dict[str, Any]
 ) -> Dict[str, Any]:
     """Parse and structure context_results into comprehensive format."""
 
@@ -465,11 +508,13 @@ def parse_and_structure_context(
                     "tracker_data": tracker_data,  # Keep complete original data
                     "extracted_rule_info": extracted_rule_info,
                     # Also extract key fields for easy access
-                    "incident_number": tracker_data.get("incidnet no #") or tracker_data.get("incident_no"),
+                    "incident_number": tracker_data.get("incidnet no #")
+                    or tracker_data.get("incident_no"),
                     "priority": tracker_data.get("priority"),
                     "status": tracker_data.get("status"),
                     "engineer": tracker_data.get("name of the shift engineer"),
-                    "resolution_time": tracker_data.get("mttr    (mins)") or tracker_data.get("mttr (mins)"),
+                    "resolution_time": tracker_data.get("mttr    (mins)")
+                    or tracker_data.get("mttr (mins)"),
                     "resolver_comments": tracker_data.get("resolver comments"),
                 }
 
@@ -478,13 +523,15 @@ def parse_and_structure_context(
             except json.JSONDecodeError as e:
                 print(f"⚠️ Failed to parse tracker JSON: {e}")
                 # Still include the record with error information
-                parsed_data["parsed_data"]["tracker_records"].append({
-                    "document_id": doc_id,
-                    "relevance_score": float(score),
-                    "metadata": metadata,
-                    "parse_error": str(e),
-                    "raw_content": json_content
-                })
+                parsed_data["parsed_data"]["tracker_records"].append(
+                    {
+                        "document_id": doc_id,
+                        "relevance_score": float(score),
+                        "metadata": metadata,
+                        "parse_error": str(e),
+                        "raw_content": json_content,
+                    }
+                )
 
     # Parse rulebook data (comprehensive)
     rulebook_hits = context_results.get("rulebook", [])
@@ -497,7 +544,9 @@ def parse_and_structure_context(
                 procedure_steps = []
 
                 # Extract JSON blocks from content
-                json_blocks = re.findall(r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}", content, re.DOTALL)
+                json_blocks = re.findall(
+                    r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}", content, re.DOTALL
+                )
                 for json_block in json_blocks:
                     try:
                         parsed_step = json.loads(json_block)
@@ -524,9 +573,12 @@ def parse_and_structure_context(
                         "content_length": len(content),
                     }
 
-                    parsed_data["parsed_data"]["rulebook_records"].append(rulebook_record)
+                    parsed_data["parsed_data"]["rulebook_records"].append(
+                        rulebook_record
+                    )
 
     return parsed_data
+
 
 def save_structured_context(query: str, structured_data: Dict[str, Any]) -> str:
     """Save structured context data to JSON file."""
@@ -549,7 +601,6 @@ def save_structured_context(query: str, structured_data: Dict[str, Any]) -> str:
 
 def generate_response_with_llm(
     query: str,
-    context_block: str,
     context_results: Dict[str, Any],
     model: str = "qwen2.5:0.5b",
 ) -> str:
@@ -560,9 +611,7 @@ def generate_response_with_llm(
         print(f"🔄 Generating L1 analyst-friendly response for: {query}")
 
         # Parse and structure context data
-        structured_data = parse_and_structure_context(
-            query, context_results, context_block, model
-        )
+        structured_data = parse_and_structure_context(query, context_results)
 
         # Save structured data to JSON file
         json_path = save_structured_context(query, structured_data)
@@ -634,9 +683,6 @@ def generate_response_with_llm(
         else:
             print("✅ L1 analyst-friendly response validated")
 
-        # Save debug information
-        save_debug_info(query, json_context, response, filtered_data)
-
         return response
 
     except Exception as e:
@@ -671,6 +717,7 @@ def post_process_response(response: str) -> str:
 
     return response.strip()
 
+
 def create_error_response(query: str, error_msg: str) -> str:
     """Create a simple error response for L1 analysts."""
     rule_id = parse_rule_id(query) or "Unknown"
@@ -688,54 +735,13 @@ def create_error_response(query: str, error_msg: str) -> str:
 -  Contact SOC team lead for manual analysis
 -  Escalate if system issues persist"""
 
-def save_debug_info(
-    query: str, json_context: str, response: str, filtered_data: Dict[str, Any]
-) -> None:
-    """Save debug information for L1 analyst-friendly responses."""
-    try:
-        safe_query = re.sub(r"[^a-zA-Z0-9_-]+", "_", query)[:50]
-        os.makedirs("artifacts/debug", exist_ok=True)
-
-        debug_data = {
-            "timestamp": get_timestamp(),
-            "query": query,
-            "extraction_summary": filtered_data.get("extraction_summary", {}),
-            "context_length": len(json_context),
-            "response_length": len(response),
-            "response_line_count": len(response.split('\n')),
-            "validation_results": validate_response_structure(response),
-            "l1_friendly_format": True
-        }
-
-        debug_path = f"artifacts/debug/{safe_query}_l1_friendly_debug.json"
-        with open(debug_path, "w", encoding="utf-8") as f:
-            json.dump(debug_data, f, indent=2, ensure_ascii=False)
-
-        print(f"💾 L1 friendly debug info saved to: {debug_path}")
-
-    except Exception as e:
-        print(f"⚠️ Failed to save debug info: {e}")
 
 def get_timestamp() -> str:
     """Get current timestamp as string."""
     from datetime import datetime
+
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-def save_context_to_file(query: str, context_block: str) -> str:
-    """Save context to file for debugging and reference."""
-    safe_q = re.sub(r"[^a-zA-Z0-9_-]+", "_", query)[:60]
-    os.makedirs("artifacts/query_contexts", exist_ok=True)
-
-    context_path = f"artifacts/query_contexts/{safe_q}.txt"
-
-    try:
-        with open(context_path, "w", encoding="utf-8") as f:
-            f.write(f"Query: {query}\n")
-            f.write("=" * 50 + "\n")
-            f.write(context_block)
-        return context_path
-    except Exception:
-        return "Failed to save"
 
 def write_rule_markdown(
     query: str,

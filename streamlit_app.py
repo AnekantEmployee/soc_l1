@@ -16,10 +16,9 @@ if project_root not in sys.path:
 # Import your RAG components (exactly matching main.py)
 from rag.document_loader import DocumentLoader
 from rag.document_chunker import DocumentChunker
-from rag.context_retriever import retrieve_context, build_context_block
+from rag.context_retriever import retrieve_context
 from rag.response_generator import (
     generate_response_with_llm,
-    save_context_to_file,
     write_rule_markdown,
 )
 from rag.embedding_indexer import (
@@ -268,17 +267,16 @@ def process_query(query):
                 k_rulebook=5,
             )
 
-        # Build context
-        context_block = build_context_block(context_results, query)
+        # # Build context
+        # context_block = build_context_block(context_results, query)
 
-        # Save context
-        context_file = save_context_to_file(query, context_block)
+        # # Save context
+        # context_file = save_context_to_file(query, context_block)
 
         # Generate response
         with capture_output():
             response = generate_response_with_llm(
                 query=query,
-                context_block=context_block,
                 context_results=context_results,
                 model=LLM_MODEL,
             )
@@ -294,7 +292,6 @@ def process_query(query):
         return {
             "response": response,
             "processing_time": elapsed_time,
-            "context_file": context_file,
             "markdown_file": markdown_file,
         }
 
@@ -383,7 +380,6 @@ for i, suggested_query in enumerate(suggested_queries):
                             "metadata": {
                                 "processing_time": result["processing_time"],
                                 "files": [
-                                    result["context_file"],
                                     result["markdown_file"],
                                 ],
                             },
@@ -458,7 +454,7 @@ if user_input and not st.session_state.processing:
                 "type": "response",
                 "metadata": {
                     "processing_time": result["processing_time"],
-                    "files": [result["context_file"], result["markdown_file"]],
+                    "files": [result["markdown_file"]],
                 },
             }
         )
@@ -495,7 +491,6 @@ with st.sidebar:
     st.markdown(
         """
     All generated files are saved in the `artifacts/` directory:
-    - **Context files**: Debug information and retrieved data
     - **Markdown files**: Formatted responses  
     - **JSON files**: Structured analysis data
     """

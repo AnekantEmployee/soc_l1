@@ -4,7 +4,6 @@ from rag.document_chunker import DocumentChunker
 from rag.context_retriever import retrieve_context, build_context_block
 from rag.response_generator import (
     generate_response_with_llm,
-    save_context_to_file,
     write_rule_markdown,
 )
 from rag.embedding_indexer import (
@@ -97,9 +96,6 @@ def quick_test_run():
             k_rulebook=5,
         )
 
-        # Build context block
-        context_block = build_context_block(context_results, q)
-
         print(f"✅ Context retrieved:")
         print(f"   📊 Tracker hits: {len(context_results.get('tracker', []))}")
         print(f"   📚 Rulebook hits: {len(context_results.get('rulebook', []))}")
@@ -109,7 +105,6 @@ def quick_test_run():
         print("\n🤖 Phase B: Generating response...")
         answer_md = generate_response_with_llm(
             query=q,
-            context_block=context_block,
             context_results=context_results,
             model="qwen2.5:0.5b",
         )
