@@ -546,13 +546,15 @@ def save_structured_context(query: str, structured_data: Dict[str, Any]) -> str:
         print(f"⚠️ Failed to save structured context JSON: {e}")
         return ""
 
+
 def generate_response_with_llm(
     query: str,
     context_block: str,
     context_results: Dict[str, Any],
     model: str = "qwen2.5:0.5b",
 ) -> str:
-    """Generate L1 analyst-friendly response using Google Generative AI."""
+    """Generate L1 analyst-friendly response using Ollama."""
+    import ollama
 
     try:
         print(f"🔄 Generating L1 analyst-friendly response for: {query}")
@@ -569,8 +571,12 @@ def generate_response_with_llm(
         filtered_data = extract_rule_specific_data(structured_data, query)
 
         print(f"📊 Comprehensive Data Summary:")
-        print(f"   - Tracker records found: {filtered_data['extraction_summary']['matching_tracker_records']}")
-        print(f"   - Rulebook records found: {filtered_data['extraction_summary']['matching_rulebook_records']}")
+        print(
+            f"   - Tracker records found: {filtered_data['extraction_summary']['matching_tracker_records']}"
+        )
+        print(
+            f"   - Rulebook records found: {filtered_data['extraction_summary']['matching_rulebook_records']}"
+        )
 
         # Format JSON for LLM
         json_context = format_json_for_llm(filtered_data)
@@ -578,19 +584,43 @@ def generate_response_with_llm(
         # Create prompt
         user_prompt = PROMPT_TEMPLATE.format(query=query, json_context=json_context)
 
-        # Initialize Google Generative AI optimized for user-friendly responses
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",
-            temperature=0.2,  # Slightly higher for more natural language
-            top_k=40,
-            top_p=0.9,
+        # OLLAMA IMPLEMENTATION (ACTIVE)
+        messages = [
+            {
+                "role": "system",
+                "content": SYSTEM_PROMPT_JSON_CONTEXT + JSON_OUTPUT_PARSER_PROMPT,
+            },
+            {"role": "user", "content": user_prompt},
+        ]
+
+        resp = ollama.chat(
+            model=model,
+            messages=messages,
+            options={
+                "temperature": 0.15,  # Lower temperature for consistency
+                "top_k": 30,  # Focused token selection
+                "top_p": 0.9,  # Good balance for natural language
+                "repeat_penalty": 1.1,  # Prevent repetition
+                "num_ctx": 8192,  # Larger context for comprehensive data
+            },
         )
 
-        # Combine prompts
-        full_prompt = f"{SYSTEM_PROMPT_JSON_CONTEXT}\n\n{JSON_OUTPUT_PARSER_PROMPT}\n\n{user_prompt}"
-        
-        # Generate response
-        response = llm.invoke(full_prompt).content.strip()
+        response = ((resp.get("message", {}) or {}).get("content", "") or "").strip()
+
+        # GOOGLE GENERATIVE AI (COMMENTED FOR FUTURE USE)
+        # # Initialize Google Generative AI optimized for user-friendly responses
+        # llm = ChatGoogleGenerativeAI(
+        #     model="gemini-1.5-flash",
+        #     temperature=0.2,  # Slightly higher for more natural language
+        #     top_k=40,
+        #     top_p=0.9,
+        # )
+
+        # # Combine prompts
+        # full_prompt = f"{SYSTEM_PROMPT_JSON_CONTEXT}\n\n{JSON_OUTPUT_PARSER_PROMPT}\n\n{user_prompt}"
+
+        # # Generate response
+        # response = llm.invoke(full_prompt).content.strip()
 
         # Validate response
         is_valid, validation_issues = validate_response_structure(response)
@@ -599,7 +629,7 @@ def generate_response_with_llm(
             print("⚠️ Response validation issues:")
             for issue in validation_issues:
                 print(f"   - {issue}")
-            
+
             response = post_process_response(response)
         else:
             print("✅ L1 analyst-friendly response validated")
@@ -609,33 +639,11 @@ def generate_response_with_llm(
 
         return response
 
-        # OLLAMA CODE (COMMENTED FOR FUTURE USE)
-        # messages = [
-        #     {
-        #         "role": "system", 
-        #         "content": SYSTEM_PROMPT_JSON_CONTEXT + JSON_OUTPUT_PARSER_PROMPT,
-        #     },
-        #     {"role": "user", "content": user_prompt},
-        # ]
-        
-        # resp = ollama.chat(
-        #     model=model,
-        #     messages=messages,
-        #     options={
-        #         "temperature": 0.15,
-        #         "top_k": 30,
-        #         "top_p": 0.9,
-        #         "repeat_penalty": 1.1,
-        #         "num_ctx": 8192,  # Larger context for comprehensive data
-        #     },
-        # )
-        
-        # response = ((resp.get("message", {}) or {}).get("content", "") or "").strip()
-
     except Exception as e:
         error_msg = f"Error generating L1 analyst-friendly response: {e}"
         print(f"❌ {error_msg}")
         return create_error_response(query, error_msg)
+
 
 def post_process_response(response: str) -> str:
     """Post-process response to ensure L1 analyst-friendly format compliance."""

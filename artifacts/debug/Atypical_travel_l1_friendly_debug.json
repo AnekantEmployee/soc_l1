@@ -1,18 +1,19 @@
 {
-  "timestamp": "2025-09-17 14:21:24",
-  "query": "Passwordless authentication",
+  "timestamp": "2025-09-17 14:49:50",
+  "query": "Atypical travel",
   "extraction_summary": {
     "total_tracker_records": 2,
     "total_rulebook_records": 2,
-    "matching_tracker_records": 1,
+    "matching_tracker_records": 0,
     "matching_rulebook_records": 2
   },
-  "context_length": 22361,
-  "response_length": 5682,
-  "response_line_count": 107,
+  "context_length": 18628,
+  "response_length": 4938,
+  "response_line_count": 111,
   "validation_results": [
     false,
     [
+      "## 👨‍💻 Simple Investigation Steps",
       "Contains JSON blocks"
     ]
   ],

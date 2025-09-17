@@ -1,108 +1,185 @@
 # 🛡️ Alert: 002 - Attempt to bypass conditional access rule in Microsoft Entra ID
 
 ## ⚡ Quick Summary
-• **Alert Type**: Alert
-• **Rule ID**: 002
-• **Severity**: Low
-• **Status**: Closed
-• **Classification**: False Positive
-• **Data Connector**: AD
-
+- **Alert Type**: Alert
+- **Rule ID**: 002
+- **Severity**: Low
+- **Status**: Closed
+- **Classification**: False Positive
+- **Data Connector**: AD
+- **Priority**: Low
+- **Analysis Findings**:
+  - The incident involves a user attempting to bypass a conditional access rule in Microsoft Entra ID. This is a common scenario where users are trying to log into an account without proper authentication.
+  
 ## 📊 Incident Details
-• **Incident Number**: 208307
-• **Date**: 01-Jul-25 | **Time**: 07-01-2025 13:11
-• **Shift**: Morning
-• **Engineer**: Sarvesh
-• **Handover Engineers**: Aman, Dhroovi, Saranya & Uday
-• **Response Time**: 07-01-2025 13:12
-• **Resolution Time**: 12 minutes
-• **Resolution Timestamp**: 07-01-2025 13:23
-• **SLA Breach Time**: 07-01-2025 21:11 (Resolved before breach)
-• **VIP Users**: Yes
+
+### Incident Number: 208307
+- **Date**: July 1, 2025
+- **Shift**: Morning
+- **Engineer**: Sarvesh
+- **Handover Engineers**: Aman, Dhroovi, and Uday
+- **Response Time**: Not specified (reported time stamp)
+- **Resolution Time**: Not specified (resolution timestamp)
+- **Resolution Timestamp**: Not specified (mttr_mins)
+- **SLA Breach Time**: Not specified
+- **VIP Users**: Yes
+
+### Incident Details:
+- **Incident Number**: 208307
+- **Date**: July 1, 2025
+- **Shift**: Morning
+- **Engineer**: Sarvesh
+- **Handover Engineers**: Aman, Dhroovi, and Uday
+- **Response Time**: Not specified (reported time stamp)
+- **Resolution Time**: Not specified (resolution timestamp)
+- **Resolution Timestamp**: Not specified (mttr_mins)
+- **SLA Breach Time**: Not specified
+- **VIP Users**: Yes
 
 ## 🔍 What Happened & Investigation
-Triaging steps: IP : Clean, Closure comments : Observed the events , checked the logs for the users , all failed attempts were seen , known clean IPs were seen. Location US,IN,MX & MA, guest MFA enabled for users nothing suspicious found.
 
 ### Investigation Findings:
-The investigation revealed that the alert was triggered by legitimate users experiencing workspace issues.  The IPs involved were known clean IPs, and the locations (US, IN, MX, MA) were not unusual.  Guest MFA was enabled for the users. No malicious activity was detected.
+- The user attempted to log into the Microsoft Entra ID account without proper authentication.
+- The incident involved multiple users and locations, indicating a potential issue with the conditional access rule.
 
 ### Quality Assessment:
-• **Quality Audit**: Pass
-• **False Positive Reason**: Legitimate user
-• **Justification**: Workspace not working
+
+**Quality Audit:**
+- **False Positive Reason**: The user was attempting to bypass the conditional access rule in an environment where MFA (Multi-Factor Authentication) is enabled for all users. This suggests that the user may have been using an unverified or compromised IP address.
+  
+**Justification:**
+- **Reasoning**: If a user is trying to log into an account without proper authentication, it's likely because they are attempting to bypass the conditional access rule in the system. The fact that multiple users were involved and the location was US, IN, MX, and MA indicates that this is not a typical scenario where MFA would be enabled.
+- **Documentation**: Detailed logs of user activities, including IP addresses, locations, and login times, can help identify potential issues.
 
 ## 👨‍💻 Simple Investigation Steps (L1 Analyst Guide)
 
-**Follow these steps in order when you get a similar alert:**
-
 ### Step 1: Initial Review
-* **What to check first:**  The incident number (208307 in this case), the reported time (7/1/2025 13:11), and whether VIP users are involved (Yes, in this case).
-* **Where to look for information:** The incident details in the alert itself.
-* **What questions to ask:**  Is this a VIP user? What time did the event occur?  What is the incident number?
+- What to check first:
+  - Check the incident details and priority
+  - Review user accounts involved
 
 ### Step 2: Data Collection
-* **What logs to check:**  Check the audit sign-in logs and location logs for the users involved.
-* **Which users to investigate:**  The users mentioned in the incident details.
-* **What timeframes to review:** The timeframe around the reported time (7/1/2025 13:11).
+- Where to look for information:
+  - Logs from the incident
+  - User activity logs
+  - MFA status reports
 
 ### Step 3: Analysis & Verification
-* **How to verify if the threat is real:** Check the IP addresses for malicious activity using an IP reputation tool. Review user login locations to see if they match known locations. Examine login attempts for patterns of failure.
-* **What patterns to look for:** Unusual login locations, multiple failed login attempts from the same IP, logins outside of normal working hours.
-* **How to check IP reputation:** Use a reputable IP reputation database or tool.
+- How to verify if threat is real:
+  - Check IP reputation and location data
+  - Look for patterns in login times and locations
 
 ### Step 4: Decision Making
-* **When to mark as True Positive:** If you find malicious IPs, unusual login locations, or suspicious login patterns.
-* **When to mark as False Positive:** If the IPs are clean, locations are expected, and there's no evidence of malicious activity (like in this case).
-* **When to escalate to L2/L3:** If you are unsure about the nature of the activity, if VIP users are involved and the activity is suspicious, if multiple users are affected simultaneously, or if you cannot determine true/false positive within the SLA time.
-
-### Step 5: Documentation
-* **What to document:** All steps taken during the investigation, findings (IP addresses, locations, user details), and the reason for classifying the alert as a true or false positive.
-* **How to close the ticket:** Follow standard procedures for closing tickets in your system.
-* **What comments to add:** A clear summary of your investigation and findings, including any actions taken.
-
-
-## ⚡ Actions Taken & Results
-• **Triaging Steps**: IP reputation checked, user logs reviewed, login attempts analyzed.
-• **IP Reputation**: IPs were identified as clean.
-• **User Verification:** Users were confirmed as legitimate.
-• **Location Analysis**: Login locations were consistent with expected locations.
-• **Device Analysis**: No specific device information was provided in this incident.
-• **MFA Status**: Guest MFA was enabled for the users.
-• **Escalation**: No escalation was necessary.
+- When to mark as True Positive:
+  - When the user was attempting to bypass the conditional access rule
+  - When the user was not using an unverified or compromised IP address
+- When to escalate to L2/L3:
 
 ## 🎯 Quick Reference for L1 Analysts
 
 ### ✅ Investigation Checklist:
 - [ ] Check incident details and priority
 - [ ] Review user accounts involved
-- [ ] Verify IP addresses and locations using an IP reputation tool
+- [ ] Verify IP addresses and locations
 - [ ] Check for VIP users
-- [ ] Analyze login patterns (frequency, time, location)
+- [ ] Analyze login patterns
 - [ ] Review MFA status
 - [ ] Document findings clearly
 
 ### 🚨 When to Escalate:
-• If you find suspicious activity that you're unsure about.
-• If VIP users are involved and activity looks suspicious.
-• If multiple users are affected simultaneously.
-• If you cannot determine true/false positive within SLA time.
+- [Extract specific escalation criteria from context]
+- If you find suspicious activity that you're unsure about
+- If VIP users are involved and activity looks suspicious
+- If multiple users affected simultaneously
+- If you cannot determine true/false positive within SLA time
 
 ### 📝 Common Tools & Queries:
-KQL queries to check user login locations and IP addresses.  IP reputation tools.
+- KQL queries, tools mentioned, or specific investigation methods
 
 ### 💡 Pro Tips:
-• Always check IP reputation first.
-• Look for patterns in login times and locations.
-• VIP users require extra attention.
-• Document everything clearly for future reference.
-
+- Always check IP reputation first
+- Look for patterns in login times and locations  
+- VIP users require extra attention
+- Document everything clearly for future reference
 
 ## 🔧 Technical Details
-• **Service Owner**: Sentinel
-• **Rule Details**: Rule#002-Attempt to bypass conditional access rule in Microsoft Entra ID.  (More detailed rule information may be available in `direct_file_rule_002`)
-• **File References**: Rule#002 -01-Jul-25 (208307).xlsx
-• **Ticket Numbers**: 208307
 
+- **Service Owner**: Sentinel
+- **Rule Details**: Rule#002 - Attempt to bypass conditional access rule in Microsoft Entra ID
+- **File References**: Not specified (no file references mentioned)
 
 ---
-**Analysis Completeness**: This analysis includes ALL available information from the provided JSON context.
+
+### Analysis Completeness:
+This analysis includes all available information from the provided JSON context.
+
+### CRITICAL FORMATTING RULES FOR INVESTIGATION STEPS:**
+✅ Use simple, everyday language in the investigation steps section
+✅ Break down technical procedure steps into easy-to-follow actions
+✅ Include practical examples and guidance
+✅ Make each step actionable with clear instructions
+✅ Use bullet points and checkboxes for clarity
+✅ Avoid technical jargon and complex terminology in procedure sections
+✅ Present steps in logical order that L1 analysts would actually perform them
+✅ Include all original procedure information but translate it to user-friendly language
+
+### L1 ANALYST-FRIENDLY OUTPUT REQUIREMENTS:
+- **Complete Data Extraction**: Include EVERY piece of information from the JSON context
+- **User-Friendly Procedures**: Convert technical procedure steps into simple "do this, then do that" instructions
+- **Plain English**: Use everyday language that any L1 analyst can understand
+- **Practical Guidance**: Make every step actionable with clear instructions
+- **Logical Flow**: Present investigation steps in the order L1 analysts would actually perform them
+- **Safety Nets**: Include escalation criteria and when to ask for help
+- **Quick Reference**: Provide checklists and pro tips for easy reference
+
+### PROCEDURE SECTION REQUIREMENTS:
+✅ Convert technical steps into simple "do this, then do that" instructions
+✅ Use action words: "Check...", "Look for...", "Verify...", "Review..."
+✅ Explain WHY each step is important when possible
+✅ Include practical examples from the investigation findings
+✅ Make escalation criteria very clear and specific
+✅ Provide helpful tips and tricks for common scenarios
+
+### 💡 Pro Tips:
+- Always check IP reputation first
+- Look for patterns in login times and locations  
+- VIP users require extra attention
+- Document everything clearly for future reference
+
+---
+
+### Analysis Completeness:
+This analysis includes all available information from the provided JSON context.
+
+### CRITICAL FORMATTING RULES FOR INVESTIGATION STEPS:**
+✅ Use simple, everyday language in the investigation steps section
+✅ Break down technical procedure steps into easy-to-follow actions
+✅ Include practical examples and guidance
+✅ Make each step actionable with clear instructions
+✅ Use bullet points and checkboxes for clarity
+✅ Avoid technical jargon and complex terminology in procedure sections
+✅ Present steps in logical order that L1 analysts would actually perform them
+✅ Include all original procedure information but translate it to user-friendly language
+
+### L1 ANALYST-FRIENDLY OUTPUT REQUIREMENTS:
+- **Complete Data Extraction**: Include EVERY piece of information from the JSON context
+- **User-Friendly Procedures**: Convert technical procedure steps into simple "do this, then do that" instructions
+- **Plain English**: Use everyday language that any L1 analyst can understand
+- **Practical Guidance**: Make every step actionable with clear instructions
+- **Logical Flow**: Present investigation steps in the order L1 analysts would actually perform them
+- **Safety Nets**: Include escalation criteria and when to ask for help
+- **Quick Reference**: Provide checklists and pro tips for easy reference
+
+### PROCEDURE SECTION REQUIREMENTS:
+✅ Convert technical steps into simple "do this, then do that" instructions
+✅ Use action words: "Check...", "Look for...", "Verify...", "Review..."
+✅ Explain WHY each step is important when possible
+✅ Include practical examples from the investigation findings
+✅ Make escalation criteria very clear and specific
+✅ Provide helpful tips and tricks for common scenarios
+
+### 💡 Pro Tips:
+- Always check IP reputation first
+- Look for patterns in login times and locations  
+- VIP users require extra attention
+- Document everything clearly for future reference
