@@ -934,7 +934,6 @@ def _extract_rule_block_from_rulebook_text(text: str, rule_id_norm: str) -> str:
 
     return block
 
-
 # Utility functions for external access
 def force_reload_rule_mappings():
     """Force reload of rule mappings - useful for testing."""

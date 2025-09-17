@@ -19,7 +19,6 @@ from rag.document_chunker import DocumentChunker
 from rag.context_retriever import retrieve_context
 from rag.response_generator import (
     generate_response_with_llm,
-    write_rule_markdown,
 )
 from rag.embedding_indexer import (
     index_chunks_with_ollama_faiss,
@@ -278,13 +277,7 @@ def process_query(query):
             response = generate_response_with_llm(
                 query=query,
                 context_results=context_results,
-                model=LLM_MODEL,
             )
-
-        # Save markdown
-        markdown_file = write_rule_markdown(
-            query=query, answer=response, out_dir="artifacts"
-        )
 
         elapsed_time = time.time() - start_time
 
@@ -292,7 +285,6 @@ def process_query(query):
         return {
             "response": response,
             "processing_time": elapsed_time,
-            "markdown_file": markdown_file,
         }
 
     except Exception as e:
@@ -379,9 +371,7 @@ for i, suggested_query in enumerate(suggested_queries):
                             "type": "response",
                             "metadata": {
                                 "processing_time": result["processing_time"],
-                                "files": [
-                                    result["markdown_file"],
-                                ],
+                                "files": [],
                             },
                         }
                     )
@@ -454,7 +444,7 @@ if user_input and not st.session_state.processing:
                 "type": "response",
                 "metadata": {
                     "processing_time": result["processing_time"],
-                    "files": [result["markdown_file"]],
+                    "files": [],
                 },
             }
         )
