@@ -1,0 +1,487 @@
+{
+  "query": "Rule 286",
+  "metadata": {
+    "total_tracker_hits": 0,
+    "total_rulebook_hits": 2,
+    "processing_timestamp": "2025-09-18 20:13:10"
+  },
+  "parsed_data": {
+    "tracker_records": [],
+    "rulebook_records": [
+      {
+        "document_id": "c7664a86cbc274ee0a146e97dd3b65d139ec63b9c229e7344ede7e710b26d197-cd600c76",
+        "relevance_score": 1.0,
+        "metadata": {
+          "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv",
+          "doctype": "complete_rulebook",
+          "rows": 13,
+          "columns_count": 4,
+          "filetype": "csv",
+          "primary_rule_id": "286",
+          "contains_procedures": true,
+          "procedure_count": 1,
+          "is_complete": true,
+          "total_content_length": 6246,
+          "has_rule_content": true,
+          "len": 6246,
+          "doc_length": 6246
+        },
+        "rule_info": {
+          "primary_rule_id": "286",
+          "is_direct_read": false,
+          "total_rows": 13,
+          "is_complete": true,
+          "source": "Rule#286 -01-Jul'25 (208304)(Sheet1).csv"
+        },
+        "procedure_steps": [
+          {
+            "row_index": 1,
+            "data": {
+              "sr.no.": null,
+              "inputs required": "Rule #286 - Atypical Travel",
+              "input details": null,
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "286",
+              "alert_name": "Atypical Travel",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 2,
+            "data": {
+              "sr.no.": 1.0,
+              "inputs required": "Incident",
+              "input details": "208304",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 3,
+            "data": {
+              "sr.no.": 2.0,
+              "inputs required": "Reported Time",
+              "input details": "7/19/2025 8:03",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 4,
+            "data": {
+              "sr.no.": 3.0,
+              "inputs required": "Provide the username which are involved in the incident",
+              "input details": null,
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 5,
+            "data": {
+              "sr.no.": 4.0,
+              "inputs required": "Run the KQL query",
+              "input details": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+              "instructions": "TimeGenerated\n• Username\n• IP Address\n• Geolocation"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 6,
+            "data": {
+              "sr.no.": 5.0,
+              "inputs required": "VIP Users",
+              "input details": "No",
+              "instructions": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 7,
+            "data": {
+              "sr.no.": 6.0,
+              "inputs required": "Analyze Login Patterns",
+              "input details": "change the location (US to US) with in short time period, but the device is known one, and mfa sent to user's mobile, and used applicaitons are known applications only",
+              "instructions": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 8,
+            "data": {
+              "sr.no.": 7.0,
+              "inputs required": "IP Reputation Check",
+              "input details": "IP is clean",
+              "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 9,
+            "data": {
+              "sr.no.": 8.0,
+              "inputs required": "Verify User Behavior",
+              "input details": "nothing suspicious",
+              "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if the device matches the user’s previous logins."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 10,
+            "data": {
+              "sr.no.": 9.0,
+              "inputs required": "Identify Concurrent Logins",
+              "input details": "us",
+              "instructions": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes.",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 11,
+            "data": {
+              "sr.no.": 10.0,
+              "inputs required": "Contact the User for Verification",
+              "input details": null,
+              "instructions": "If the activity appears suspicious, contact the user directly:\n• Confirm whether they traveled to a new location, they are using any virutal machines/VPN\n• Verify if they recognize the device and IP address"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 12,
+            "data": {
+              "sr.no.": 11.0,
+              "inputs required": "Inform to IT Team",
+              "input details": "no need",
+              "instructions": "If the user confirms it is a True Positive or fails to respond:\n• Inform the IT team.\n• Disable the user account.\n• Reset the password."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 13,
+            "data": {
+              "sr.no.": 12.0,
+              "inputs required": "Track for the closer/closer confirmation from IT team",
+              "input details": "closed",
+              "instructions": "Update security policies and conduct user awareness training to prevent future incidents."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+              "severity": "",
+              "category": ""
+            }
+          }
+        ],
+        "content_length": 6246
+      },
+      {
+        "document_id": "366689a07b0eea7057fd54aae20f897929147b342a2a593d23f0e926f904fccc-2aa30bec",
+        "relevance_score": 1.0,
+        "metadata": {
+          "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv",
+          "doctype": "complete_rulebook",
+          "rows": 13,
+          "columns_count": 4,
+          "filetype": "csv",
+          "primary_rule_id": "286",
+          "contains_procedures": true,
+          "procedure_count": 1,
+          "is_complete": true,
+          "total_content_length": 6248,
+          "has_rule_content": true,
+          "len": 6248,
+          "doc_length": 6248
+        },
+        "rule_info": {
+          "primary_rule_id": "286",
+          "is_direct_read": false,
+          "total_rows": 13,
+          "is_complete": true,
+          "source": "Rule#286 -01-Jul'25 (208303)(Sheet1).csv"
+        },
+        "procedure_steps": [
+          {
+            "row_index": 1,
+            "data": {
+              "sr.no.": null,
+              "inputs required": "Rule #286 - Atypical Travel",
+              "input details": null,
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "286",
+              "alert_name": "Atypical Travel",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 2,
+            "data": {
+              "sr.no.": 1.0,
+              "inputs required": "Incident",
+              "input details": "208303",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 3,
+            "data": {
+              "sr.no.": 2.0,
+              "inputs required": "Reported Time",
+              "input details": "07-01-2025 10:58",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 4,
+            "data": {
+              "sr.no.": 3.0,
+              "inputs required": "Provide the username which are involved in the incident",
+              "input details": null,
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 5,
+            "data": {
+              "sr.no.": 4.0,
+              "inputs required": "Run the KQL query",
+              "input details": "Triaging Steps performed : Check ip reputation - clean. Check history - user using clean IP Sign in logs / -- User using known apps with MFA Satisfied Closure comments = Observed the events, Checked sign in logs for the user chorton@arcutis.com , IPs are clean, detected user using known apps and device, MFA satisfied, US location, nothing suspicious found Closing as False positive (yes/ No) No",
+              "instructions": "TimeGenerated\n• Username\n• IP Address\n• Geolocation"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "TimeGenerated\n• Username\n• IP Address\n• Geolocation",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 6,
+            "data": {
+              "sr.no.": 5.0,
+              "inputs required": "VIP Users",
+              "input details": "No",
+              "instructions": "Cross verify if the user is VIP or not - with the list (Shared by Arcutis)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 7,
+            "data": {
+              "sr.no.": 6.0,
+              "inputs required": "Analyze Login Patterns",
+              "input details": "change the location (US to US) with in short time period, but the device is known one, and mfa sent to user's mobile, and used applicaitons are known applications only",
+              "instructions": "Check the user’s recent login history:\n• Identify login attempts from different cities/countries within a short time frame.\n• Look for logins from locations not associated with the user’s normal activity."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 8,
+            "data": {
+              "sr.no.": 7.0,
+              "inputs required": "IP Reputation Check",
+              "input details": "IP is clean",
+              "instructions": "Verify the reputation of the IP addresses using VirusTotal, GreyNoise, or other tools.\n• Malicious IP: Immediately inform IT to blacklist.\n• Clean IP: Document findings with screenshots."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 9,
+            "data": {
+              "sr.no.": 8.0,
+              "inputs required": "Verify User Behavior",
+              "input details": "nothing suspicious",
+              "instructions": "Confirm if the login activity matches known user behavior:\n• Check the device details and OS.\n• Verify if the device matches the user’s previous logins."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 10,
+            "data": {
+              "sr.no.": 9.0,
+              "inputs required": "Identify Concurrent Logins",
+              "input details": "us",
+              "instructions": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Look for simultaneous logins from different geolocations.\n• Example: Logins from India and USA within minutes.",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 11,
+            "data": {
+              "sr.no.": 10.0,
+              "inputs required": "Contact the User for Verification",
+              "input details": null,
+              "instructions": "If the activity appears suspicious, contact the user directly:\n• Confirm whether they traveled to a new location, they are using any virutal machines/VPN\n• Verify if they recognize the device and IP address"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 12,
+            "data": {
+              "sr.no.": 11.0,
+              "inputs required": "Inform to IT Team",
+              "input details": "no need",
+              "instructions": "If the user confirms it is a True Positive or fails to respond:\n• Inform the IT team.\n• Disable the user account.\n• Reset the password."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 13,
+            "data": {
+              "sr.no.": 12.0,
+              "inputs required": "Track for the closer/closer confirmation from IT team",
+              "input details": "closed",
+              "instructions": "Update security policies and conduct user awareness training to prevent future incidents."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Update security policies and conduct user awareness training to prevent future incidents.",
+              "severity": "",
+              "category": ""
+            }
+          }
+        ],
+        "content_length": 6248
+      }
+    ]
+  }
+}

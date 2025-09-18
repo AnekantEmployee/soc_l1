@@ -1,0 +1,391 @@
+{
+  "query": "Rule 280",
+  "metadata": {
+    "total_tracker_hits": 0,
+    "total_rulebook_hits": 2,
+    "processing_timestamp": "2025-09-18 20:12:34"
+  },
+  "parsed_data": {
+    "tracker_records": [],
+    "rulebook_records": [
+      {
+        "document_id": "b53a2c372b8e5d101006d417850f1d24d92902736148bede53426b8d3c3d39ae-6cd74d52",
+        "relevance_score": 1.0,
+        "metadata": {
+          "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv",
+          "doctype": "complete_rulebook",
+          "rows": 10,
+          "columns_count": 4,
+          "filetype": "csv",
+          "primary_rule_id": "280",
+          "contains_procedures": true,
+          "procedure_count": 1,
+          "is_complete": true,
+          "total_content_length": 4838,
+          "has_rule_content": true,
+          "len": 4838,
+          "doc_length": 4838
+        },
+        "rule_info": {
+          "primary_rule_id": "280",
+          "is_direct_read": false,
+          "total_rows": 10,
+          "is_complete": true,
+          "source": "Rule 280-July-01-25 ( 208311 )(Investigation steps).csv"
+        },
+        "procedure_steps": [
+          {
+            "row_index": 1,
+            "data": {
+              "sr.no.": null,
+              "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+              "input details": null,
+              "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+            },
+            "rule_metadata": {
+              "rule_id": "280",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 2,
+            "data": {
+              "sr.no.": 1.0,
+              "inputs required": "Incident",
+              "input details": "208311",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 3,
+            "data": {
+              "sr.no.": 2.0,
+              "inputs required": "Reported Time",
+              "input details": null,
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 4,
+            "data": {
+              "sr.no.": 3.0,
+              "inputs required": "Observe the events",
+              "input details": "Yes",
+              "instructions": "Check the device, name of service (missing or not running) , source IP, source name, time"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 5,
+            "data": {
+              "sr.no.": 4.0,
+              "inputs required": "Check Sophos Console for the user health agent status",
+              "input details": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00374 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095259",
+              "instructions": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 6,
+            "data": {
+              "sr.no.": 5.0,
+              "inputs required": "Check if the status all the services are running or not",
+              "input details": "Yes, verified all the details no suspicious found. All services are running with the user.",
+              "instructions": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 7,
+            "data": {
+              "sr.no.": 6.0,
+              "inputs required": "Make a word document to list the details of user if any of the sophos services missing",
+              "input details": "Not required.",
+              "instructions": "Attached the details as an Artificats to next sheet based on the details available in the events, update accordingly in the word document."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 8,
+            "data": {
+              "sr.no.": 7.0,
+              "inputs required": "Raise a Incident ticket in SNOW",
+              "input details": "INC0095259",
+              "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Steps to create incident (Ref: Incident Screeshot)",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 9,
+            "data": {
+              "sr.no.": 8.0,
+              "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix\" video which is shared in the soc group",
+              "input details": "Not required.",
+              "instructions": "Attach word document with all the details and upload the video, For video link refer next sheet (Video Link tab)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 10,
+            "data": {
+              "sr.no.": 9.0,
+              "inputs required": "Follow up with the IT Team for raising the ticket",
+              "input details": "Not required.Because all services are running.",
+              "instructions": "Regularly Check for the updates from the SSIT team for status of the ticket."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          }
+        ],
+        "content_length": 4838
+      },
+      {
+        "document_id": "e1a132bd40d33a1c92ba8f5db62ed6f3815c833e84d1e6e480dd6a2bcbecd270-ba2eed82",
+        "relevance_score": 0.9765956518530328,
+        "metadata": {
+          "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv",
+          "doctype": "complete_rulebook",
+          "rows": 10,
+          "columns_count": 4,
+          "filetype": "csv",
+          "primary_rule_id": "280",
+          "contains_procedures": true,
+          "procedure_count": 1,
+          "is_complete": true,
+          "total_content_length": 4839,
+          "has_rule_content": true,
+          "len": 4839,
+          "doc_length": 4839
+        },
+        "rule_info": {
+          "primary_rule_id": "280",
+          "is_direct_read": false,
+          "total_rows": 10,
+          "is_complete": true,
+          "source": "Rule 280-July-01-25 ( 208308 )(Investigation STeps).csv"
+        },
+        "procedure_steps": [
+          {
+            "row_index": 1,
+            "data": {
+              "s.no": null,
+              "inputs required": "Rule#280-Detect when One or more Sophos services are missing or not running.",
+              "input details": null,
+              "instructions": "Description:The rule will detect when one or more sophos services are missing or not running properly"
+            },
+            "rule_metadata": {
+              "rule_id": "280",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 2,
+            "data": {
+              "s.no": 1.0,
+              "inputs required": "Incident",
+              "input details": "208308",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 3,
+            "data": {
+              "s.no": 2.0,
+              "inputs required": "Reported Time",
+              "input details": "07/01/25, 04:10 AM",
+              "instructions": null
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 4,
+            "data": {
+              "s.no": 3.0,
+              "inputs required": "Observe the events",
+              "input details": "Yes",
+              "instructions": "Check the device, name of service (missing or not running) , source IP, source name, time"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 5,
+            "data": {
+              "s.no": 4.0,
+              "inputs required": "Check Sophos Console for the user health agent status",
+              "input details": "Triaging Steps performed: Check ip reputation - clean. Check hostname .. ARQ-00463 Check history – for 90 day s/ 30 days.. etc – NA Check signin logs -- NA Escalating (Yes/ No) Yes Closure comments for TP / FP / Benign Positive: TP (As checked All sophos services are not running) INC0095255",
+              "instructions": "Check in the sophos console >> My products >>  Endpoint >> computer (check with a bad status) update the user details if any service is missing."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 6,
+            "data": {
+              "s.no": 5.0,
+              "inputs required": "Check if the status all the services are running or not",
+              "input details": "Yes, verified all the details no suspicious found. All services are running with the user.",
+              "instructions": "If all services are running ok, no need to take action. \nIf any service is missing raise a ticket or Incident to SSIT Team."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 7,
+            "data": {
+              "s.no": 6.0,
+              "inputs required": "Make a word document to list the details of user if any of the sophos services missing",
+              "input details": "Not required.",
+              "instructions": "Attached the details as an Artificats to next sheet based on the details available in the events, update accordingly in the word document."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 8,
+            "data": {
+              "s.no": 7.0,
+              "inputs required": "Raise a Incident ticket in SNOW",
+              "input details": "Yes ( INC0095255)",
+              "instructions": "Steps to create incident (Ref: Incident Screeshot)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "Steps to create incident (Ref: Incident Screeshot)",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 9,
+            "data": {
+              "s.no": 8.0,
+              "inputs required": "Upload the same word document (Step no. 6) and also upload the \"Sophos perm Fix\" video which is shared in the soc group",
+              "input details": "Not required.",
+              "instructions": "Attach word document with all the details and upload the video, For video link refer next sheet (Video Link tab)"
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          },
+          {
+            "row_index": 10,
+            "data": {
+              "s.no": 9.0,
+              "inputs required": "Follow up with the IT Team for raising the ticket",
+              "input details": "Not required.Because all services are running.",
+              "instructions": "Regularly Check for the updates from the SSIT team for status of the ticket."
+            },
+            "rule_metadata": {
+              "rule_id": "",
+              "alert_name": "",
+              "description": "",
+              "severity": "",
+              "category": ""
+            }
+          }
+        ],
+        "content_length": 4839
+      }
+    ]
+  }
+}
