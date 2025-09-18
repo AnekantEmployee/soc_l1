@@ -105,6 +105,7 @@ def post_process_response(response: str) -> str:
 
 
 
+
 def create_error_response(query: str, error_msg: str) -> str:
     """Create a simple error response for L1 analysts."""
     rule_id = parse_rule_id(query) or "Unknown"
