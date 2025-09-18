@@ -7,8 +7,19 @@ import re
 import json
 from datetime import datetime
 from typing import Dict, Any, List, Tuple
-from .config import ARTIFACTS_DIR, CONTEXT_JSON_DIR, REQUIRED_SECTIONS
+from .config import ARTIFACTS_DIR, CONTEXT_JSON_DIR
 from ..context_retriever import parse_rule_id
+
+
+# Updated required sections to match the new structure
+REQUIRED_SECTIONS = [
+    "# 🛡️ Alert:",
+    "## 📖 Detailed Alert Description & Context",
+    "## 👨‍💻 Step-by-Step Investigation Analysis",
+    "## 📊 Historical Context & Tracker Analysis",
+    "## 🚨 Remediation & Escalation Procedures",
+    "## 🔧 Technical Reference",
+]
 
 
 def get_timestamp() -> str:
@@ -45,11 +56,22 @@ def validate_response_structure(response: str) -> Tuple[bool, List[str]]:
     # Check for JSON blocks
     has_json_blocks = "```" in response
 
-    is_valid = len(missing_sections) == 0 and not has_json_blocks
+    # Check for unwanted sections that should be removed
+    unwanted_sections = [
+        "⚡ Actions Taken & Results",
+        "🎯 Recommendations & Best Practices",
+        "📈 Performance Metrics"
+    ]
+    
+    has_unwanted_sections = any(section in response for section in unwanted_sections)
+
+    is_valid = len(missing_sections) == 0 and not has_json_blocks and not has_unwanted_sections
 
     validation_issues = missing_sections.copy()
     if has_json_blocks:
         validation_issues.append("Contains JSON blocks")
+    if has_unwanted_sections:
+        validation_issues.append("Contains unwanted sections that should be removed")
 
     return is_valid, validation_issues
 
@@ -70,40 +92,91 @@ def post_process_response(response: str) -> str:
                 cleaned_lines.append(line)
         response = "\n".join(cleaned_lines)
 
+    # Remove unwanted sections
+    unwanted_patterns = [
+        r"⚡ Actions Taken & Results.*?(?=##|$)",
+        r"🎯 Recommendations & Best Practices.*?(?=##|$)",
+        r"📈 Performance Metrics.*?(?=##|$)",
+    ]
+    
+    for pattern in unwanted_patterns:
+        response = re.sub(pattern, "", response, flags=re.DOTALL)
+
     # Ensure proper header format
     if not response.startswith("# 🛡️ Alert:"):
         rule_match = re.search(r"rule[s]?\s*(\d+)", response, re.IGNORECASE)
         rule_id = rule_match.group(1) if rule_match else "Unknown"
         response = f"# 🛡️ Alert: {rule_id}\n\n" + response
 
-    # Reorganize sections
-    sections = re.split(r"(⚡ Initial Alert Analysis|Current Incident Details|Investigation Findings)", response)
-    alert_and_context = sections[0]
+    # Clean up extra whitespace and ensure proper section spacing
+    lines = response.split('\n')
+    cleaned_lines = []
+    prev_line_empty = False
+    
+    for line in lines:
+        if line.strip() == "":
+            if not prev_line_empty:
+                cleaned_lines.append(line)
+                prev_line_empty = True
+        else:
+            cleaned_lines.append(line)
+            prev_line_empty = False
+    
+    response = '\n'.join(cleaned_lines)
 
-    historical_section = "\n".join(sections[1:]) if len(sections) > 1 else ""
+    # Ensure sections are properly ordered and formatted
+    sections = {
+        "alert": "",
+        "description": "", 
+        "investigation": "",
+        "historical": "",
+        "remediation": "",
+        "technical": "",
+        "links": ""
+    }
+    
+    # Extract sections using regex
+    alert_match = re.search(r"(# 🛡️ Alert:.*?)(?=## 📖|$)", response, re.DOTALL)
+    if alert_match:
+        sections["alert"] = alert_match.group(1).strip()
 
-    # Insert historical section into Historical Context section
-    if "📊 Historical Context & Tracker Analysis" in alert_and_context:
-        response = alert_and_context.replace(
-            "📊 Historical Context & Tracker Analysis",
-            "📊 Historical Context & Tracker Analysis\n\n" + historical_section
-        )
-    else:
-        # Append if not present
-        response = f"{alert_and_context}\n\n📊 Historical Context & Tracker Analysis\n\n{historical_section}"
+    desc_match = re.search(r"(## 📖 Detailed Alert Description & Context.*?)(?=## 👨‍💻|$)", response, re.DOTALL)
+    if desc_match:
+        sections["description"] = desc_match.group(1).strip()
 
-    # Keep only Remediation & Technical Reference sections after this
-    remediation_match = re.search(r"(🚨 Remediation & Escalation Procedures.*?)(?=🔧 Technical Reference|$)", response, re.DOTALL)
-    technical_ref_match = re.search(r"(🔧 Technical Reference.*?)(?=$)", response, re.DOTALL)
+    invest_match = re.search(r"(## 👨‍💻 Step-by-Step Investigation Analysis.*?)(?=## 📊|$)", response, re.DOTALL)
+    if invest_match:
+        sections["investigation"] = invest_match.group(1).strip()
 
-    remediation = remediation_match.group(1) if remediation_match else ""
-    technical_ref = technical_ref_match.group(1) if technical_ref_match else ""
+    hist_match = re.search(r"(## 📊 Historical Context & Tracker Analysis.*?)(?=## 🚨|$)", response, re.DOTALL)
+    if hist_match:
+        sections["historical"] = hist_match.group(1).strip()
 
-    final_response = f"{alert_and_context}\n\n📊 Historical Context & Tracker Analysis\n\n{historical_section}\n\n{remediation}\n\n{technical_ref}"
+    remed_match = re.search(r"(## 🚨 Remediation & Escalation Procedures.*?)(?=## 🔧|$)", response, re.DOTALL)
+    if remed_match:
+        sections["remediation"] = remed_match.group(1).strip()
 
-    return final_response.strip()
+    tech_match = re.search(r"(## 🔧 Technical Reference.*?)(?=References:|$)", response, re.DOTALL)
+    if tech_match:
+        sections["technical"] = tech_match.group(1).strip()
 
+    # Extract links section (everything after Technical Reference)
+    links_match = re.search(r"(References:.*?)$", response, re.DOTALL)
+    if links_match:
+        sections["links"] = links_match.group(1).strip()
 
+    # Rebuild response in correct order
+    final_sections = []
+    for section_key in ["alert", "description", "investigation", "historical", "remediation", "technical"]:
+        if sections[section_key]:
+            final_sections.append(sections[section_key])
+    
+    if sections["links"]:
+        final_sections.append(sections["links"])
+
+    response = "\n\n".join(final_sections)
+
+    return response.strip()
 
 
 def create_error_response(query: str, error_msg: str) -> str:
@@ -113,15 +186,15 @@ def create_error_response(query: str, error_msg: str) -> str:
     return f"""# 🛡️ Alert: {rule_id} - Analysis Error
 
 ## ❌ Issue
--  **Problem**: Unable to process comprehensive rule analysis
--  **Error**: {error_msg}
--  **Time**: {get_timestamp()}
+- **Problem**: Unable to process comprehensive rule analysis
+- **Error**: {error_msg}
+- **Time**: {get_timestamp()}
 
 ## 🔧 Next Steps
--  Verify the rule ID exists in the system
--  Check context data availability  
--  Contact SOC team lead for manual analysis
--  Escalate if system issues persist"""
+- Verify the rule ID exists in the system
+- Check context data availability  
+- Contact SOC team lead for manual analysis
+- Escalate if system issues persist"""
 
 
 def parse_and_structure_context(
