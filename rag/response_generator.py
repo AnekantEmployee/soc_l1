@@ -1,13 +1,23 @@
 """
+
 Enhanced response generator with external search capabilities and comprehensive analysis.
+
+(Updated with structured sections: Alert Analysis, Investigation, Remediation, Historical Context, References)
+
 """
 
 import os
+
 import json
+
 import ollama
+
 from typing import Dict, Any, List, Optional
+
 from langchain_google_genai import ChatGoogleGenerativeAI
+
 from langchain_community.tools.tavily_search import TavilySearchResults
+
 from .response_utils.config import (
     USE_GEMINI,
     OLLAMA_MODEL,
@@ -20,12 +30,14 @@ from .response_utils.config import (
     SEARCH_QUERIES,
     SEARCH_TIMEOUT,
 )
+
 from .response_utils.prompts import (
     SYSTEM_PROMPT_JSON_CONTEXT,
     JSON_OUTPUT_PARSER_PROMPT,
     PROMPT_TEMPLATE,
     SEARCH_ENHANCED_SYSTEM_PROMPT,
 )
+
 from .response_utils.utils import (
     save_structured_context,
     validate_response_structure,
@@ -34,12 +46,16 @@ from .response_utils.utils import (
     parse_and_structure_context,
     get_timestamp,
 )
+
 from .response_utils.data_processor import (
     extract_rule_specific_data,
     format_json_for_llm,
     get_alert_category,
     extract_investigation_insights,
 )
+
+
+# --- ExternalSearchManager stays same --- #
 
 
 class ExternalSearchManager:
@@ -262,76 +278,178 @@ def _create_enhanced_prompt(
     """Create enhanced prompt with external search results and insights."""
 
     # Format search results for prompt
+
     search_context = ""
+
+    reference_links = []
+
     if search_results and search_results.get("alert_description"):
+
         search_context = "\n**EXTERNAL SEARCH RESULTS:**\n"
 
         if search_results.get("alert_description"):
+
             search_context += "\n**Alert Description & MITRE ATT&CK Information:**\n"
+
             for result in search_results["alert_description"]:
+
                 search_context += (
                     f"- {result.get('title', '')}: {result.get('content', '')}\n"
                 )
+
+                if result.get("url"):
+
+                    reference_links.append(result["url"])
 
         if search_results.get("investigation_guide"):
+
             search_context += "\n**Investigation Procedures & Best Practices:**\n"
+
             for result in search_results["investigation_guide"]:
+
                 search_context += (
                     f"- {result.get('title', '')}: {result.get('content', '')}\n"
                 )
+
+                if result.get("url"):
+
+                    reference_links.append(result["url"])
 
         if search_results.get("false_positives"):
+
             search_context += "\n**False Positive Causes & Troubleshooting:**\n"
+
             for result in search_results["false_positives"]:
+
                 search_context += (
                     f"- {result.get('title', '')}: {result.get('content', '')}\n"
                 )
+
+                if result.get("url"):
+
+                    reference_links.append(result["url"])
 
         if search_results.get("threat_intel"):
+
             search_context += "\n**Threat Intelligence & Attack Patterns:**\n"
+
             for result in search_results["threat_intel"]:
+
                 search_context += (
                     f"- {result.get('title', '')}: {result.get('content', '')}\n"
                 )
 
+                if result.get("url"):
+
+                    reference_links.append(result["url"])
+
     # Format investigation insights
+
     insights_context = ""
+
     if investigation_insights:
+
         insights_context = "\n**INVESTIGATION INSIGHTS FROM HISTORICAL DATA:**\n"
 
         if investigation_insights.get("common_resolution_methods"):
+
             insights_context += f"**Common Resolution Methods:** {', '.join(investigation_insights['common_resolution_methods'])}\n"
 
         if investigation_insights.get("frequent_false_positive_causes"):
+
             insights_context += f"**Frequent False Positive Causes:** {', '.join(investigation_insights['frequent_false_positive_causes'])}\n"
 
         if investigation_insights.get("escalation_patterns"):
+
             insights_context += f"**Escalation Patterns:** {investigation_insights['escalation_patterns']}\n"
 
-    # Create comprehensive prompt
-    enhanced_prompt = PROMPT_TEMPLATE.format(query=query, json_context=json_context)
+    # --- NEW STRUCTURED PROMPT --- #
 
-    # Add search and insights context
-    enhanced_prompt += search_context + insights_context
+    enhanced_prompt = f"""
 
-    enhanced_prompt += f"\n**ALERT CATEGORIZATION:** {get_alert_category(alert_name)}"
+You are an expert SOC analyst. Generate a **structured incident response report**.
 
-    enhanced_prompt += """
+## ⚡ Alert Analysis
 
-**RESPONSE STRUCTURE REQUIREMENTS:**
-1. **Detailed Alert Description**: Use external search results to provide comprehensive alert context, MITRE ATT&CK mapping, and threat intelligence
-2. **Initial Alert Analysis**: Present current incident details and investigation findings from JSON context
-3. **Historical Context**: Analyze tracker data patterns, trends, and lessons learned
-4. **Simple Investigation Steps**: Convert procedures into L1-friendly steps with time estimates
-5. **Recommendations**: Provide actionable recommendations based on historical analysis and search insights
+- Provide a detailed description of the alert.
 
-**CRITICAL INSTRUCTIONS:**
-- Start with comprehensive alert description using search results
-- Include ALL historical pattern analysis from tracker data
-- Reference specific previous incidents and their resolutions
-- Make investigation procedures simple but comprehensive
-- Include external knowledge while maintaining focus on provided context data
-- Ensure response follows the exact section structure specified in the system prompt"""
+- List **attack techniques (MITRE ATT&CK)** with IDs and explanations.
+
+- Use external knowledge + search results.
+
+- Attach reference links inline where relevant.
+
+## 🔍 Detailed Investigation (Triaging)
+
+- Expand into a **triaging template**:
+
+  1. Validate detection logic
+
+  2. Collect logs and evidence
+
+  3. User/system baseline comparison
+
+  4. Historical tracker correlation
+
+  5. External enrichment (search results, threat intel)
+
+- Must be **very detailed**, use Tavily search content if available.
+
+## 🛠️ Remediation & Escalation
+
+- Provide structured steps:
+
+  - **Containment**
+
+  - **Remediation**
+
+  - **Escalation triggers & procedures**
+
+## 📊 Historical Context
+
+- If tracker data is present, show **all incidents** with status, MTTR, escalation history.
+
+- If no data, skip this section.
+
+## 🔗 References
+
+- Add all **relevant links** (MITRE techniques, Tavily URLs, vendor advisories).
+
+- Use a clean bullet list.
+
+---
+
+**Query:** {query}
+
+**Structured JSON Context:**  
+
+{json_context}
+
+{search_context}
+
+{insights_context}
+
+**ALERT CATEGORIZATION:** {get_alert_category(alert_name)}
+
+IMPORTANT:
+
+- Do NOT include a "Recommendations" section.
+
+- Ensure each section has clear headings and is not one long paragraph.
+
+- Reference links must be included at the end.
+
+    """
+
+    # Add reference links for last section
+
+    if reference_links:
+
+        enhanced_prompt += "\nPre-collected Reference Links:\n"
+
+        for url in reference_links:
+
+            enhanced_prompt += f"- {url}\n"
 
     return enhanced_prompt
 
