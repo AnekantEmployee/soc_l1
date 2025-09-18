@@ -552,27 +552,28 @@ def extract_investigation_insights(
     techniques = []
 
     for record in tracker_records:
-        tracker_data = record.get("tracker_data", {})
+        tracker_data = record.get("tracker_data", "")
 
-        # Resolution methods
-        resolver_comments = tracker_data.get("resolver comments", "")
-        if resolver_comments:
-            resolution_methods.append(resolver_comments)
+        if isinstance(tracker_data, dict):
+            # Resolution methods
+            resolver_comments = tracker_data.get("resolver comments", "")
+            if resolver_comments:
+                resolution_methods.append(resolver_comments)
 
-        # False positive causes
-        fp_reason = tracker_data.get("why false positive", "")
-        if fp_reason:
-            false_positive_reasons.append(fp_reason)
+            # False positive causes
+            fp_reason = tracker_data.get("why false positive", "")
+            if fp_reason:
+                false_positive_reasons.append(fp_reason)
 
-        # Escalation patterns
-        escalated_to = tracker_data.get("escalated to", "")
-        if escalated_to:
-            escalations.append(escalated_to)
+            # Escalation patterns
+            escalated_to = tracker_data.get("escalated to", "")
+            if escalated_to:
+                escalations.append(escalated_to)
 
-        # Investigation techniques
-        triaging_steps = tracker_data.get("triaging steps", "")
-        if triaging_steps:
-            techniques.append(triaging_steps)
+            # Investigation techniques
+            triaging_steps = tracker_data.get("triaging steps", "")
+            if triaging_steps:
+                techniques.append(triaging_steps)
 
     # Analyze patterns
     if resolution_methods:

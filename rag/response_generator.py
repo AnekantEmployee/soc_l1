@@ -7,17 +7,11 @@ Enhanced response generator with external search capabilities and comprehensive 
 """
 
 import os
-
 import json
-
 import ollama
-
 from typing import Dict, Any, List, Optional
-
 from langchain_google_genai import ChatGoogleGenerativeAI
-
 from langchain_community.tools.tavily_search import TavilySearchResults
-
 from .response_utils.config import (
     USE_GEMINI,
     OLLAMA_MODEL,
@@ -30,14 +24,12 @@ from .response_utils.config import (
     SEARCH_QUERIES,
     SEARCH_TIMEOUT,
 )
-
 from .response_utils.prompts import (
     SYSTEM_PROMPT_JSON_CONTEXT,
     JSON_OUTPUT_PARSER_PROMPT,
     PROMPT_TEMPLATE,
     SEARCH_ENHANCED_SYSTEM_PROMPT,
 )
-
 from .response_utils.utils import (
     save_structured_context,
     validate_response_structure,
@@ -46,111 +38,19 @@ from .response_utils.utils import (
     parse_and_structure_context,
     get_timestamp,
 )
-
 from .response_utils.data_processor import (
     extract_rule_specific_data,
     format_json_for_llm,
     get_alert_category,
     extract_investigation_insights,
 )
+from .response_utils.external_search import EnhancedExternalSearchManager # Import the new class
 
-
-# --- ExternalSearchManager stays same --- #
-
-
-class ExternalSearchManager:
-    """Manages external search operations for alert analysis."""
-
-    def __init__(self):
-        self.search_tool = None
-        self.search_enabled = ENABLE_EXTERNAL_SEARCH and TAVILY_API_KEY
-
-        if self.search_enabled:
-            try:
-                self.search_tool = TavilySearchResults(
-                    max_results=MAX_SEARCH_RESULTS, api_key=TAVILY_API_KEY
-                )
-            except Exception as e:
-                print(f"⚠️ Failed to initialize search tool: {e}")
-                self.search_enabled = False
-
-    def search_alert_information(
-        self, alert_name: str, rule_id: str = ""
-    ) -> Dict[str, Any]:
-        """Search for comprehensive alert information."""
-        if not self.search_enabled:
-            return {"status": "disabled", "results": []}
-
-        search_results = {
-            "alert_description": [],
-            "investigation_guide": [],
-            "false_positives": [],
-            "threat_intel": [],
-            "mitre_attack": [],
-        }
-
-        try:
-            # Search for alert description and MITRE ATT&CK info
-            description_query = SEARCH_QUERIES["alert_description"].format(
-                alert_name=alert_name
-            )
-            description_results = self.search_tool.run(description_query)
-            search_results["alert_description"] = self._parse_search_results(
-                description_results
-            )
-
-            # Search for investigation procedures
-            investigation_query = SEARCH_QUERIES["investigation_guide"].format(
-                alert_name=alert_name
-            )
-            investigation_results = self.search_tool.run(investigation_query)
-            search_results["investigation_guide"] = self._parse_search_results(
-                investigation_results
-            )
-
-            # Search for false positive information
-            fp_query = SEARCH_QUERIES["false_positives"].format(alert_name=alert_name)
-            fp_results = self.search_tool.run(fp_query)
-            search_results["false_positives"] = self._parse_search_results(fp_results)
-
-            # Search for threat intelligence
-            threat_query = SEARCH_QUERIES["threat_intel"].format(alert_name=alert_name)
-            threat_results = self.search_tool.run(threat_query)
-            search_results["threat_intel"] = self._parse_search_results(threat_results)
-
-            # Search for MITRE ATT&CK mapping
-            mitre_query = SEARCH_QUERIES["mitre_attack"].format(alert_name=alert_name)
-            mitre_results = self.search_tool.run(mitre_query)
-            search_results["mitre_attack"] = self._parse_search_results(mitre_results)
-
-        except Exception as e:
-            print(f"⚠️ Search error: {e}")
-            search_results["status"] = "error"
-            search_results["error_message"] = str(e)
-
-        return search_results
-
-    def _parse_search_results(self, results: List[Dict]) -> List[Dict]:
-        """Parse and format search results."""
-        if not results:
-            return []
-
-        parsed_results = []
-        for result in results[:MAX_SEARCH_RESULTS]:
-            if isinstance(result, dict):
-                parsed_results.append(
-                    {
-                        "title": result.get("title", ""),
-                        "content": result.get("content", "")[
-                            :500
-                        ],  # Limit content length
-                        "url": result.get("url", ""),
-                        "relevance_score": result.get("score", 0),
-                    }
-                )
-
-        return parsed_results
-
+# --- ExternalSearchManager replaced with EnhancedExternalSearchManager --- #
+# The class definition below is no longer needed as we're importing it.
+# Keeping it here as a comment for context.
+# class ExternalSearchManager:
+#     ...
 
 def generate_response_with_llm(
     query: str,
@@ -185,15 +85,15 @@ def generate_response_with_llm(
         # Extract alert information for search
         alert_name = _extract_alert_name_from_context(filtered_data)
         rule_id = filtered_data.get("target_rule_id", "")
+        alert_category = get_alert_category(alert_name, rule_id)
 
-        # Perform external search
-        search_manager = ExternalSearchManager()
+        # Perform external search using the new enhanced manager
+        search_manager = EnhancedExternalSearchManager()
         external_search_results = {}
-
         if alert_name:
             print(f"🔍 Searching external sources for: {alert_name}")
-            external_search_results = search_manager.search_alert_information(
-                alert_name, rule_id
+            external_search_results = search_manager.search_comprehensive_alert_information(
+                alert_name, rule_id, alert_category
             )
 
         # Extract investigation insights
@@ -221,6 +121,11 @@ def generate_response_with_llm(
 
         # Validate and post-process response
         is_valid, validation_issues = validate_response_structure(response)
+        
+        # Check if the historical section needs to be removed
+        num_tracker_records = filtered_data['extraction_summary']['matching_tracker_records']
+        if num_tracker_records == 0:
+            response = _remove_historical_section_if_empty(response)
 
         if not is_valid:
             print("⚠️ Response validation issues:")
@@ -236,6 +141,28 @@ def generate_response_with_llm(
         error_msg = f"Error generating comprehensive L1 analyst response: {e}"
         print(f"❌ {error_msg}")
         return create_error_response(query, error_msg)
+
+
+def _remove_historical_section_if_empty(response: str) -> str:
+    """Removes the historical context section if no data is available."""
+    
+    # Find the start and end of the historical section
+    start_pattern = r'## 📊 Historical Context & Tracker Analysis'
+    end_pattern = r'## 🚨 Remediation & Escalation Procedures'
+
+    # Check for the existence of the section
+    if re.search(start_pattern, response, re.DOTALL):
+        # Find the content between the two sections
+        match = re.search(f'({start_pattern}.*?)(?={end_pattern})', response, re.DOTALL)
+        if match:
+            # Check if the content is empty or contains "no data" message
+            content = match.group(1)
+            if 'no historical data available' in content.lower() or 'insufficient data' in content.lower():
+                # Remove the entire section
+                response = re.sub(f'{start_pattern}.*?(?={end_pattern})', '', response, flags=re.DOTALL)
+                print("📝 Removed empty historical context section.")
+
+    return response
 
 
 def _extract_alert_name_from_context(filtered_data: Dict[str, Any]) -> str:
@@ -278,151 +205,62 @@ def _create_enhanced_prompt(
     """Create enhanced prompt with external search results and insights."""
 
     # Format search results for prompt
-
     search_context = ""
+    reference_links_md = ""
 
-    reference_links = []
-
-    if search_results and search_results.get("alert_description"):
-
+    if search_results and search_results.get("status") == "success":
         search_context = "\n**EXTERNAL SEARCH RESULTS:**\n"
 
-        if search_results.get("alert_description"):
+        # Core search results
+        for section, results in search_results.items():
+            if section in ["alert_description", "investigation_guide", "false_positives", "threat_intel", "mitre_attack"]:
+                if results:
+                    search_context += f"\n**{section.replace('_', ' ').title()}:**\n"
+                    for result in results:
+                        search_context += f"- {result.get('title', '')}: {result.get('content', '')}\n"
+        
+        # SIEM search results
+        if search_results.get("siem_queries"):
+            search_context += "\n**SIEM Platform Queries:**\n"
+            for platform_id, platform_data in search_results["siem_queries"].items():
+                if platform_data["search_results"]:
+                    search_context += f"- **{platform_data['platform_name']} ({platform_data['query_language']}):**\n"
+                    for result in platform_data["search_results"]:
+                        search_context += f"  - {result.get('title', '')}: {result.get('content', '')}\n"
 
-            search_context += "\n**Alert Description & MITRE ATT&CK Information:**\n"
+        # Vendor documentation search results
+        if search_results.get("vendor_documentation"):
+            search_context += "\n**Vendor Documentation:**\n"
+            for vendor_id, vendor_data in search_results["vendor_documentation"].items():
+                if vendor_data["search_results"]:
+                    search_context += f"- **{vendor_data['vendor_name']}:**\n"
+                    for result in vendor_data["search_results"]:
+                        search_context += f"  - {result.get('title', '')}: {result.get('content', '')}\n"
 
-            for result in search_results["alert_description"]:
+        # Format collected links for the end of the report
+        if search_results.get("reference_links"):
+            reference_links_md = "\nPre-collected Reference Links:\n"
+            for link in search_results["reference_links"]:
+                reference_links_md += f"- {link['url']} ({link['source']})\n"
 
-                search_context += (
-                    f"- {result.get('title', '')}: {result.get('content', '')}\n"
-                )
-
-                if result.get("url"):
-
-                    reference_links.append(result["url"])
-
-        if search_results.get("investigation_guide"):
-
-            search_context += "\n**Investigation Procedures & Best Practices:**\n"
-
-            for result in search_results["investigation_guide"]:
-
-                search_context += (
-                    f"- {result.get('title', '')}: {result.get('content', '')}\n"
-                )
-
-                if result.get("url"):
-
-                    reference_links.append(result["url"])
-
-        if search_results.get("false_positives"):
-
-            search_context += "\n**False Positive Causes & Troubleshooting:**\n"
-
-            for result in search_results["false_positives"]:
-
-                search_context += (
-                    f"- {result.get('title', '')}: {result.get('content', '')}\n"
-                )
-
-                if result.get("url"):
-
-                    reference_links.append(result["url"])
-
-        if search_results.get("threat_intel"):
-
-            search_context += "\n**Threat Intelligence & Attack Patterns:**\n"
-
-            for result in search_results["threat_intel"]:
-
-                search_context += (
-                    f"- {result.get('title', '')}: {result.get('content', '')}\n"
-                )
-
-                if result.get("url"):
-
-                    reference_links.append(result["url"])
 
     # Format investigation insights
-
     insights_context = ""
-
     if investigation_insights:
-
         insights_context = "\n**INVESTIGATION INSIGHTS FROM HISTORICAL DATA:**\n"
-
         if investigation_insights.get("common_resolution_methods"):
-
             insights_context += f"**Common Resolution Methods:** {', '.join(investigation_insights['common_resolution_methods'])}\n"
-
         if investigation_insights.get("frequent_false_positive_causes"):
-
             insights_context += f"**Frequent False Positive Causes:** {', '.join(investigation_insights['frequent_false_positive_causes'])}\n"
-
         if investigation_insights.get("escalation_patterns"):
-
             insights_context += f"**Escalation Patterns:** {investigation_insights['escalation_patterns']}\n"
 
-    # --- NEW STRUCTURED PROMPT --- #
 
+    # --- FINAL PROMPT STRUCTURE --- #
     enhanced_prompt = f"""
+**USER QUERY:** {query}
 
-You are an expert SOC analyst. Generate a **structured incident response report**.
-
-## ⚡ Alert Analysis
-
-- Provide a detailed description of the alert.
-
-- List **attack techniques (MITRE ATT&CK)** with IDs and explanations.
-
-- Use external knowledge + search results.
-
-- Attach reference links inline where relevant.
-
-## 🔍 Detailed Investigation (Triaging)
-
-- Expand into a **triaging template**:
-
-  1. Validate detection logic
-
-  2. Collect logs and evidence
-
-  3. User/system baseline comparison
-
-  4. Historical tracker correlation
-
-  5. External enrichment (search results, threat intel)
-
-- Must be **very detailed**, use Tavily search content if available.
-
-## 🛠️ Remediation & Escalation
-
-- Provide structured steps:
-
-  - **Containment**
-
-  - **Remediation**
-
-  - **Escalation triggers & procedures**
-
-## 📊 Historical Context
-
-- If tracker data is present, show **all incidents** with status, MTTR, escalation history.
-
-- If no data, skip this section.
-
-## 🔗 References
-
-- Add all **relevant links** (MITRE techniques, Tavily URLs, vendor advisories).
-
-- Use a clean bullet list.
-
----
-
-**Query:** {query}
-
-**Structured JSON Context:**  
-
+**COMPREHENSIVE JSON CONTEXT DATA:**
 {json_context}
 
 {search_context}
@@ -431,33 +269,83 @@ You are an expert SOC analyst. Generate a **structured incident response report*
 
 **ALERT CATEGORIZATION:** {get_alert_category(alert_name)}
 
-IMPORTANT:
+**CRITICAL INSTRUCTIONS:**
 
-- Do NOT include a "Recommendations" section.
+Create a comprehensive L1 analyst report following this EXACT ORDER AND STRUCTURE:
 
-- Ensure each section has clear headings and is not one long paragraph.
+# 🛡️ Alert: [Rule_ID] - [Alert_Name]
 
-- Reference links must be included at the end.
+## 📖 Detailed Alert Description & Context
 
-    """
+**Alert Overview:**
+[Comprehensive, educational description of the alert, its purpose, and business impact. Use external search results heavily here.]
 
-    # Add reference links for last section
+**Attack Vector & Techniques:**
+[Include MITRE ATT&CK mapping with IDs, common attack patterns, and threat actor tactics. Use external search.]
 
-    if reference_links:
+**Technical Details:**
+[Explain the rule's detection logic, data sources, false positive causes, and true positive indicators. Use a mix of external search and rulebook context.]
 
-        enhanced_prompt += "\nPre-collected Reference Links:\n"
+## 👨‍💻 Step-by-Step Investigation Analysis
 
-        for url in reference_links:
+**Follow these steps in order when you get a similar alert:**
 
-            enhanced_prompt += f"- {url}\n"
+[Break down the investigation process into clear, actionable steps. Use the rulebook context and historical insights. Include time estimates for each phase (e.g., Triage: 5 mins, Data Collection: 10 mins). Focus on L1-friendly language.]
 
-    return enhanced_prompt
+## 📊 Historical Context & Tracker Analysis
+
+**Current Incident Details:**
+[Extract and present ALL current incident details from the JSON context here, like incident number, date, engineer, etc.]
+
+**Investigation Findings:**
+[Use `resolver_comments` and `triaging_steps` from the JSON context to describe what was found.]
+
+**Previous Incidents Summary:**
+[Analyze ALL tracker records to summarize patterns and trends. If no historical data is available, state that explicitly and explain why analysis is limited.
+- **Incident Trends**: [Count of similar alerts, time patterns, common targets]
+- **Historical Performance**: [Average MTTR, SLA compliance, false positive rate]]
+
+## 🚨 Remediation & Escalation Procedures
+
+[Provide actionable steps for remediation based on classification (True/False Positive). Include an escalation matrix and emergency procedures. Use both rulebook data and external search.]
+
+## 🔧 Technical Reference
+
+[Provide technical details such as key SIEM queries (use examples from SIEM search if available), and relevant tools. Link to vendor documentation here.]
+
+**SIEM Query Examples:**
+[If SIEM search results were found, format a list of example queries here for different platforms.]
+
+**Vendor Documentation:**
+[If vendor search results were found, link to relevant documentation.]
+
+---
+**Analysis Completeness**: [Provide a brief statement on the completeness of the analysis, referencing the available data.]
+
+**Relevant Links:**
+[Create a clean bullet list of all collected reference URLs, including MITRE, Microsoft, and vendor links. This should be the final section.]
+
+**CRITICAL FORMATTING RULES:**
+- DO NOT include sections: "⚡ Actions Taken & Results", "🎯 Recommendations & Best Practices", "📈 Performance Metrics".
+- Start with detailed Alert Description, then Investigation, then Historical Context, then Remediation, then Technical Reference, then Links.
+- If Historical Context has no data, remove the entire section.
+- Use simple, everyday language in investigation steps.
+- Reference links MUST be at the end in a clean bullet list.
+- If any data point is not provided in the JSON context, explicitly state "Not provided" or "Insufficient data" rather than omitting the field."""
+
+    # Add pre-collected reference links to the prompt
+    final_prompt = enhanced_prompt.replace(
+        "[Create a clean bullet list of all collected reference URLs...]",
+        reference_links_md
+    )
+
+    return final_prompt
 
 
 def _generate_with_gemini(user_prompt: str) -> str:
     """Generate response using Google Gemini with enhanced system prompt."""
     llm = ChatGoogleGenerativeAI(model=GEMINI_MODEL, **GEMINI_OPTIONS)
-
+    
     # Use search-enhanced system prompt
     full_prompt = (
         f"{SEARCH_ENHANCED_SYSTEM_PROMPT}\n\n"

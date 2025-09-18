@@ -460,20 +460,15 @@ with st.sidebar:
     st.markdown("### 🔧 System Features")
     st.markdown(
         """
-    - 🔍 **Advanced Context Retrieval**  
-      Dynamic rule mapping with FAISS vector search
+    - 🔍 **Advanced Context Retrieval** Dynamic rule mapping with FAISS vector search
 
-    - 🤖 **AI-Powered Analysis**  
-      LLM response generation with structured prompts
+    - 🤖 **AI-Powered Analysis** LLM response generation with structured prompts
 
-    - 💾 **Comprehensive Logging**  
-      Context and response files for audit trails
+    - 💾 **Comprehensive Logging** Context and response files for audit trails
 
-    - 🎯 **Smart Classification**  
-      Enhanced query understanding and rule detection
+    - 🎯 **Smart Classification** Enhanced query understanding and rule detection
 
-    - 📈 **Performance Optimized**  
-      Efficient embedding and relevance filtering
+    - 📈 **Performance Optimized** Efficient embedding and relevance filtering
     """
     )
 

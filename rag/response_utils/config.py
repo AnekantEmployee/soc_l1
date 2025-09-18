@@ -35,6 +35,12 @@ TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")  # Tavily search API key
 MAX_SEARCH_RESULTS = 3  # Maximum search results per query
 SEARCH_TIMEOUT = 30  # Search timeout in seconds
 
+# Intelligent Search Configuration
+INTELLIGENT_SEARCH_ENABLED = True
+INCLUDE_SIEM_QUERIES = True
+INCLUDE_VENDOR_DOCS = True
+MAX_SIEM_PLATFORMS_TO_SEARCH = 3  # Limit the number of SIEM platforms to search for efficiency
+
 # Search Query Templates
 SEARCH_QUERIES = {
     "alert_description": "{alert_name} security alert MITRE ATT&CK technique",
@@ -44,6 +50,59 @@ SEARCH_QUERIES = {
     "threat_intel": "{alert_name} threat intelligence attack pattern",
     "mitre_attack": "{alert_name} MITRE ATT&CK framework technique",
 }
+
+# SIEM Platform Search Configuration
+SIEM_PLATFORMS = {
+    "microsoft_sentinel": {
+        "name": "Microsoft Sentinel",
+        "query_language": "Kusto Query Language (KQL)",
+        "base_url": "https://docs.microsoft.com/en-us/azure/sentinel/",
+        "search_terms": ["KQL", "Azure Sentinel"],
+    },
+    "splunk": {
+        "name": "Splunk",
+        "query_language": "Splunk Search Processing Language (SPL)",
+        "base_url": "https://docs.splunk.com/Documentation/Splunk",
+        "search_terms": ["SPL", "Splunk"],
+    },
+    "elastic_siem": {
+        "name": "Elastic SIEM",
+        "query_language": "Lucene query syntax",
+        "base_url": "https://www.elastic.co/guide/en/security/current/index.html",
+        "search_terms": ["Elastic", "Elasticsearch"],
+    },
+    "qradar": {
+        "name": "QRadar",
+        "query_language": "AQL (Ariel Query Language)",
+        "base_url": "https://www.ibm.com/docs/en/qradar",
+        "search_terms": ["QRadar", "AQL"],
+    },
+}
+
+# Security Vendor Search Configuration
+SECURITY_VENDORS = {
+    "microsoft": {
+        "name": "Microsoft",
+        "base_urls": ["https://docs.microsoft.com/", "https://www.microsoft.com/en-us/security"],
+    },
+    "crowdstrike": {
+        "name": "CrowdStrike",
+        "base_urls": ["https://docs.crowdstrike.com/", "https://www.crowdstrike.com/blog/"],
+    },
+    "palo_alto": {
+        "name": "Palo Alto Networks",
+        "base_urls": ["https://docs.paloaltonetworks.com/", "https://www.paloaltonetworks.com/security-research"],
+    },
+    "fortinet": {
+        "name": "Fortinet",
+        "base_urls": ["https://docs.fortinet.com/", "https://www.fortinet.com/blog/"],
+    },
+    "cisco": {
+        "name": "Cisco",
+        "base_urls": ["https://www.cisco.com/c/en/us/support/index.html", "https://blogs.cisco.com/security"],
+    },
+}
+
 
 # File paths
 ARTIFACTS_DIR = "artifacts"
@@ -65,6 +124,7 @@ ENABLE_HISTORICAL_ANALYSIS = True  # Enable tracker pattern analysis
 ENABLE_PERFORMANCE_METRICS = True  # Calculate performance metrics
 MIN_HISTORICAL_INCIDENTS = 3  # Minimum incidents needed for trend analysis
 HISTORICAL_LOOKBACK_DAYS = 90  # Days to look back for historical analysis
+HIDE_EMPTY_HISTORICAL_SECTIONS = True # Hide sections if no historical data is found
 
 # Alert categorization settings
 ALERT_CATEGORIES = {
