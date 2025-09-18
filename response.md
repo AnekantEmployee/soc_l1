@@ -1,3 +1,5 @@
+I did updated the code that you told me
+Now, only some problems are there first see this is the response:-
 🛡️ Alert: 002 - Attempt to bypass conditional access rule in Microsoft Entra ID
 📖 Detailed Alert Description & Context
 Alert Overview:
@@ -200,9 +202,16 @@ References:
 https://analyticsrules.exchange/analyticrules/3af9285d-bb98-4a35-ad29-5ea39ba0c628/
 https://attack.mitre.org/techniques/T1078/
 https://attack.mitre.org/techniques/T1098/005/
-[https://learn.microsoft.com/en-us/answers/questions/2237126/high-volume-of-entra-id-sign-in-errors-(code-70043](https://learn.microsoft.com/en-us/answers/questions/2237126/high-volume-of-entra-id-sign-in-errors-(code-70043)
+[https://learn.microsoft.com/en-us/answers/questions/2237126/high-volume-of-entra-id-sign-in-errors-…](https://learn.microsoft.com/en-us/answers/questions/2237126/high-volume-of-entra-id-sign-in-errors-…
 https://learn.microsoft.com/en-us/entra/id-governance/conditional-access-exclusion
 https://admindroid.com/how-to-analyze-conditional-access-sign-in-impacts-in-microsoft-365
-https://secureazcloud.com/microsoft-security/f/in-depthseries-microsoftentrariskyusersandriskysign-ins
-https://learn.microsoft.com/en-us/answers/questions/2263619/users-are-still-being-prompted-for-mfa-with-a-cond
+https://secureazcloud.com/microsoft-security/f/in-depthseries-microsoftentrariskyusersandriskysign-…
+https://learn.microsoft.com/en-us/answers/questions/2263619/users-are-still-being-prompted-for-mfa-…
 (Note: Many of the provided URLs were duplicates in the original prompt. I have included only unique URLs here. You should replace the bracketed placeholders with actual links to relevant Microsoft documentation.)
+
+"📖 Detailed Alert Description & Context" this is good
+⚡ Initial Alert Analysis, Current Incident Details, Investigation Findings move these things to the 📊 Historical Context & Tracker Analysis section below the "👨‍💻 Step-by-Step Investigation Analysis"
+Historical things are good just replace that with above things I said in 2nd point
+🚨 Remediation & Escalation Procedures this is also good
+after this whatever the things are remove those just add 🔧 Technical Reference
+and in the last keep the links as same you're giving that as a best thing
