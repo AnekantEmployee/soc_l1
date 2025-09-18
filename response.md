@@ -1,44 +1,10 @@
 
-🔧 System Features
-🔍 Advanced Context Retrieval Dynamic rule mapping with FAISS vector search
-
-🤖 AI-Powered Analysis LLM response generation with structured prompts
-
-💾 Comprehensive Logging Context and response files for audit trails
-
-🎯 Smart Classification Enhanced query understanding and rule detection
-
-📈 Performance Optimized Efficient embedding and relevance filtering
-
-📁 Output Files
-All generated files are saved in the artifacts/ directory:
-
-Markdown files: Formatted responses
-JSON files: Structured analysis data
-🟢 System Operational
-
-🚀 SOC RAG Assistant
-🔒 Cybersecurity Rule Analysis & Investigation Assistant
-🟢 System Ready
-
-🟢 Index Ready
-
-
-
-
 💡 Quick Start Questions
 
 
 
 
 💬 Chat
-User Assigned Privileged Role
-
-❌ System not initialized. Please click 'Initialize System' first.
-
-🚀 Initializing SOC RAG System...
-
-✅ FAISS index already exists. System ready!
 
 Rule 280
 
@@ -389,4 +355,3 @@ Relevant Links:
 📄 Files Created
 
 0
-Ask about security rules, procedures, or incidents...

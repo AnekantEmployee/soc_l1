@@ -7,6 +7,7 @@ Enhanced response generator with external search capabilities and comprehensive 
 """
 
 import os
+import re
 import json
 import ollama
 from typing import Dict, Any, List, Optional
