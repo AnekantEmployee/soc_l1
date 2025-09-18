@@ -55,21 +55,19 @@ def validate_response_structure(response: str) -> Tuple[bool, List[str]]:
 
 
 def post_process_response(response: str) -> str:
-    """Post-process response to ensure L1 analyst-friendly format compliance."""
+    """Post-process response to ensure L1 analyst-friendly format and new structure."""
 
     # Remove JSON blocks
     if "```json" in response:
         lines = response.split("\n")
         cleaned_lines = []
         in_json_block = False
-
         for line in lines:
             if line.strip().startswith("```"):
                 in_json_block = not in_json_block
                 continue
             if not in_json_block:
                 cleaned_lines.append(line)
-
         response = "\n".join(cleaned_lines)
 
     # Ensure proper header format
@@ -78,7 +76,33 @@ def post_process_response(response: str) -> str:
         rule_id = rule_match.group(1) if rule_match else "Unknown"
         response = f"# 🛡️ Alert: {rule_id}\n\n" + response
 
-    return response.strip()
+    # Reorganize sections
+    sections = re.split(r"(⚡ Initial Alert Analysis|Current Incident Details|Investigation Findings)", response)
+    alert_and_context = sections[0]
+
+    historical_section = "\n".join(sections[1:]) if len(sections) > 1 else ""
+
+    # Insert historical section into Historical Context section
+    if "📊 Historical Context & Tracker Analysis" in alert_and_context:
+        response = alert_and_context.replace(
+            "📊 Historical Context & Tracker Analysis",
+            "📊 Historical Context & Tracker Analysis\n\n" + historical_section
+        )
+    else:
+        # Append if not present
+        response = f"{alert_and_context}\n\n📊 Historical Context & Tracker Analysis\n\n{historical_section}"
+
+    # Keep only Remediation & Technical Reference sections after this
+    remediation_match = re.search(r"(🚨 Remediation & Escalation Procedures.*?)(?=🔧 Technical Reference|$)", response, re.DOTALL)
+    technical_ref_match = re.search(r"(🔧 Technical Reference.*?)(?=$)", response, re.DOTALL)
+
+    remediation = remediation_match.group(1) if remediation_match else ""
+    technical_ref = technical_ref_match.group(1) if technical_ref_match else ""
+
+    final_response = f"{alert_and_context}\n\n📊 Historical Context & Tracker Analysis\n\n{historical_section}\n\n{remediation}\n\n{technical_ref}"
+
+    return final_response.strip()
+
 
 
 def create_error_response(query: str, error_msg: str) -> str:
