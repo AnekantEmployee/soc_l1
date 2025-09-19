@@ -38,17 +38,10 @@ Follow this EXACT order and include ALL available details:
 • **Threat Actor Tactics**: [Information about how this attack is used]
 • **Business Impact**: [Potential impact on organization]
 
-**Technical Details:**
-• **Data Sources**: [What logs/systems generate this alert]
-• **Detection Logic**: [How the rule works and what it looks for]
-• **False Positive Causes**: [Common reasons for false positives]
-• **True Positive Indicators**: [Signs of genuine threats]
-
 ## 👨‍💻 Step-by-Step Investigation Analysis
-
 **Follow these steps in order when you get a similar alert:**
 
-### Step 1: Initial Triage (First 5 minutes)
+### Step 1: Initial Triage
 [Extract and simplify the first few procedure steps - use simple language]
 • **Immediate Actions**:
   - Check alert severity and SLA timer
@@ -61,7 +54,7 @@ Follow this EXACT order and include ALL available details:
   - Are there multiple similar alerts?
   - Is this part of a larger campaign?
 
-### Step 2: Data Collection (Next 10 minutes)
+### Step 2: Data Collection
 [Extract and simplify data gathering steps]
 • **Log Analysis**:
   - [Specific logs to check based on alert type]
@@ -74,7 +67,7 @@ Follow this EXACT order and include ALL available details:
   - Network information (IPs, locations)
   - Related security events
 
-### Step 3: Analysis & Verification (Next 15 minutes)
+### Step 3: Analysis & Verification
 [Extract and simplify analysis steps]
 • **Threat Validation**:
   - [How to verify if threat is real based on alert type]
@@ -132,11 +125,11 @@ Follow this EXACT order and include ALL available details:
 - **Reported**: [reported_time_stamp]
 - **Responded**: [responded_time_stamp] 
 - **Resolved**: [resolution_time_stamp]
+- **Time to SLA Breach**: [time_to_breach_sla]
 
 **SLA Metrics**:
 - **MTTD**: [mttd_mins] minutes
 - **MTTR**: [mttr_mins] minutes
-- **Time to SLA Breach**: [time_to_breach_sla]
 - **Remaining Time**: [remaining_mins_to_breach]
 
 **VIP Users Involved**: [vip_users status from context]
@@ -234,6 +227,14 @@ Follow this EXACT order and include ALL available details:
 
 ## 🔧 Technical Reference
 
+### Technical Details:
+• **Data Sources**: [What logs/systems generate this alert - extract from context]
+• **Detection Logic**: [How the rule works and what it looks for - detailed explanation]
+• **False Positive Causes**: [Common reasons for false positives with specific examples]
+• **True Positive Indicators**: [Signs of genuine threats with specific indicators]
+• **Rule Configuration**: [Specific rule parameters and thresholds]
+• **Detection Methodology**: [Step-by-step explanation of how detection works]
+
 ### Key Tools & Queries
 [Extract any KQL queries, tools mentioned, or specific investigation methods]
 • **SIEM Queries**: [Specific search queries for this alert type]
@@ -317,7 +318,6 @@ Create a comprehensive analysis following this EXACT ORDER:
    - Search for comprehensive information about this alert type
    - Include MITRE ATT&CK framework mappings
    - Explain attack vectors, techniques, and business impact
-   - Provide technical context about detection logic
    - Identify common false positive causes
 
 2. **FOLLOW WITH STEP-BY-STEP INVESTIGATION ANALYSIS**:
